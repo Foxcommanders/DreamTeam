@@ -1,13 +1,38 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 
+body {
+  background-color: var(--main-bg-color);
+  color: var(--main-dark-color);
+  font-family: 'DM Sans', sans-serif;
+  font-style: normal;
+}
+
 h1,
 h2,
-h3,
-h4,
-h5,
-h6,
-p,
-ul {
+h3
+{
   margin: 0;
   padding: 0;
+}
+
+p,
+ul,
+li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  border-radius: 8px;
+}
+
+.btn {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
 }
