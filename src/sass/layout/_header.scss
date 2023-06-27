@@ -63,7 +63,7 @@ fill: black;
 .nav-link:hover,
 .nav-link:focus {
   
-  // text-shadow: 0px 0px 1px var(--color-red);
+   text-shadow: 0px 0px 1px var(--color-red);
 }
 
 
@@ -84,10 +84,10 @@ fill: black;
 //   margin-left: auto;
 // }
 
-// .icon-header {
-//   fill: var(--color-red);
-//   transition: fill var(--transition-dur-tfunc);
-// }
+.icon-header {
+  fill: var(--main-dark-color);
+  // transition: fill var(--transition-dur-tfunc);
+}
 
 // .header-btn:hover .icon-header,
 // .header-btn:focus .icon-header {
