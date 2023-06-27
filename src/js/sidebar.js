@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const refs = {
-    categoryList: document.querySelector(".js-category-list")
+    categoryList: document.querySelector(".js-category-list"),
+    general: document.querySelector('li[data-id="allCategories"]'),
 }
 
 export async function getCategories(){
@@ -17,4 +18,18 @@ function createCategoriesMarkup(arr){
         return markup = `<li class="category-list-item" data-id="${list_name}">${list_name}</li>`
         }).join("")
 }
+
+refs.categoryList.addEventListener("click", categoryPicker)
+
+function categoryPicker (evt){
+    if(evt.target === evt.currentTarget){
+        return
+    }
+    if (!evt.target.classList.contains("active-category")){
+        const currentActiveCategory = document.querySelector(".active-category");
+        currentActiveCategory.classList.remove("active-category")
+        evt.target.classList.add("active-category")
+    }
+}
+
 
