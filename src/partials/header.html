@@ -1,43 +1,56 @@
 <!-- ============ HEADER ============ -->
 <header class="page-header" id="to-top">
   <div class="header-container container">
-    <svg class="logo-icon" width="24" height="24">
-      <!-- <use href="../images/icons/symbol-defs.svg#icon-logo"></use> -->
-    </svg>
-    <a class="logo-container" href="./index.html"> Bookshelf </a>
+    <a class="logo-container" href="#">
+      <svg class="logo-icon" width="24" height="24">
+        <use href="./images/icons/symbol-defs.svg#icon-logo"></use>
+      </svg>
+      <svg class="logo-text" width="77" height="13">
+        <use href="./images/icons/symbol-defs.svg#icon-bookshelf"></use>
+      </svg>
+    </a>
 
     <nav class="page-navigation">
       <ul class="nav-list">
         <li class="nav-item">
-          <a class="nav-link" href="./index.html">Home</a>
+          <a class="nav-link currant" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="Shoping list"
-            >Shoping list
-            <svg class="basket" width="20" height="20">
-              <!-- <use href="../images/icons/symbol-defs.svg#icon-align-left"></use> -->
+          <a class="nav-link" href="#"
+            >Shopping list
+            <svg class="icon-header" width="20" height="20">
+              <!-- <use href="../images/icons.svg#icon-basket"></use> -->
             </svg>
           </a>
         </li>
       </ul>
     </nav>
-    <button class="js-togle theme-togle" type="button">Togle</button>
-    <button class="auth-user" type="button">Sign in</button>
 
     <!-- <button class="header-btn" type="button" aria-label="Shopping basket">
-      <svg class="icon-header" width="24" height="24">
-        <use href="./img/icons.svg#icon-basket"></use>
+      <svg class="icon-header" width="20" height="20">
+        <use href="../images/icons.svg#icon-basket"></use>
       </svg>
     </button> -->
+
+    <label class="switch">
+      <input type="checkbox" />
+      <span class="slider round"></span>
+    </label>
     <button
       type="button"
       class="menu-button"
       data-menu-button
       aria-label="Togle mobile menu"
     >
-      <svg width="24" height="24">
-        <!-- <use class="icon-cross" href="./img/icons.svg#icon-close"></use> -->
-        <!-- <use class="icon-menu" href="./img/icons.svg#icon-menu"></use> -->
+      <svg width="28" height="28">
+        <use
+          class="icon-cross"
+          href="./images/icons/symbol-defs.svg#icon-close"
+        ></use>
+        <use
+          class="icon-menu"
+          href="./images/icons/symbol-defs.svg#icon-menu"
+        ></use>
       </svg>
     </button>
   </div>
@@ -46,13 +59,10 @@
     <div class="mobile-menu-wrapper">
       <ul class="mobile-menu-list list">
         <li class="mobile-menu-item">
-          <a href="#how-it-works" class="mobile-menu-link">How It Work</a>
+          <a href="#" class="mobile-menu-link">Home</a>
         </li>
         <li class="mobile-menu-item">
-          <a href="#fruits" class="mobile-menu-link">Fruits</a>
-        </li>
-        <li class="mobile-menu-item">
-          <a href="#contacts" class="mobile-menu-link">Contacts</a>
+          <a href="#" class="mobile-menu-link">Shopping list</a>
         </li>
       </ul>
       <button
@@ -61,7 +71,7 @@
         aria-label="Shopping basket"
       >
         <svg class="mobile-menu-icon" width="20" height="18">
-          <!-- <use href="./img/icons.svg#icon-basket"></use> -->
+          <!-- <use href="../images/icons.svg#icon-basket"></use> -->
         </svg>
       </button>
     </div>
