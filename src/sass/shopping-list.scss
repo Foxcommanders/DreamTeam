@@ -1,0 +1,130 @@
+/* Common styles for section */
+img{
+    display: block;
+    
+}
+.section{
+    outline: 1px solid blue;
+    box-sizing: border-box;
+}
+.shopping{
+    outline: 1px solid brown;
+    /* display: flex; */
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 40px;
+}
+
+.shopping-title{
+
+}
+
+.shopping-blue{
+    color:#4F2EE8;
+
+}
+
+.shopping-empty-list{
+    outline: 1px solid red;
+    max-width: 265px;
+    margin: 120px auto 0;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* display: none; */
+
+}
+
+.shopping-empty-text{
+    margin-bottom: 14px;
+    text-align: center;
+}
+
+.shopping-book-list {
+    outline: 1px solid red;
+    padding: 40px 20px;
+    list-style: none;
+    gap: 20px;
+    /* display: flex; */
+    /* flex-direction: column;
+    align-items: center; */
+     
+    /* display: none; */
+}
+.shopping-book-item{    
+    display: flex;
+    max-width: 335px;
+    height: 170px;
+    padding: 12px;
+    margin: auto;
+    margin-bottom: 20px;
+    border-radius: 16px;
+    border: 2px solid rgba(79, 46, 232, 0.40);
+    
+}
+.shopping-book-img{
+    outline: 1px solid blue;
+    width: 100px;
+    height: 142px;
+    margin-right: 14px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+.shopping-book-poster{
+    outline: 1px solid black;
+    width: 100%;
+    height: 100%;
+}
+.shopping-book-text{
+    position: relative;
+    display:flex;
+    flex-direction: column;
+    width: 193px;
+    
+}
+.shopping-book-title{
+    margin-bottom: 4px;
+}
+
+.shopping-book-genres{
+    margin-bottom: 8px;
+}
+.shopping-book-description{
+    margin-bottom: 14px;
+}
+.shopping-book-item-footer{
+    display: flex;
+    justify-content: space-between;
+    height: 16px;
+}
+.shopping-book-author{
+    display: block;
+    font-size: 12px;
+}
+.shopping-book-shops{
+    list-style: none;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+.shopping-btn-delete{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background-color: #4F2EE8;
+    border-color: transparent;
+}
+.svg{
+    fill: #4F2EE8;
+}
+.shopping-btn-next{
+    display: block;
+    margin: auto;
+}
