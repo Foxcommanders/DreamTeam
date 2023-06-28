@@ -1,5 +1,5 @@
 
-import axios from 'axios';
+import {getBookById} from './api-request.js';
 
 const backDrop = document.querySelector('.backdrop');
 const modal = document.querySelector('.modal');
@@ -8,6 +8,12 @@ backDrop.addEventListener('click', onBackDropClick);
 
 
 function createMarkup(book) {
+  let textForeBtn = 'remove from the shopping list';
+  let books = getShoppingList();
+  if (!books.includes(book._id)) {
+    textForeBtn = 'add to shopping list'
+  }
+
     const markup = 
      `
     <button class="js-modal-btn modal-close-btn">
@@ -46,8 +52,8 @@ function createMarkup(book) {
         </ul>
       </div>
     </div>
-    <button class="modal-sub-btn js-modal-addbtn" data-id="${book._id}">remove from the shopping list</button>
-    <p class="modal-check-text">Congratulations! You have added the book to the shopping list. To delete, press the
+    <button class="modal-sub-btn js-modal-addbtn" data-id="${book._id}">${textForeBtn}</button>
+    <p class="modal-check-text is-hidden">Congratulations! You have added the book to the shopping list. To delete, press the
         button"
         Remove from the shopping
         list".</p>` 
@@ -55,23 +61,17 @@ function createMarkup(book) {
 };
 
 
-async function getBook(id) {
-  const baseUrl = 'https://books-backend.p.goit.global'
-  const endPoint = `/books/${id}`
-  const URL = baseUrl + endPoint
-  const res = await axios.get(URL);
-  return res.data;
-}
+
 
 async function showModal(bookId) {
-  const book = await getBook(bookId);
+  const book = await getBookById(bookId);
   createMarkup(book);
-  backDrop.classList.add('is-hidden')
+  backDrop.classList.remove('is-hidden')
   addListener()
 }
 
 function hideModal() {
-  backDrop.classList.remove('is-hidden')
+  backDrop.classList.add('is-hidden')
   window.removeEventListener('keydown', onModalClose);
 }
 
@@ -87,8 +87,10 @@ function onAddBtn(e) {
   const id = e.currentTarget.dataset['id'];
   let books = getShoppingList();
   if (books.includes(id)) {
+    e.currentTarget.textContent = 'add to shopping list';
     books = books.filter(el=>el !== id)
   } else {
+    e.currentTarget.textContent = 'remove from the shopping list';
     books.push(id);
   }
   localStorage.setItem('books', JSON.stringify(books));

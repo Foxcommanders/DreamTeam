@@ -17,4 +17,11 @@ export async function getBooksByCategory(selectedCategory) {
       }
     );
     return response;
-  }
+}
+ export async function getBookById(id) {
+  const baseUrl = 'https://books-backend.p.goit.global'
+  const endPoint = `/books/${id}`
+  const URL = baseUrl + endPoint
+  const res = await axios.get(URL);
+  return res.data;
+}
