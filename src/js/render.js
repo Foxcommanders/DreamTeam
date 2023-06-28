@@ -20,6 +20,7 @@ export function createCategoriesMarkup(arr) {
     </li>`;
     return markup;
     })
+
  }
     
  export function createMarkupSupport(arr) {
@@ -33,3 +34,6 @@ export function createCategoriesMarkup(arr) {
      .join('');
    return markup;
  }
+
+    }
+

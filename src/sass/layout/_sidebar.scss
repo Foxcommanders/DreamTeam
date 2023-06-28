@@ -6,12 +6,16 @@
     color: var(--categories-color);
 }
 
+.category-list{
+    cursor: pointer;
+}
+
 .category-list-item:not(:last-child) {
     margin-bottom: 24px;
   }
 
 .active-category{
-    color: var(--accent-color);
+color: var(--accent-color);
 font-weight: 700;
 text-transform: uppercase;
 }
