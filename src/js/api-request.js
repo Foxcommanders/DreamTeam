@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { renderTopBooks } from './render';
 
 export async function getCategories() {
   const response = await axios.get(
