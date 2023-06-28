@@ -87,10 +87,7 @@ export function createMarkupSupport(arr) {
         <a href="${url}">
             <img src="${img}" alt="${title}" width="149" height="39">
             </li>`;
-     })
-     .join('');
-   return markup;
- }
-
-
-
+    })
+    .join('');
+  return markup;
+}
