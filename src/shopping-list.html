@@ -19,17 +19,23 @@
       <include src="./partials/support.html"></include>
       <include src="./partials/container.html"></include>
       <!-- Section -->
-      <section class="section shopping">
+      <section class="container shopping">
         <h1 class="shopping-title">
           Shopping <span class="shopping-blue">List</span>
         </h1>
         <div class="shopping-empty-list">
-          <p class="shopping-empty-text">This page is empty, add some books and proceed to order.</p>
-          <img src="./images/shopping-svg/empty-books.webp" alt="books" />
+          <p class="shopping-empty-text">
+            This page is empty, add some books and proceed to order.
+          </p>
+          <img
+            class="shopping-empty-img"
+            src="./images/shopping-svg/empty-books.webp"
+            alt="books"
+          />
         </div>
         <!-- Book-item -->
         <ul class="shopping-book-list">
-          <li class="shopping-book-item">
+          <!-- <li class="shopping-book-item">
             <div class="shopping-book-img">
               <img class="shopping-book-poster" src="#" alt="book-poster" />
             </div>
@@ -45,8 +51,8 @@
                     <a href="#">
                       <svg width="32" height="11">
                         <use
-                          href="./images/shopping-svg/image.svg#image"
-                        ></use>                        
+                          href="./images/shopping-svg/amazon.svg#amazon"
+                        ></use>
                       </svg>
                     </a>
                   </li>
@@ -60,7 +66,7 @@
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="#" target="_blank" rel="noreferrer noopener">
                       <svg width="16" height="16">
                         <use
                           href="./images/shopping-svg/book-shop.svg#book-shop"
@@ -108,7 +114,7 @@
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="#" target="_blank" rel="noreferrer noopener">
                       <svg width="16" height="16">
                         <use
                           href="./images/shopping-svg/book-shop.svg#book-shop"
@@ -124,7 +130,7 @@
                 </svg>
               </button>
             </div>
-          </li>
+          </li> -->
           <button class="shopping-btn-next">Next/Previous</button>
         </ul>
       </section>
@@ -132,3 +138,4 @@
     <script type="module" src="./js/shopping.js"></script>
   </body>
 </html>
+
