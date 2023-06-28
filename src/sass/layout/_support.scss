@@ -2,6 +2,9 @@
     list-style: none;
 }
 .container {
+    margin-top: 670px;
+    margin-bottom: 142px;
+    margin-left: 24px;
     width: 356px;
     height: 490px;
     border-radius: 16px;
@@ -19,10 +22,35 @@
     line-height: 32px;
     letter-spacing: 1.14;
 }
+
 .list-item {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 20px;
+    // gap: 20px;
     padding-left: 40px;
 }
+.list-item:nth-child( n + 7){
+    display: none;
+}
+
+.show-more {
+    // display: flex;
+    // text-align: center;
+    // align-items: center;
+    margin-top: 40px;
+    
+}
+.btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.normalize-img {
+    width: auto; 
+   filter: grayscale(100%)invert(50%)brightness(200%);
+   &:hover{
+    filter: none;
+   }
+} 
