@@ -79,3 +79,15 @@ export function renderMarkupBook(books) {
   }
   return markItem;
 }
+
+export function createMarkupSupport(arr) {
+  const markup = arr
+    .map(({ title, url, img }) => {
+      return `<li class="list-item">
+        <a href="${url}">
+            <img src="${img}" alt="${title}" width="300">
+            </li>`;
+    })
+    .join('');
+  return markup;
+}
