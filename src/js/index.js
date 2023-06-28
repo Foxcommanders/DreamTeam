@@ -1,3 +1,4 @@
+import './modal.js';
 import './menu.js';
 import './sidebar.js';
 import './render.js';
