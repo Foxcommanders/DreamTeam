@@ -35,5 +35,5 @@ export function createCategoriesMarkup(arr) {
    return markup;
  }
 
-    }
+ 
 
