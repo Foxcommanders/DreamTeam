@@ -7,7 +7,10 @@ const refs = {
   // deleteBtn: document.querySelector('.shopping-btn-delete'),
   bookList: document.querySelector('.shopping-book-list'),
   // bookItem: document.querySelector('.shopping-book-item')
+  //shoppingSupport: document.querySelector('.container-support')
 };
+
+console.log(refs.shoppingSupport);
 
 refs.emptyList.classList.add('display');
 refs.bookList.classList.add('display');
@@ -195,6 +198,8 @@ const author = 'Author';
 
 const screenWidth = window.screen.width;
 
+// function containe
+
 function cutDescription(screenWidth) {
   if (screenWidth < 768) {
     description = description.split('').splice(0, 85).join('') + '...';
@@ -210,82 +215,6 @@ function cutDescription(screenWidth) {
   }
   return;
 }
-
-// function cutElDescription(screenWidth){
-//   if(screenWidth < 768){
-//     elDescription = elDescription.split('').splice(0, 85).join('') + '...';
-//     console.log(elDescription.lenght);
-//     // return
-//   }else if(screenWidth >= 768 && screenWidth < 1440){
-//     elDescription = el.description
-//     elDescription = elDescription.split('').splice(0, 248).join('') + '...';
-//     console.log(elDescription.lenght);
-//     // return
-//   }else{
-//     console.log(screenWidth);
-//     elDescription = el.description;
-//     console.log(elDescription.length);
-//     // elDescription = elDescription
-//     // console.log(elDescription.lenght);
-//   }
-
-//  return
-// }
-// cutElDescription();
-
-//cutDescription(screenWidth);
-
-// function singleMarkUp(){
-//     return `<li class="shopping-book-item">
-//         <div class="shopping-book-img">
-//           <img class="shopping-book-poster" src="${el.book_image}" alt="book-title '${el.title}'" />
-//         </div>
-//         <div class="shopping-book-text">
-//           <h2 class="shopping-book-title">${el.title}</h2>
-//           <p class="shopping-book-genres">$Genres</p>
-//           <h3 class="shopping-book-description">${el.description}</h3>
-
-//           <div class="shopping-book-item-footer">
-//             <p class="shopping-book-author">${el.author}</p>
-//             <ul class="shopping-book-shops">
-//               <li>
-//                 <a href="${el.buy_links[0].url}" target="_blank" rel="noreferrer noopener">
-//                   <svg width="32" height="11">
-//                     <use
-//                       href="./images/shopping-svg/amazon.svg#amazon"
-//                     ></use>
-//                   </svg>
-//                 </a>
-//               </li>
-//               <li>
-//                 <a href="${el.buy_links[2].url}" target="_blank" rel="noreferrer noopener">
-//                   <svg width="16" height="16">
-//                     <use
-//                       href="./images/shopping-svg/open-book.svg#open-book"
-//                     ></use>
-//                   </svg>
-//                 </a>
-//               </li>
-//               <li>
-//                 <a href="${el.buy_links[5].url}" target="_blank" rel="noreferrer noopener">
-//                   <svg width="16" height="16">
-//                     <use
-//                       href="./images/shopping-svg/book-shop.svg#book-shop"
-//                     ></use>
-//                   </svg>
-//                 </a>
-//               </li>
-//             </ul>
-//           </div>
-//           <button class="shopping-btn-delete">
-//             <svg class="svg" width="16" height="16">
-//               <use href="./images/shopping-svg/trash.svg#trash"></use>
-//             </svg>
-//           </button>
-//         </div>
-//       </li>`
-// }
-
 function markUp(arr) {
   return arr
     .map(el => {
