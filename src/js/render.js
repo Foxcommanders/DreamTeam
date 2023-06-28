@@ -28,12 +28,12 @@ export function createCategoriesMarkup(arr) {
      .map(({ title, url, img }) => {
        return `<li class="list-item">
         <a href="${url}">
-            <img src="${img}" alt="${title}" width="300">
+            <img src="${img}" alt="${title}" width="149" height="39">
             </li>`;
      })
      .join('');
    return markup;
  }
 
-    }
+
 
