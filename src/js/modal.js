@@ -9,9 +9,11 @@ backDrop.addEventListener('click', onBackDropClick);
 
 function createMarkup(book) {
   let textForeBtn = 'remove from the shopping list';
+  let classForP = '';
   let books = getShoppingList();
   if (!books.includes(book._id)) {
-    textForeBtn = 'add to shopping list'
+    textForeBtn = 'add to shopping list';
+    classForP = 'is-hidden'
   }
 
     const markup = 
@@ -53,7 +55,7 @@ function createMarkup(book) {
       </div>
     </div>
     <button class="modal-sub-btn js-modal-addbtn" data-id="${book._id}">${textForeBtn}</button>
-    <p class="modal-check-text is-hidden">Congratulations! You have added the book to the shopping list. To delete, press the
+    <p class="modal-check-text ${classForP}">Congratulations! You have added the book to the shopping list. To delete, press the
         button"
         Remove from the shopping
         list".</p>` 
@@ -88,9 +90,12 @@ function onAddBtn(e) {
   let books = getShoppingList();
   if (books.includes(id)) {
     e.currentTarget.textContent = 'add to shopping list';
+    e.currentTarget.nextElementSibling.classList.add('is-hidden')
+
     books = books.filter(el=>el !== id)
   } else {
     e.currentTarget.textContent = 'remove from the shopping list';
+    e.currentTarget.nextElementSibling.classList.remove('is-hidden')
     books.push(id);
   }
   localStorage.setItem('books', JSON.stringify(books));
