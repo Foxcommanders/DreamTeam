@@ -10,7 +10,7 @@ export function renderBooks(arr) {
   return arr.map(({ book_image, book_image_width, title, author, _id }) => {
     const markup = ` <li data-id="${_id}"><img
     src="${book_image}"
-    alt="${title}"
+   alt="${title}"
     width="${book_image_width}"
     class="book-photo"
     loading="lazy"
@@ -34,7 +34,7 @@ export function renderTopBooks(arr) {
               <img src="${book_image}"
                 alt="${title}"
                 width="335"
-                heigth="485"
+                height="485"
                 class="home-book-photo"
                 loading="lazy">
               <h3 class="home-book-name">${title}</h3>
@@ -88,7 +88,11 @@ export function createMarkupSupport(arr) {
             <img class="normalize-img" src="${img}" alt="${title} width="131" height="32">
             </a>
             </li>`;
-    })
-    .join('');
-  return markup;
-}
+     })
+     .join('');
+   return markup;
+ }
+
+
+
+ 

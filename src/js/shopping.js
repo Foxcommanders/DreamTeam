@@ -1,4 +1,8 @@
-//console.log(123);
+import './support.js';
+import './render.js';
+import './api-request.js';
+import './menu.js';
+
 import amazon from '../images/shopping-svg/symbol-amazon.svg';
 import svg from '../images/shopping-svg/trash.svg';
 
@@ -7,10 +11,7 @@ const refs = {
   // deleteBtn: document.querySelector('.shopping-btn-delete'),
   bookList: document.querySelector('.shopping-book-list'),
   // bookItem: document.querySelector('.shopping-book-item')
-  //shoppingSupport: document.querySelector('.container-support')
 };
-
-console.log(refs.shoppingSupport);
 
 refs.emptyList.classList.add('display');
 refs.bookList.classList.add('display');
@@ -312,6 +313,7 @@ function checkLocalStorage(arr) {
 checkLocalStorage(books);
 
 refs.bookList.addEventListener('click', handlerDeleteBook);
+
 
 function handlerDeleteBook(evt) {
   if (

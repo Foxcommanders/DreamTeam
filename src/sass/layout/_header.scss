@@ -4,6 +4,7 @@
   border-radius: 0px 0px 8px 8px;
   border: 1.5px solid #111;
   max-width: 1440px;
+  margin: 0 auto;
 }
 
 .header-container {
@@ -250,6 +251,9 @@ input:checked + .slider:before {
   }
 
   .nav-list {
-    margin-right: 745px;
+    gap: 24px;
   }
-}
+
+  .right-header {
+    gap: 24px;
+}}
