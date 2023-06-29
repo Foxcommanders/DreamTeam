@@ -82,10 +82,11 @@ export function renderMarkupBook(books) {
 
 export function createMarkupSupport(arr) {
   const markup = arr
-    .map(({ title, url, img }) => {
-      return `<li class="list-item">
-        <a href="${url}">
-            <img src="${img}" alt="${title}" width="149" height="39">
+    .map(({ title, url, img }, idx) => {
+      return `<li class="list-item"><span class="number" >0${idx + 1}</span>
+        <a  href="${url}">
+            <img class="normalize-img" src="${img}" alt="${title} width="131" height="32">
+            </a>
             </li>`;
      })
      .join('');
@@ -93,3 +94,5 @@ export function createMarkupSupport(arr) {
  }
 
 
+
+ 

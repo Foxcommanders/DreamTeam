@@ -8,6 +8,8 @@ import hunger from '../Fondu/hunger@2x.png';
 import emergencies from '../Fondu/emergencies@2x.png';
 import prytula from '../Fondu/prytula@2x.png';
 
+import { createMarkupSupport } from './render.js';
+
 
 const Fonds = [
   {
@@ -62,18 +64,7 @@ const refs = {
   btn: document.querySelector('.show-more'),
 };
 
-function createMarkupSupport(arr) {
-  const markup = arr
-    .map(({ title, url, img }, idx) => {
-      return `<li class="list-item"><span class="number" >0${idx + 1}</span>
-        <a  href="${url}">
-            <img class="normalize-img" src="${img}" alt="${title} width="131" height="32">
-            </a>
-            </li>`;
-    })
-    .join('');
-  return markup;
-}
+
 createMarkupSupport(Fonds);
 refs.list.insertAdjacentHTML('afterbegin', createMarkupSupport(Fonds));
 
