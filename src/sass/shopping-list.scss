@@ -3,9 +3,7 @@ img{
     display: block;
     
 }
-a{
-    text-decoration: none;
-}
+
 
 .shopping{
     //outline: 1px solid brown;    
@@ -97,8 +95,8 @@ a{
 .shopping-book-title{
     margin-bottom: 4px;
     color: var(--main-dark-color);
-    font-size: calc((100vw - 320px) / (380 - 320) * (16 - 14) + 14px);
-    // font-size: 16px;
+    //font-size: calc((100vw - 320px) / (380 - 320) * (16 - 14) + 14px);
+    font-size: 16px;
     font-family: DM Sans;
     font-weight: 700;
     line-height: 18px;
@@ -121,9 +119,9 @@ a{
     margin-bottom: 14px;
     color: var(--main-dark-color);
     
-    font-size: calc((100vw - 320px) / (380 - 320) * (14 - 12) + 12px);
+    //font-size: calc((100vw - 320px) / (380 - 320) * (14 - 12) + 12px);
     
-    // font-size: 14px;
+    font-size: 14px;
     font-family: DM Sans;
     line-height: 18px;
     letter-spacing: -0.56px;
