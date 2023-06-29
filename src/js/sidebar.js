@@ -1,5 +1,9 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
+import { createCategoriesMarkup } from './render';
+import { renderBooks } from './render';
+import { getBooksByCategory } from './api-request';
+import { getCategories } from './api-request';
 
 
 Notiflix.Notify.init({
@@ -29,49 +33,6 @@ getCategories().then(({ data }) => {
   });
 
 refs.categoryList.addEventListener('click', categoryPicker);
-
-function createCategoriesMarkup(arr) {
-  return arr
-    .map(({ list_name }) => {
-      return (markup = `<li class="category-list-item" data-id="${list_name}">${list_name}</li>`);
-    })
-    .join('');
-}
-
-function renderBooks (arr){
-  return arr.map(({book_image, book_image_width, title, author, _id}) => {
-  const markup = ` <li data-id="${_id}"><img
-  src="${book_image}"
-  alt="${title}"
-  width="${book_image_width}"
-  class="book-photo"
-  loading="lazy"
-  />
-  <h3 class="book-name">${title}</h3>
-  <p class="book-author">${author}</p>
-  </li>`;
-  return markup;
-  })
-  }
-
-async function getCategories() {
-  const response = await axios.get(
-    `https://books-backend.p.goit.global/books/category-list `
-  );
-  return response;
-}
-
-async function getBooksByCategory(selectedCategory) {
-  const response = await axios.get(
-    `https://books-backend.p.goit.global/books/category`,
-    {
-      params: {
-        category: selectedCategory,
-      },
-    }
-  );
-  return response;
-}
 
 async function categoryPicker(evt) {
   if (evt.target === evt.currentTarget) {
