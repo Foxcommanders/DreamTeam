@@ -18,7 +18,7 @@ const refs = {
   shoppingSupport: document.querySelector('.container-support')
 };
 
-refs.emptyList.classList.add("display");
+refs.emptyList.classList.add('display');
 refs.bookList.classList.add('display');
 const books = [
   {
@@ -204,14 +204,13 @@ const author = 'Author';
 
 const screenWidth = window.screen.width;
 
-function containerSupport(screenWidth){
-  if (screenWidth < 1440){
-    refs.shoppingSupport.classList.add('display')
-  }else{
-
-    refs.shoppingSupport.classList.remove('display')
+function containerSupport(screenWidth) {
+  if (screenWidth < 1440) {
+    refs.shoppingSupport.classList.add('display');
+  } else {
+    refs.shoppingSupport.classList.remove('display');
   }
-  return
+  return;
 }
 
 containerSupport(screenWidth);
@@ -231,23 +230,32 @@ function cutDescription(screenWidth) {
   return;
 }
 
-
-function singleMarkUp (el){
+function singleMarkUp(el) {
   console.log(el.title);
   const markUp = `<li class="shopping-book-item">
         <div class="shopping-book-img">
-          <img class="shopping-book-poster" src="${el.book_image}" alt="book-title '${el.title ? el.title : bookTitle}'" loading="lazy" />
+          <img class="shopping-book-poster" src="${
+            el.book_image
+          }" alt="book-title '${
+    el.title ? el.title : bookTitle
+  }'" loading="lazy" />
         </div>
         <div class="shopping-book-text">
           <h2 class="shopping-book-title">${el.title ? elTitle : bookTitle}</h2>
           <p class="shopping-book-genres">${el.genres ? el.genres : genres}</p>
-          <p class="shopping-book-description">${el.description ? elDescription : description}</p>
+          <p class="shopping-book-description">${
+            el.description ? elDescription : description
+          }</p>
 
           <div class="shopping-book-item-footer">
-            <p class="shopping-book-author">${el.author ? el.author : author}</p>
+            <p class="shopping-book-author">${
+              el.author ? el.author : author
+            }</p>
             <ul class="shopping-book-shops">
               <li>
-                <a href="${el.buy_links[0].url}" target="_blank" rel="noreferrer noopener">
+                <a href="${
+                  el.buy_links[0].url
+                }" target="_blank" rel="noreferrer noopener">
                   <svg width="32" height="11">
                     <use
                       href="${amazon}#Amazon_logo"
@@ -256,7 +264,9 @@ function singleMarkUp (el){
                 </a>
               </li>
               <li>
-                <a href="${el.buy_links[2].url}" target="_blank" rel="noreferrer noopener">
+                <a href="${
+                  el.buy_links[2].url
+                }" target="_blank" rel="noreferrer noopener">
                   <svg width="16" height="16">
                     <use
                       href="./images/shopping-svg/open-book.svg#open-book"
@@ -265,7 +275,9 @@ function singleMarkUp (el){
                 </a>
               </li>
               <li>
-                <a href="${el.buy_links[5].url}" target="_blank" rel="noreferrer noopener">
+                <a href="${
+                  el.buy_links[5].url
+                }" target="_blank" rel="noreferrer noopener">
                   <svg width="16" height="16">
                     <use
                       href="${symbol}#open-book2"
@@ -281,8 +293,8 @@ function singleMarkUp (el){
             </svg>
           </button>
         </div>
-      </li>`
-      console.log(markUp);
+      </li>`;
+  console.log(markUp);
 }
 
 
@@ -307,7 +319,7 @@ function markUp(arr) {
 
       let elDescription = el.description;
       let elTitle = el.title;
-            
+
       if (screenWidth < 768) {
         elDescription = elDescription.split('').splice(0, 85).join('') + '...';        
         if(elTitle.length > 16){
@@ -316,23 +328,31 @@ function markUp(arr) {
         
       } else if (screenWidth >= 768 && screenWidth < 1440) {
         elDescription = el.description;
-        elDescription = elDescription.split('').splice(0, 248).join('') + '...';        
+        elDescription = elDescription.split('').splice(0, 248).join('') + '...';
       } else {
-        elDescription = el.description;        
+        elDescription = el.description;
       }
       // const singleBook = singleMarkUp(el);
       // return singleBook
       return `<li class="shopping-book-item">
         <div class="shopping-book-img">
-          <img class="shopping-book-poster" src="${el.book_image}" alt="book-title '${el.title ? el.title : bookTitle}'" loading="lazy" />
+          <img class="shopping-book-poster" src="${
+            el.book_image
+          }" alt="book-title '${
+        el.title ? el.title : bookTitle
+      }'" loading="lazy" />
         </div>
         <div class="shopping-book-text">
           <h2 class="shopping-book-title">${el.title ? elTitle : bookTitle}</h2>
           <p class="shopping-book-genres">${el.genres ? el.genres : genres}</p>
-          <p class="shopping-book-description">${el.description ? elDescription : description}</p>
+          <p class="shopping-book-description">${
+            el.description ? elDescription : description
+          }</p>
 
           <div class="shopping-book-item-footer">
-            <p class="shopping-book-author">${el.author ? el.author : author}</p>
+            <p class="shopping-book-author">${
+              el.author ? el.author : author
+            }</p>
             <ul class="shopping-book-shops">
               <li>
                 <a class="shopping-shop-link" href="${el.buy_links[0].url}" target="_blank" rel="noreferrer noopener">

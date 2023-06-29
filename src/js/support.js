@@ -62,6 +62,7 @@ const Fonds = [
 const refs = {
   list: document.querySelector('.js-list'),
   btn: document.querySelector('.show-more'),
+  images: document.querySelectorAll('img'),
 };
 
 
@@ -70,7 +71,11 @@ refs.list.insertAdjacentHTML('afterbegin', createMarkupSupport(Fonds));
 
 
 
-
+const container = document.querySelector('.sup');
+container.addEventListener('wheel', (event)=> {
+  container.scrollBy(0, event.deltaY);
+  event.preventDefault();
+})
 
 
 
