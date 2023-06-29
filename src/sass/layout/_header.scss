@@ -275,3 +275,7 @@ input:checked + .slider:before {
     gap: 24px;
   }
 }
+
+.scroll-up.show {
+  opacity: 1;
+}
