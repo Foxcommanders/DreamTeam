@@ -10,6 +10,7 @@ import prytula from '../Fondu/prytula@2x.png';
 
 import { createMarkupSupport } from './render.js';
 
+
 const Fonds = [
   {
     title: 'Save the Children',
@@ -62,6 +63,7 @@ const refs = {
   list: document.querySelector('.js-list'),
   btn: document.querySelector('.show-more'),
 };
+
 
 createMarkupSupport(Fonds);
 refs.list.insertAdjacentHTML('afterbegin', createMarkupSupport(Fonds));
