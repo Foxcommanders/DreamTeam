@@ -10,7 +10,7 @@ const refs = {
   //shoppingSupport: document.querySelector('.container-support')
 };
 
-console.log(refs.shoppingSupport);
+// console.log(refs.shoppingSupport);
 
 refs.emptyList.classList.add('display');
 refs.bookList.classList.add('display');
