@@ -1,4 +1,8 @@
-//console.log(123);
+import './support.js';
+import './render.js';
+import './api-request.js';
+import './menu.js';
+
 import amazon from '../images/shopping-svg/symbol-amazon.svg';
 import iShop from '../images/shopping-svg/i-shop.png';
 import iShop2 from '../images/shopping-svg/i-shop2.svg'
@@ -374,6 +378,7 @@ function checkLocalStorage(arr) {
 checkLocalStorage(books);
 
 refs.bookList.addEventListener('click', handlerDeleteBook);
+
 
 function handlerDeleteBook(evt) {
   if (
