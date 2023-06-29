@@ -30,7 +30,6 @@ export async function loadTopBooks() {
   } catch {
     error => console.log(error);
   }
-  return response;
 }
 export async function getBookById(id) {
   const baseUrl = 'https://books-backend.p.goit.global';
