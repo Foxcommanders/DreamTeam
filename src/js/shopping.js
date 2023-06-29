@@ -2,13 +2,14 @@ import './support.js';
 import './render.js';
 import './api-request.js';
 import './menu.js';
+import './scrollUp.js';
 
 import { shoppingEmptyMarkup } from './render.js';
 import symbol from '../images/shopping-svg/symbol-defs.svg';
-import svg from '../images/shopping-svg/trash.svg';
-import amazon from '../images/shopping-svg/amazon.png';
+import amazon from '../images/shopping-svg/amazon4.png';
 import iShop from '../images/shopping-svg/i-shop.png';
 import bookShop from '../images/shopping-svg/image 2.png';
+import svg from '../images/shopping-svg/trash.svg';
 //import emptyBooks from '../images/shopping-svg/empty-books.webp'
 
 
