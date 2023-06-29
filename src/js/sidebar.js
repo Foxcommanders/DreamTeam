@@ -1,4 +1,3 @@
-import axios from 'axios';
 import Notiflix from 'notiflix';
 import { createCategoriesMarkup } from './render';
 import { renderBooks } from './render';
