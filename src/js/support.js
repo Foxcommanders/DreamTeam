@@ -71,7 +71,7 @@ refs.list.insertAdjacentHTML('afterbegin', createMarkupSupport(Fonds));
 
 
 
-const container = document.querySelector('.container');
+const container = document.querySelector('.sup');
 container.addEventListener('wheel', (event)=> {
   container.scrollBy(0, event.deltaY);
   event.preventDefault();
