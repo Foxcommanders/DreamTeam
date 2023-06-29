@@ -1,5 +1,5 @@
 import { loadTopBooks } from './api-request';
-import { renderTopBooks, renderMarkupBook } from './render';
+
 const allBooks = document.querySelector('.all-books-area');
 
 loadTopBooks();

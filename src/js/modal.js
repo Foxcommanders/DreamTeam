@@ -107,7 +107,6 @@ function onBackDropClick(e) {
 }
 
 
-
 function onModalClose(e) {
   if (e.key === 'Escape')
    hideModal() 

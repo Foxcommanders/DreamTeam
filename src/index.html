@@ -14,15 +14,18 @@
   </head>
   <body>
     <include src="./partials/header.html"></include>
-  <main>
-    <include src="./partials/sidebar.html"></include>
-    <include src="./partials/support.html"></include>
-    <include src="./partials/container.html"></include>
-    <include src="./partials/modal.html"></include>
-    <a href="./shopping-list.html">Shopping</a>
-  </main>
-  <script type="module" src="./js/index.js"></script>
+    <main>
+      <div class="container">
+        <div class="sidebar-container">
+          <include src="./partials/sidebar.html"></include>
+          <include src="./partials/support.html"></include>
+        </div>
+        <include src="./partials/container.html"></include>
+        <include src="./partials/modal.html"></include>
+      </div>
+    </main>
+    <script type="module" src="./js/index.js"></script>
 
-  <script type="module" src="./js/support.js"></script>
+    <!-- <script type="module" src="./js/support.js"></script> -->
   </body>
 </html>
