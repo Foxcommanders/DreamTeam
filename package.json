@@ -2,28 +2,39 @@
   "name": "parcel-project-template",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://foxcommanders.github.io/DreamTeam/",
+  "homepage": "https://foxcommanders.github.io/DreamTeam",
   "scripts": {
     "start": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /DreamTeam/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Foxcommanders/DreamTeam.git"
+    "url": "git+https://github.com/goitacademy/parcel-project-template.git"
   },
   "keywords": [],
-  "author": "Dmytro Kisel <dmytrokisell@gmail.com>",
+  "author": "Alexander Repeta <alexander.repeta@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Foxcommanders/DreamTeam/issues"
+    "url": "https://github.com/goitacademy/parcel-project-template/issues"
   },
   "dependencies": {
+<<<<<<< Updated upstream
     "animate.css": "^4.1.1",
     "aos": "^2.3.4",
     "axios": "^1.4.0",
     "modern-normalize": "^1.1.0",
     "notiflix": "^3.2.6",
     "wow.js": "^1.2.2"
+=======
+    "modern-normalize": "^1.1.0",
+   
+    "axios": "^1.4.0",  
+
+    "notiflix": "^3.2.6",
+    "swiper": "^9.4.1",
+    "tui-pagination": "^3.4.1"
+
+>>>>>>> Stashed changes
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
