@@ -61,9 +61,20 @@ const Fonds = [
 const refs = {
   list: document.querySelector('.js-list'),
   btn: document.querySelector('.show-more'),
-  images: document.querySelectorAll('img'),
 };
 
+function createMarkupSupport(arr) {
+  const markup = arr
+    .map(({ title, url, img }, idx) => {
+      return `<li class="list-item"><span class="number" >0${idx + 1}</span>
+        <a  href="${url}">
+            <img class="normalize-img" src="${img}" alt="${title} width="131" height="32">
+            </a>
+            </li>`;
+    })
+    .join('');
+  return markup;
+}
 createMarkupSupport(Fonds);
 refs.list.insertAdjacentHTML('afterbegin', createMarkupSupport(Fonds));
 

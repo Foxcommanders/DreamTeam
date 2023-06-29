@@ -1,22 +1,20 @@
 <!-- ============ HEADER ============ -->
 <header class="page-header" id="to-top">
-  <div class="header-container container">
-    <a class="logo-container" href="#">
+  <div class="header-container">
+    <a class="logo-container" href="./index.html">
       <svg class="logo-icon" width="24" height="24">
         <use href="./images/icons/symbol-defs.svg#icon-logo"></use>
       </svg>
-      <svg class="logo-text" width="77" height="13">
-        <use href="./images/icons/symbol-defs.svg#icon-bookshelf"></use>
-      </svg>
+      <div class="logo-text">Bookshelf</div>
     </a>
 
     <nav class="page-navigation">
       <ul class="nav-list">
         <li class="nav-item">
-          <a class="nav-link current" href="#">Home</a>
+          <a class="nav-link current" href="./index.html">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link shoplist" href="#"
+          <a class="nav-link shoplist" href="./shopping-list.html"
             >Shopping list
             <svg class="icon-header" width="20" height="20">
               <use href="./images/icons/symbol-defs.svg#icon-basket"></use>
@@ -25,30 +23,33 @@
         </li>
       </ul>
     </nav>
+    <div class="right-header">
+      <label class="switch">
+        <input type="checkbox" />
+        <span class="slider round"></span>
+      </label>
+      <button class="auth-btn" type="button">Stephen</button>
 
-    <label class="switch">
-      <input type="checkbox" />
-      <span class="slider round"></span>
-    </label>
-    <button
-      type="button"
-      class="menu-button"
-      data-menu-button
-      aria-label="Togle mobile menu"
-    >
-      <svg width="28" height="28">
-        <use
-          class="icon-cross"
-          href="./images/icons/symbol-defs.svg#icon-close"
-        ></use>
-        <use
-          class="icon-menu"
-          href="./images/icons/symbol-defs.svg#icon-menu"
-        ></use>
-      </svg>
-    </button>
+      <button
+        type="button"
+        class="menu-button"
+        data-menu-button
+        aria-label="Togle mobile menu"
+      >
+        <svg width="28" height="28">
+          <use
+            class="icon-cross"
+            href="./images/icons/symbol-defs.svg#icon-close"
+          ></use>
+          <use
+            class="icon-menu"
+            href="./images/icons/symbol-defs.svg#icon-menu"
+          ></use>
+        </svg>
+      </button>
+    </div>
   </div>
-  <!-- =========== MOBILE-HEADER ============ -->
+  <!-- =========== MOBILE-menu ============ -->
   <div class="overlay" data-menu>
     <div class="mobile-menu-wrapper">
       <ul class="mobile-menu-list list">
