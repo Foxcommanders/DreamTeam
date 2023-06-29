@@ -6,16 +6,15 @@ const modal = document.querySelector('.modal');
 
 backDrop.addEventListener('click', onBackDropClick);
 
-
 function createMarkup(book) {
   let textForeBtn = 'remove from the shopping list';
   let classForP = '';
   let books = getShoppingList();
+  const defaultText = 'lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem orem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem'
   if (!books.includes(book._id)) {
     textForeBtn = 'add to shopping list';
     classForP = 'is-hidden'
   }
-
     const markup = 
      `
     <button class="js-modal-btn modal-close-btn">
@@ -24,30 +23,30 @@ function createMarkup(book) {
       </svg>
     </button>
     <div class="modal-container">
-      <img src="${book.book_image}" alt="title" class="js-elem" width="192" heigth="280">
-      <div class="modal-text-container">
+    <img src="${book.book_image}" alt="" class="js-elem" width="192" heigth="280">
+    <div class="modal-text-container">
         <h2 class="modal-title">${book.title}</h2>
         <p class="modal-silver-text">${book.author}</p>
-        <p class="modal-history-text">${book.description}</p>
+        <p class="modal-history-text">${book.description || defaultText}</p>
         <ul class="modal-list">
           <li class="modal-item">
-            <a href="https://www.amazon.com/Atomic-Habits-Proven-Build-Break/dp/0735211299?tag=NYTBSREV-20" class="">
-              <svg class="modal-img" width="62" height="19">
-                <use href=${require('../images/modal-icons/modal-img.svg')}#icon-amazon></use>
+            <a href="https://www.amazon.com/dp/0063276003?tag=NYTBSREV-20" class="">
+              <svg class="modal-img" width="62" height="20">
+                <use href=${require('../images/modal-icons/symbol-defs.svg')}#Amazon_logo></use>
               </svg>
             </a>
           </li>
           <li class="modal-item">
-            <a href="https://goto.applebooks.apple/9780735211292?at=10lIEQ" class="">
+            <a href="https://www.amazon.com/dp/0063276003?tag=NYTBSREV-20" class="">
               <svg class="modal-img" width="33" height="32">
-                <use href=${require('../images/modal-icons/modal-img.svg')}#icon-apple></use>
+                <use href=${require('../images/modal-icons/symbol-defs.svg')}#open-book></use>
               </svg>
             </a>
           </li>
           <li class="modal-item">
-            <a href="https://du-gae-books-dot-nyt-du-prd.appspot.com/redirect?url1=https%3A%2F%2Fbookshop.org%2Fa%2F3546%2F9780735211292&url2=https%3A%2F%2Fbookshop.org%2Fbooks%3Faffiliate%3D3546%26keywords%3DATOMIC%2BHABITS" class="">
+            <a href="https://bookshop.org/" class="">
               <svg class="modal-img" width="38" height="36">
-                <use href=${require('../images/modal-icons/modal-img.svg')}#icon-book_shop></use>
+                <use href=${require('../images/modal-icons//symbol-defs.svg')}#book-shop></use>
               </svg>
             </a>
           </li>
@@ -65,7 +64,7 @@ function createMarkup(book) {
 
 
 
-async function showModal(bookId) {
+export async function showModal(bookId) {
   const book = await getBookById(bookId);
   createMarkup(book);
   backDrop.classList.remove('is-hidden')
@@ -107,7 +106,7 @@ function onBackDropClick(e) {
   hideModal()
 }
 
-showModal('643282b1e85766588626a080')
+
 
 function onModalClose(e) {
   if (e.key === 'Escape')
@@ -118,4 +117,16 @@ function getShoppingList() {
   return books;
 }
 
-getShoppingList()
+
+const container = document.querySelector('.all-books-area');
+
+container.addEventListener('click', onBookClick);
+
+function onBookClick(e) {
+  const targetElem = e.target.closest('.book-item');
+  if (!targetElem) return;
+  const id = targetElem.dataset.id;
+  showModal(id);
+}
+
+// showModal(i643282b1e85766588626a0ba);
