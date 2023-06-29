@@ -82,10 +82,9 @@
   margin-bottom: 16px;
 }
 @media screen and (max-width: 767px){
-// .list-item:nth-child(n + 5) {
-//         display: none;
+  .container-support {margin-bottom: 40px;
     }
-// }
+}
 @media screen and (min-width: 768px) {
   // .list-item:nth-child(n + 7) {
   //   display: none;
