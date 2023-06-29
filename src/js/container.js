@@ -8,3 +8,5 @@ allBooks.addEventListener('click', handlerClickLoad);
 function handlerClickLoad(event) {
   console.log(event.currentTarget);
 }
+
+export { allBooks };
