@@ -1,3 +1,4 @@
+import { allBooks } from './container.js';
 export function createCategoriesMarkup(arr) {
   return arr
     .map(({ list_name }) => {
@@ -88,11 +89,7 @@ export function createMarkupSupport(arr) {
             <img class="normalize-img" src="${img}" alt="${title} height="35">
             </a>
             </li>`;
-     })
-     .join('');
-   return markup;
- }
-
-
-
- 
+    })
+    .join('');
+  return markup;
+}
