@@ -171,26 +171,44 @@ input:checked + .slider:before {
   stroke: var(--main-dark-color);
 }
 
-.menu-button:hover .icon-menu,
-.menu-button:focus .icon-menu {
+.menu-button:hover .icon-menu {
   stroke: var(--accent-color);
 }
-.menu-button:hover .icon-cross,
-.menu-button:focus .icon-cross {
+.menu-button:hover .icon-cross {
   stroke: var(--accent-color);
 }
 
-.auth-btn {
-  color: var(--main-white-color);
-  background-color: var(--accent-color);
-  border-color: transparent;
+// .auth-btn {
+//   color: var(--main-white-color);
+//   background-color: var(--accent-color);
+//   border-color: transparent;
+//   width: 184px;
+//   height: 45px;
+//   border-radius: 36px;
+//   font-size: 22px;
+//   font-weight: 700;
+//   letter-spacing: -0.44px;
+// }
+
+.log-out-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 14px;
+  color: var(--main-dark-color);
+  background-color: var(--main-white-color);
+  border: 1.5px solid #111;
   width: 184px;
-  height: 45px;
-  border-radius: 36px;
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: -0.44px;
+  height: 48px;
+  border-radius: 18px;
+  font-weight: 500;
+  line-height: 1.29;
+  letter-spacing: -0.56px;
 }
+.log-out-icon {
+  stroke: var(--another-accent-color);
+}
+
 // =============Mobile menu====================
 
 @media screen and (min-width: 768px) {
@@ -255,4 +273,5 @@ input:checked + .slider:before {
 
   .right-header {
     gap: 24px;
-}}
+  }
+}
