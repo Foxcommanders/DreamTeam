@@ -29,6 +29,13 @@ text-transform: uppercase;
     color: var(--another-accent-color);
 }
 
+@media only screen and (max-width: 767px) {
+    .category-container 
+   {
+    margin-bottom: 40px;
+  }
+}
+
 @media screen and (min-width: 768px) {
     .category-container{
         max-height: 472px;

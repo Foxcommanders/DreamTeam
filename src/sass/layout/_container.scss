@@ -71,9 +71,13 @@
   letter-spacing: -0.14px;
 }
 
+.container-home{
+  margin-bottom: 80px;
+}
+
 @media screen and (min-width: 768px) {
 
-
+  
   .home-title {
     font-size: 48px;
     line-height: 1.08;
@@ -105,11 +109,19 @@
   .home-book-author {
     margin-bottom: 8px;
   }
+
+  .container-home{
+    margin-bottom: 100px;
+  }
 }
 
-// @media only screen and (min-width: 768px) and (max-width: 1279px) {
+@media only screen and (min-width: 768px) and (max-width: 1439px) {
+  .sidebar-container{
+    display: flex;
+    gap: 32px;
+    margin-bottom: 100px;
+  }
+}
 
-// }
-
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1440px) {
 }
