@@ -5,7 +5,7 @@ import './menu.js';
 
 import amazon from '../images/shopping-svg/symbol-amazon.svg';
 import iShop from '../images/shopping-svg/i-shop.png';
-import iShop2 from '../images/shopping-svg/i-shop2.svg'
+import iShop2 from '../images/shopping-svg/i-shop2.svg';
 import bookShop from '../images/shopping-svg/book-shop.png';
 import svg from '../images/shopping-svg/trash.svg';
 //import { markUp } from './render.js';
@@ -13,10 +13,10 @@ import svg from '../images/shopping-svg/trash.svg';
 const refs = {
   emptyList: document.querySelector('.shopping-empty-list'),
   bookList: document.querySelector('.shopping-book-list'),
-  shoppingSupport: document.querySelector('.container-support')
+  shoppingSupport: document.querySelector('.container-support'),
 };
 
-refs.emptyList.classList.add("display");
+refs.emptyList.classList.add('display');
 refs.bookList.classList.add('display');
 const books = [
   {
@@ -202,14 +202,13 @@ const author = 'Author';
 
 const screenWidth = window.screen.width;
 
-function containerSupport(screenWidth){
-  if (screenWidth < 1440){
-    refs.shoppingSupport.classList.add('display')
-  }else{
-
-    refs.shoppingSupport.classList.remove('display')
+function containerSupport(screenWidth) {
+  if (screenWidth < 1440) {
+    refs.shoppingSupport.classList.add('display');
+  } else {
+    refs.shoppingSupport.classList.remove('display');
   }
-  return
+  return;
 }
 
 containerSupport(screenWidth);
@@ -229,23 +228,32 @@ function cutDescription(screenWidth) {
   return;
 }
 
-
-function singleMarkUp (el){
+function singleMarkUp(el) {
   console.log(el.title);
   const markUp = `<li class="shopping-book-item">
         <div class="shopping-book-img">
-          <img class="shopping-book-poster" src="${el.book_image}" alt="book-title '${el.title ? el.title : bookTitle}'" loading="lazy" />
+          <img class="shopping-book-poster" src="${
+            el.book_image
+          }" alt="book-title '${
+    el.title ? el.title : bookTitle
+  }'" loading="lazy" />
         </div>
         <div class="shopping-book-text">
           <h2 class="shopping-book-title">${el.title ? elTitle : bookTitle}</h2>
           <p class="shopping-book-genres">${el.genres ? el.genres : genres}</p>
-          <p class="shopping-book-description">${el.description ? elDescription : description}</p>
+          <p class="shopping-book-description">${
+            el.description ? elDescription : description
+          }</p>
 
           <div class="shopping-book-item-footer">
-            <p class="shopping-book-author">${el.author ? el.author : author}</p>
+            <p class="shopping-book-author">${
+              el.author ? el.author : author
+            }</p>
             <ul class="shopping-book-shops">
               <li>
-                <a href="${el.buy_links[0].url}" target="_blank" rel="noreferrer noopener">
+                <a href="${
+                  el.buy_links[0].url
+                }" target="_blank" rel="noreferrer noopener">
                   <svg width="32" height="11">
                     <use
                       href="${amazon}#Amazon_logo"
@@ -254,7 +262,9 @@ function singleMarkUp (el){
                 </a>
               </li>
               <li>
-                <a href="${el.buy_links[2].url}" target="_blank" rel="noreferrer noopener">
+                <a href="${
+                  el.buy_links[2].url
+                }" target="_blank" rel="noreferrer noopener">
                   <svg width="16" height="16">
                     <use
                       href="./images/shopping-svg/open-book.svg#open-book"
@@ -263,7 +273,9 @@ function singleMarkUp (el){
                 </a>
               </li>
               <li>
-                <a href="${el.buy_links[5].url}" target="_blank" rel="noreferrer noopener">
+                <a href="${
+                  el.buy_links[5].url
+                }" target="_blank" rel="noreferrer noopener">
                   <svg width="16" height="16">
                     <use
                       href="./images/shopping-svg/book-shop.svg#book-shop"
@@ -279,11 +291,9 @@ function singleMarkUp (el){
             </svg>
           </button>
         </div>
-      </li>`
-      console.log(markUp);
+      </li>`;
+  console.log(markUp);
 }
-
-;
 
 function markUp(arr) {
   return arr
@@ -293,35 +303,45 @@ function markUp(arr) {
 
       let elDescription = el.description;
       let elTitle = el.title;
-            
+
       if (screenWidth < 768) {
-        elDescription = elDescription.split('').splice(0, 85).join('') + '...';        
-        if(elTitle.length > 16){
-        elTitle = elTitle.split('').splice(0, 16).join('') + '...';
-      }        
+        elDescription = elDescription.split('').splice(0, 85).join('') + '...';
+        if (elTitle.length > 16) {
+          elTitle = elTitle.split('').splice(0, 16).join('') + '...';
+        }
         //console.log(elTitle);
       } else if (screenWidth >= 768 && screenWidth < 1440) {
         elDescription = el.description;
-        elDescription = elDescription.split('').splice(0, 248).join('') + '...';        
+        elDescription = elDescription.split('').splice(0, 248).join('') + '...';
       } else {
-        elDescription = el.description;        
+        elDescription = el.description;
       }
       // const singleBook = singleMarkUp(el);
       // return singleBook
       return `<li class="shopping-book-item">
         <div class="shopping-book-img">
-          <img class="shopping-book-poster" src="${el.book_image}" alt="book-title '${el.title ? el.title : bookTitle}'" loading="lazy" />
+          <img class="shopping-book-poster" src="${
+            el.book_image
+          }" alt="book-title '${
+        el.title ? el.title : bookTitle
+      }'" loading="lazy" />
         </div>
         <div class="shopping-book-text">
           <h2 class="shopping-book-title">${el.title ? elTitle : bookTitle}</h2>
           <p class="shopping-book-genres">${el.genres ? el.genres : genres}</p>
-          <p class="shopping-book-description">${el.description ? elDescription : description}</p>
+          <p class="shopping-book-description">${
+            el.description ? elDescription : description
+          }</p>
 
           <div class="shopping-book-item-footer">
-            <p class="shopping-book-author">${el.author ? el.author : author}</p>
+            <p class="shopping-book-author">${
+              el.author ? el.author : author
+            }</p>
             <ul class="shopping-book-shops">
               <li>
-                <a href="${el.buy_links[0].url}" target="_blank" rel="noreferrer noopener">
+                <a href="${
+                  el.buy_links[0].url
+                }" target="_blank" rel="noreferrer noopener">
                   <svg width="32" height="11">
                     <use
                       href="${amazon}#Amazon_logo"
@@ -330,7 +350,9 @@ function markUp(arr) {
                 </a>
               </li>
               <li>
-                <a href="${el.buy_links[2].url}" target="_blank" rel="noreferrer noopener">
+                <a href="${
+                  el.buy_links[2].url
+                }" target="_blank" rel="noreferrer noopener">
                   <svg width="16" height="16">
                     <use
                       href="${iShop2}#image0_0_1"
@@ -339,7 +361,9 @@ function markUp(arr) {
                 </a>
               </li>
               <li>
-                <a href="${el.buy_links[5].url}" target="_blank" rel="noreferrer noopener">
+                <a href="${
+                  el.buy_links[5].url
+                }" target="_blank" rel="noreferrer noopener">
                   <svg width="16" height="16">
                     <use
                       href="../images/shopping-svg/book-shop.png"
@@ -378,7 +402,6 @@ function checkLocalStorage(arr) {
 checkLocalStorage(books);
 
 refs.bookList.addEventListener('click', handlerDeleteBook);
-
 
 function handlerDeleteBook(evt) {
   if (
