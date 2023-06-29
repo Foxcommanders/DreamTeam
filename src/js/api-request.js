@@ -35,6 +35,11 @@ export async function getBookById(id) {
   const baseUrl = 'https://books-backend.p.goit.global';
   const endPoint = `/books/${id}`;
   const URL = baseUrl + endPoint;
-  const res = await axios.get(URL);
-  return res.data;
+  console.log(123);
+  const res = await fetch(URL).then(res => {
+    console.log(123);
+    return res.json()
+  });
+  console.log(res);
+  return res;
 }
