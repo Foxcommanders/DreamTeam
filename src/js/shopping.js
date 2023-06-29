@@ -10,7 +10,7 @@ const refs = {
   //shoppingSupport: document.querySelector('.container-support')
 };
 
-console.log(refs.shoppingSupport);
+// console.log(refs.shoppingSupport);
 
 refs.emptyList.classList.add('display');
 refs.bookList.classList.add('display');
@@ -222,13 +222,13 @@ function markUp(arr) {
 
       let elDescription = el.description;
       let elTitle = el.title;
-            
+
       if (screenWidth < 768) {
         elDescription = elDescription.split('').splice(0, 85).join('') + '...';
         // description = description.split('').splice(0, 85).join('') + '...';
-        if(elTitle.length > 16){
-        elTitle = elTitle.split('').splice(0, 16).join('') + '...';
-      }
+        if (elTitle.length > 16) {
+          elTitle = elTitle.split('').splice(0, 16).join('') + '...';
+        }
         //console.log('bookLorem:', elDescription.length);
         console.log(elTitle);
       } else if (screenWidth >= 768 && screenWidth < 1440) {
@@ -244,18 +244,28 @@ function markUp(arr) {
       }
       return `<li class="shopping-book-item">
         <div class="shopping-book-img">
-          <img class="shopping-book-poster" src="${el.book_image}" alt="book-title '${el.title ? el.title : bookTitle}'" loading="lazy" />
+          <img class="shopping-book-poster" src="${
+            el.book_image
+          }" alt="book-title '${
+        el.title ? el.title : bookTitle
+      }'" loading="lazy" />
         </div>
         <div class="shopping-book-text">
           <h2 class="shopping-book-title">${el.title ? elTitle : bookTitle}</h2>
           <p class="shopping-book-genres">${el.genres ? el.genres : genres}</p>
-          <p class="shopping-book-description">${el.description ? elDescription : description}</p>
+          <p class="shopping-book-description">${
+            el.description ? elDescription : description
+          }</p>
 
           <div class="shopping-book-item-footer">
-            <p class="shopping-book-author">${el.author ? el.author : author}</p>
+            <p class="shopping-book-author">${
+              el.author ? el.author : author
+            }</p>
             <ul class="shopping-book-shops">
               <li>
-                <a href="${el.buy_links[0].url}" target="_blank" rel="noreferrer noopener">
+                <a href="${
+                  el.buy_links[0].url
+                }" target="_blank" rel="noreferrer noopener">
                   <svg width="32" height="11">
                     <use
                       href="${amazon}#Amazon_logo"
@@ -264,7 +274,9 @@ function markUp(arr) {
                 </a>
               </li>
               <li>
-                <a href="${el.buy_links[2].url}" target="_blank" rel="noreferrer noopener">
+                <a href="${
+                  el.buy_links[2].url
+                }" target="_blank" rel="noreferrer noopener">
                   <svg width="16" height="16">
                     <use
                       href="./images/shopping-svg/open-book.svg#open-book"
@@ -273,7 +285,9 @@ function markUp(arr) {
                 </a>
               </li>
               <li>
-                <a href="${el.buy_links[5].url}" target="_blank" rel="noreferrer noopener">
+                <a href="${
+                  el.buy_links[5].url
+                }" target="_blank" rel="noreferrer noopener">
                   <svg width="16" height="16">
                     <use
                       href="./images/shopping-svg/book-shop.svg#book-shop"

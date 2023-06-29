@@ -45,10 +45,10 @@
   transition: text-shadow var(--transition-dur-tfunc);
 }
 
-.nav-link:hover,
-.nav-link:focus {
-  text-shadow: 0px 0px 1px var(--another-accent-color);
-}
+// .nav-link:hover,
+// .nav-link:focus {
+//   text-shadow: 0px 0px 1px var(--another-accent-color);
+// }
 
 .current {
   font-weight: 700;
@@ -166,17 +166,16 @@ input:checked + .slider:before {
   stroke: var(--main-dark-color);
 }
 
-.icon-menu:hover,
-.icon-menu:focus {
-  stroke: var(--accent-color);
-}
-
 .icon-cross {
   stroke: var(--main-dark-color);
 }
 
-.icon-cross:hover,
-.icon-cross:focus {
+.menu-button:hover .icon-menu,
+.menu-button:focus .icon-menu {
+  stroke: var(--accent-color);
+}
+.menu-button:hover .icon-cross,
+.menu-button:focus .icon-cross {
   stroke: var(--accent-color);
 }
 
