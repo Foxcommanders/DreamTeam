@@ -1,9 +1,7 @@
-/* Common styles for section */
 img{
     display: block;
     
 }
-
 
 .shopping{
     //outline: 1px solid brown;    
@@ -245,6 +243,9 @@ img{
     .shopping-book-description{        
         margin-bottom: 35px;        
     }
-
+    .common{
+        display: flex;
+        padding-top: 40px;
+    }
 
 }

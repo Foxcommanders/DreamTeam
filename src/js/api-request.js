@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { renderTopBooks } from './render';
 
 export async function getCategories() {
   const response = await axios.get(
@@ -24,8 +25,16 @@ export async function loadTopBooks() {
     const data = await axios.get(
       'https://books-backend.p.goit.global/books/top-books'
     );
+
     renderTopBooks(data.data);
   } catch {
     error => console.log(error);
   }
+}
+export async function getBookById(id) {
+  const baseUrl = 'https://books-backend.p.goit.global';
+  const endPoint = `/books/${id}`;
+  const URL = baseUrl + endPoint;
+  const res = await axios.get(URL);
+  return res.data;
 }

@@ -1,38 +1,35 @@
 /*=============== HEADER ===============*/
 .page-header {
-  // background-color: #ccc;
   background-color: var(--main-white-color);
   border-radius: 0px 0px 8px 8px;
   border: 1.5px solid #111;
   max-width: 1440px;
+  margin: 0 auto;
 }
 
 .header-container {
-  padding-top: 18px;
-  padding-bottom: 18px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 20px;
+  padding-right: 20px;
   position: relative;
   display: flex;
   align-items: center;
-  /* outline: 1px solid teal;*/
 }
 
 .logo-container {
   display: flex;
   align-items: center;
   gap: 8px;
-  // padding: 16px 0;
-  margin-right: 144px;
-  // font-weight: 700;
-  /* font-size: 14px; */
-  // line-height: 1.29;
-  // letter-spacing: -0.04em;
-  // text-transform: uppercase;
-  // color: var(--main-dark-color);
-  // transition: text-shadow var(--transition-dur-tfunc);
+  margin-right: auto;
 }
 
 .logo-text {
-  fill: black;
+  color: var(--main-dark-color);
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  width: 77px;
 }
 
 .nav-list {
@@ -40,7 +37,7 @@
 }
 
 .nav-link {
-  padding: 16px 0;
+  font-size: 14px;
   font-weight: 500;
   line-height: 1.29;
   letter-spacing: -0.56px;
@@ -59,49 +56,33 @@
   padding: 8px 16px;
   background-color: var(--another-accent-color);
   border-radius: 36px;
-  // line-height: 18px;
-  // letter-spacing: -0.56px;
-  // text-transform: uppercase;
 }
 
 .shoplist {
   display: flex;
-  // font-weight: 500;
-  // line-height: 1.29;
-  // letter-spacing: -0.56px;
-  // text-transform: uppercase;
+  gap: 4px;
+  align-items: flex-end;
 }
 
-// .logo-container:hover,
-// .logo-container:focus {
-//   text-shadow: 0px 0px 0.5px var(--color-red);
-// }
-
-// .logo-icon {
-//   fill: var(--color-red);
-// }
-
-// .header-btn {
-//   background-color: transparent;
-//   border: none;
-//   height: 50px;
-//   padding: 0;
-//   margin-left: auto;
-// }
+.logo-container:hover,
+.logo-container:focus {
+  // transform: scale(1.02);
+  text-shadow: 0px 0px 1px var(--another-accent-color);
+}
 
 .icon-header {
   fill: var(--main-dark-color);
-  // transition: fill var(--transition-dur-tfunc);
 }
 
-// .header-btn:hover .icon-header,
-// .header-btn:focus .icon-header {
-//   fill: #d7052f;
-// }
+.right-header {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-left: auto;
+}
 
 // =============== Theme swicher ===============
 .switch {
-  margin-right: 14px;
   position: relative;
   display: inline-block;
   width: 40px;
@@ -119,9 +100,10 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  box-shadow: inset 1px 1px 2px rgba(8, 8, 8, 0.1);
   -webkit-transition: 0.4s;
   transition: 0.4s;
+  background: linear-gradient(180deg, var(--accent-color) 0%, #dcdcdc 100%);
 }
 
 .slider:before {
@@ -137,11 +119,13 @@
 }
 
 input:checked + .slider {
-  background-color: #2196f3;
+  background: linear-gradient(180deg, var(--accent-color) 0%, #686868 100%);
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196f3;
+  background: linear-gradient(180deg, var(--accent-color) 0%, #686868 100%);
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 input:checked + .slider:before {
@@ -162,10 +146,9 @@ input:checked + .slider:before {
 .menu-button {
   background-color: transparent;
   border: none;
-  height: 50px;
   margin: 0;
   padding: 0;
-  // margin-left: auto;
+  cursor: pointer;
 }
 
 .menu-button .icon-cross {
@@ -180,84 +163,36 @@ input:checked + .slider:before {
   display: none;
 }
 
-/* .icon-header {
-  fill: var(--color-red);
-  transition: fill var(--transition-dur-tfunc);
-} */
-
 .icon-menu {
-  fill: var(--main-dark-color);
   stroke: var(--main-dark-color);
+}
+
+.icon-menu:hover,
+.icon-menu:focus {
+  stroke: var(--accent-color);
 }
 
 .icon-cross {
   stroke: var(--main-dark-color);
 }
+
+.icon-cross:hover,
+.icon-cross:focus {
+  stroke: var(--accent-color);
+}
+
+.auth-btn {
+  color: var(--main-white-color);
+  background-color: var(--accent-color);
+  border-color: transparent;
+  width: 184px;
+  height: 45px;
+  border-radius: 36px;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.44px;
+}
 // =============Mobile menu====================
-.mobile-menu-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100vw;
-  height: 100vh;
-  padding: 0;
-  max-width: 375px;
-}
-
-.mobile-menu-list {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 16px;
-  gap: 16px;
-  margin-top: 174px;
-}
-
-.mobile-menu-item {
-  text-align: center;
-}
-
-.mobile-menu-icon {
-  fill: #000000;
-  stroke: #000000;
-}
-
-.mobile-menu-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  height: 24px;
-  background-color: transparent;
-  border: none;
-  padding: 0;
-  margin-bottom: auto;
-}
-
-.overlay {
-  position: fixed;
-  top: 50px;
-  left: 0;
-  z-index: 20;
-  overflow: auto;
-  transform: translateX(-100%);
-  transition: transform 250ms linear;
-  /* background-color: rgba(255, 255, 255, 0.5); */
-  background-color: var(--color-red);
-}
-
-.overlay.is-open {
-  left: 50%;
-  transform: translateX(-50%);
-  pointer-events: initial;
-  visibility: visible;
-  opacity: 1;
-}
-
-.mobile-menu-link:hover,
-.mobile-menu-link:focus {
-  text-shadow: 0px 0px 1px var(--main-dark-color);
-}
 
 @media screen and (min-width: 768px) {
   .menu-button {
@@ -271,31 +206,33 @@ input:checked + .slider:before {
   }
 
   .header-container {
-    max-width: 375px;
+    max-width: 100%;
   }
 
   .page-header {
     margin: 0 auto;
+  }
+  .auth-btn {
+    display: none;
   }
 }
 
 @media screen and (min-width: 768px) {
   .nav-list {
     display: flex;
-    gap: 20px;
+    gap: 16px;
     align-items: baseline;
   }
 
   .header-container {
-    max-width: 768px;
+    padding-top: 14px;
+    padding-bottom: 13px;
+    padding-left: 32px;
+    padding-right: 32px;
   }
 
   .logo-container {
-    margin-right: 92px;
-  }
-
-  .nav-list {
-    margin-right: 101px;
+    margin-right: 40px;
   }
 
   .overlay {
@@ -306,9 +243,17 @@ input:checked + .slider:before {
 @media screen and (min-width: 1440px) {
   .header-container {
     max-width: 1440px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .logo-container {
+    margin-right: 76px;
   }
 
   .nav-list {
-    margin-right: 745px;
+    gap: 24px;
   }
-}
+
+  .right-header {
+    gap: 24px;
+}}
