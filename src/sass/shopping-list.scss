@@ -4,7 +4,8 @@ img{
 }
 
 .shopping{
-    //outline: 1px solid brown;    
+    //outline: 1px solid brown;
+    width: 100%;    
     flex-direction: column;
     align-items: center;
     padding-bottom: 40px;
@@ -30,10 +31,7 @@ img{
     margin: 120px auto 0;
     display: flex;
     flex-direction: column;
-    align-items: center;    
-    
-     //display: none;
-
+    align-items: center;     
 }
 
 .shopping-empty-text{
@@ -51,9 +49,7 @@ img{
     //outline: 1px solid red;
     padding: 40px 20px;
     list-style: none;
-    gap: 20px;   
-     
-    // display: none;
+    gap: 20px;    
 }
 
 .shopping-book-item{    
@@ -64,12 +60,11 @@ img{
     margin: auto;
     margin-bottom: 20px;
     border-radius: 16px;
-    border: 2px solid rgba(79, 46, 232, 0.40);
-    
+    border: 2px solid rgba(79, 46, 232, 0.40);    
 }
 
 .shopping-book-img{
-    outline: 1px solid blue;
+    //outline: 1px solid blue;
     width: 100px;
     height: 142px;
     margin-right: 14px;
@@ -152,6 +147,27 @@ img{
     height: 16px;
 }
 
+.shopping-shop-link{
+    display: block;
+    height: 16px;
+}
+.shopping-svg-amazon{
+    width:32px;
+    height: 11px;
+}
+.shopping-svg-open-book{
+    width:16px;
+    height: 16px;
+}
+.lastBook{
+    width:16px;
+    height: 16px;
+}
+.shopping-svg-book-shop{
+    width:16px;
+    height: 16px;
+}
+
 .shopping-btn-delete{
     position: absolute;
     top: 0px;
@@ -208,7 +224,7 @@ img{
               
     }
     .shopping-book-img{
-        outline: 1px solid blue;
+        //outline: 1px solid blue;
         width: 116px;
         height: 165px;
         margin-right: 24px;
@@ -225,9 +241,29 @@ img{
     }
 
     .shopping-book-shops{        
-        outline: 1px solid red;
+        // outline: 1px solid red;
         gap: 16px;        
         width: 140px;
+        height: 30px;
+    }
+
+        
+    .shopping-shop-link{
+        //height: 30px;
+        display: flex;
+        align-items: center;
+    }
+    .shopping-svg-amazon{
+        width:48px;
+        height: 15px;
+    }
+    .shopping-svg-open-book{
+        width:28px;
+        height: 27px;
+    }
+    
+    .shopping-svg-book-shop{
+        width:32px;
         height: 30px;
     }
     .shopping-btn-delete{        
@@ -241,11 +277,6 @@ img{
         max-width: 996px;
     }
     .shopping-book-description{        
-        margin-bottom: 35px;        
-    }
-    .common{
-        display: flex;
-        padding-top: 40px;
-    }
-
+        margin-bottom: 35px; 
+    } 
 }

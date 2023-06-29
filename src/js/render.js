@@ -1,3 +1,4 @@
+import emptyBooks from '../images/shopping-svg/empty-books.webp'
 export function createCategoriesMarkup(arr) {
   return arr
     .map(({ list_name }) => {
@@ -94,5 +95,14 @@ export function createMarkupSupport(arr) {
  }
 
 
-
+ export function shoppingEmptyMarkup(){
+  return `<p class="shopping-empty-text">
+  This page is empty, add some books and proceed to order.
+</p>
+<img
+  class="shopping-empty-img"
+  src="${emptyBooks}"
+  alt="books"
+/>`
+}
  
