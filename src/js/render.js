@@ -10,7 +10,7 @@ export function renderBooks(arr) {
   return arr.map(({ book_image, book_image_width, title, author, _id }) => {
     const markup = ` <li data-id="${_id}"><img
     src="${book_image}"
-    alt="${title}"
+   alt="${title}"
     width="${book_image_width}"
     class="book-photo"
     loading="lazy"

@@ -7,7 +7,6 @@ import razom from '../Fondu/razom@2x.png';
 import hunger from '../Fondu/hunger@2x.png';
 import emergencies from '../Fondu/emergencies@2x.png';
 import prytula from '../Fondu/prytula@2x.png';
-import { createMarkupSupport } from './render';
 
 
 const Fonds = [
