@@ -19,7 +19,7 @@ const refs = {
   bookList: document.querySelector('.shopping-book-list'),
   shoppingSupport: document.querySelector('.container-support'),
 };
-// document.body.classList.add('is-hidden');
+document.body.classList.add('is-hidden');
 refs.emptyList.classList.add('display');
 refs.bookList.classList.add('display');
 const books = [
