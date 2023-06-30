@@ -7,3 +7,4 @@ import './shopping.js';
 import './support.js';
 import './container.js';
 import './scrollUp.js';
+import './loader.js';
