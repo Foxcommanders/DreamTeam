@@ -3,6 +3,8 @@ import './render.js';
 import './api-request.js';
 import './menu.js';
 import './scrollUp.js';
+import './pagination.js';
+import './loader.js';
 
 import { shoppingEmptyMarkup } from './render.js';
 //import symbol from '../images/shopping-svg/symbol-defs.svg';
@@ -17,7 +19,7 @@ const refs = {
   bookList: document.querySelector('.shopping-book-list'),
   shoppingSupport: document.querySelector('.container-support'),
 };
-
+// document.body.classList.add('is-hidden');
 refs.emptyList.classList.add('display');
 refs.bookList.classList.add('display');
 const books = [
