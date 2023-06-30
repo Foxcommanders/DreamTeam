@@ -3,7 +3,8 @@ import './render.js';
 import './api-request.js';
 import './menu.js';
 
-import amazon from '../images/shopping-svg/symbol-amazon.svg';
+import { shoppingEmptyMarkup } from './render.js';
+import amazon from '../images/shopping-svg/amazon.png';
 import iShop from '../images/shopping-svg/i-shop.png';
 import iShop2 from '../images/shopping-svg/i-shop2.svg'
 import bookShop from '../images/shopping-svg/book-shop.png';
