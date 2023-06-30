@@ -169,6 +169,12 @@
     justify-content: center;
     max-width: 288px;
   }
+  .hidden {
+      opacity: 0;
+      display: none;
+      margin: 0;
+      height: 0;
+  }
 
   .modal-container {
     display: flexbox;

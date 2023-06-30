@@ -114,6 +114,7 @@ function onModalClose(e) {
    hideModal() 
 }
 function getShoppingList() {
+  
   const books = JSON.parse(localStorage.getItem('books') || '[]');
   return books;
 }
@@ -132,4 +133,4 @@ function onBookClick(e) {
 }
 
 
-// showModal('643282b2e85766588626a0de')
+
