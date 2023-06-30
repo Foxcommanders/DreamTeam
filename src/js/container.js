@@ -4,9 +4,9 @@ const allBooks = document.querySelector('.all-books-area');
 
 loadTopBooks();
 
-allBooks.addEventListener('click', handlerClickLoad);
-function handlerClickLoad(event) {
-  console.log(event.currentTarget);
-}
+// allBooks.addEventListener('click', handlerClickLoad);
+// function handlerClickLoad(event) {
+//   console.log(event.currentTarget);
+// }
 
 export { allBooks };
