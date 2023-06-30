@@ -1,5 +1,5 @@
 import './support.js';
-//import './render.js';
+import './render.js';
 import './api-request.js';
 import './menu.js';
 import './scrollUp.js';
@@ -16,8 +16,8 @@ import svg from '../images/shopping-svg/trash.svg';
 
 const refs = {
   emptyList: document.querySelector('.shopping-empty-list'),
-  bookList: document.querySelector('.shopping-book-list'),  
-  shoppingSupport: document.querySelector('.container-support')
+  bookList: document.querySelector('.shopping-book-list'),
+  shoppingSupport: document.querySelector('.container-support'),
 };
 // document.body.classList.add('is-hidden');
 refs.emptyList.classList.add('display');
@@ -220,38 +220,94 @@ containerSupport(screenWidth);
 
 function cutDescription(screenWidth) {
   if (screenWidth < 768) {
-    description = description.split('').splice(0, 85).join('') + '...';    
+    description = description.split('').splice(0, 85).join('') + '...';
   } else if (screenWidth >= 768 && screenWidth < 1440) {
     description =
       'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga fugiat, dolorem repudiandae aspernatur iste minima dolore recusandae incidunt veritatis debitis nam quis maxime atque nulla voluptates quasi necessitatibus! Sunt, rem.';
-    description = description.split('').splice(0, 248).join('') + '...';    
+    description = description.split('').splice(0, 248).join('') + '...';
   } else {
-    description = description;   
+    description = description;
   }
   return;
 }
 
+// function singleMarkUp(el) {
+//   //console.log(el.title);
+//   // const markUp =
+//   return `<li class="shopping-book-item">
+//      <div class="shopping-book-img">
+//         <img class="shopping-book-poster" src="${el.book_image}" alt="${
+//           el.title ? el.title : bookTitle
+//         }" loading="lazy" />
+//   </div>
+//   <div class="shopping-book-text">
+//     <h2 class="shopping-book-title">${el.title ? elTitle : bookTitle}</h2>
+//     <p class="shopping-book-genres"></p>
+//     <p class="shopping-book-description"></p>
+
+//     <div class="shopping-book-item-footer">
+//       <p class="shopping-book-author"></p>
+//       <ul class="shopping-book-shops">
+//         <li>
+//           <a class="shopping-shop-link" href="" target="_blank" rel="noreferrer noopener">
+//           <img class="shopping-svg-amazon" src="">
+//           </a>
+//         </li>
+//         <li>
+//           <a class="shopping-shop-link" href="" target="_blank" rel="noreferrer noopener">
+//           <img class="shopping-svg-open-book" src="">
+//           </a>
+//         </li>
+//         <li>
+//           <a class="shopping-shop-link" href="" target="_blank" rel="noreferrer noopener">
+//           <img class="shopping-svg-book-shop" src="">
+//           </a>
+//         </li>
+//       </ul>
+//     </div>
+//     <button class="shopping-btn-delete">
+//       <svg class="svg-trash" width="16" height="16">
+//         <use class="svg" href="#trash"></use>
+//       </svg>
+//     </button>
+//   </div>
+// </li>`;
+//         //console.log(markUp);
+//         // return markUp
+// }
+
+//console.log(singleMarkUp());
+// function shoppingEmptyMarkup(){
+//   return `<p class="shopping-empty-text">
+//   This page is empty, add some books and proceed to order.
+// </p>
+// <img
+//   class="shopping-empty-img"
+//   src="${emptyBooks}"
+//   alt="books"
+// />`
+// }
+
 function markUp(arr) {
   return arr
     .map(el => {
-      cutDescription(screenWidth);      
+      cutDescription(screenWidth);
 
       let elDescription = el.description;
       let elTitle = el.title;
 
       if (screenWidth < 768) {
-        elDescription = elDescription.split('').splice(0, 85).join('') + '...';        
-        if(elTitle.length > 16){
-        elTitle = elTitle.split('').splice(0, 16).join('') + '...';
-      }       
-        
+        elDescription = elDescription.split('').splice(0, 85).join('') + '...';
+        if (elTitle.length > 16) {
+          elTitle = elTitle.split('').splice(0, 16).join('') + '...';
+        }
       } else if (screenWidth >= 768 && screenWidth < 1440) {
         elDescription = el.description;
         elDescription = elDescription.split('').splice(0, 248).join('') + '...';
       } else {
         elDescription = el.description;
       }
-    
+
       return `<li class="shopping-book-item">
         <div class="shopping-book-img">
           <img class="shopping-book-poster" src="${
@@ -273,17 +329,23 @@ function markUp(arr) {
             }</p>
             <ul class="shopping-book-shops">
               <li>
-                <a class="shopping-shop-link" href="${el.buy_links[0].url}" target="_blank" rel="noreferrer noopener">
+                <a class="shopping-shop-link" href="${
+                  el.buy_links[0].url
+                }" target="_blank" rel="noreferrer noopener">
                 <img class="shopping-svg-amazon" src="${amazon}">
                 </a>
               </li>
               <li>
-                <a class="shopping-shop-link" href="${el.buy_links[2].url}" target="_blank" rel="noreferrer noopener">
+                <a class="shopping-shop-link" href="${
+                  el.buy_links[2].url
+                }" target="_blank" rel="noreferrer noopener">
                 <img class="shopping-svg-open-book" src="${iShop}">  
                 </a>
               </li>
               <li>
-                <a class="shopping-shop-link" href="${el.buy_links[5].url}" target="_blank" rel="noreferrer noopener">
+                <a class="shopping-shop-link" href="${
+                  el.buy_links[5].url
+                }" target="_blank" rel="noreferrer noopener">
                 <img class="shopping-svg-book-shop" src="${bookShop}">
                 </a>
               </li>
@@ -322,20 +384,16 @@ checkLocalStorage(books);
 refs.bookList.addEventListener('click', handlerDeleteBook);
 
 function handlerDeleteBook(evt) {
-  if (   
+  if (
     evt.target.nodeName !== 'BUTTON' &&
     evt.target.nodeName !== 'svg' &&
     evt.target.nodeName !== 'use'
-    ) {
-      console.log('error');
-      return;
-    }       
-    const bookItem = document.querySelector('.shopping-book-item');
-    //removeItem(key); 
-    bookItem.remove();
+  ) {
+    console.log('error');
     return;
-  } 
- 
-  const bookPoster = document.querySelector('.shopping-book-poster');
-console.log(bookPoster);
-  
+  }
+  const bookItem = document.querySelector('.shopping-book-item');
+  //removeItem(key);
+  bookItem.remove();
+  return;
+}
