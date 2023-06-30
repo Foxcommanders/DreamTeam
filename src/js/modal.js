@@ -119,15 +119,16 @@ function getShoppingList() {
 }
 
 
-// const container = document.querySelector('.all-books-area');
+const container = document.querySelector('.all-books-area');
 
-// container.addEventListener('click', onBookClick);
+container.addEventListener('click', onBookClick);
 
-// function onBookClick(e) {
-//   const targetElem = e.target.closest('.book-item');
-//   if (!targetElem) return;
-//   const id = targetElem.dataset.id;
-//   showModal(id);
+function onBookClick(e) {
+  const targetElem = e.target.closest('.book-item');
+  if (!targetElem) return;
+  const id = targetElem.dataset.id;
+  showModal(id);
+}
 
 
-showModal('643282b1e85766588626a0a0');
+// showModal('643282b2e85766588626a0de')
