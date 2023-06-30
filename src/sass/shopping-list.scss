@@ -3,16 +3,16 @@ img{
     
 }
 
-.shopping{
-    //outline: 1px solid brown;
+.shopping{    
     width: 100%;    
-    flex-direction: column;
-    align-items: center;
+    // flex-direction: column;
+    // align-items: center;
     padding-bottom: 40px;
     box-sizing: border-box;
 }
 
 .shopping-title{
+    margin-bottom: 40px;
     font-size: 32px;
     font-family: DM Sans;
     font-weight: 700;
@@ -45,16 +45,15 @@ img{
     letter-spacing: -0.28px;
 }
 
-.shopping-book-list {
-    //outline: 1px solid red;
-    padding: 40px 20px;
-    list-style: none;
-    gap: 20px;    
-}
+//.shopping-book-list {   
+    // padding: 40px 20px;
+    // list-style: none;
+    // gap: 20px;    
+//}
 
 .shopping-book-item{    
     display: flex;
-    max-width: 335px;
+    min-width: 335px;
     height: 170px;
     padding: 12px;
     margin: auto;
@@ -63,9 +62,8 @@ img{
     border: 2px solid rgba(79, 46, 232, 0.40);    
 }
 
-.shopping-book-img{
-    //outline: 1px solid blue;
-    width: 100px;
+.shopping-book-img{    
+    min-width: 100px;
     height: 142px;
     margin-right: 14px;
     overflow: hidden;
@@ -82,7 +80,7 @@ img{
     position: relative;
     display:flex;
     flex-direction: column;
-    width: 193px;    
+    min-width: 193px;    
 }
 
 .shopping-book-title{
@@ -94,8 +92,7 @@ img{
     font-weight: 700;
     line-height: 18px;
     letter-spacing: -0.64px;
-    text-transform: uppercase;
-    // width:;
+    text-transform: uppercase;    
 }
 
 .shopping-book-genres{
@@ -128,7 +125,8 @@ img{
 }
 
 .shopping-book-author{
-    display: block;
+    display: flex;    
+    align-items: flex-end;
     font-size: 12px;
     color: var(--paragraf-color);
     font-size: 12px;
@@ -149,20 +147,19 @@ img{
 
 .shopping-shop-link{
     display: block;
-    height: 16px;
+    
+    
 }
 .shopping-svg-amazon{
     width:32px;
     height: 11px;
+    border-radius: 0;
 }
 .shopping-svg-open-book{
     width:16px;
     height: 16px;
 }
-.lastBook{
-    width:16px;
-    height: 16px;
-}
+
 .shopping-svg-book-shop{
     width:16px;
     height: 16px;
@@ -219,14 +216,13 @@ img{
         height: 241px;
     }
     .shopping-book-item{            
-        max-width: 704px;
+        min-width: 704px;
         height: 213px;
         padding: 22px;        
               
     }
-    .shopping-book-img{
-        //outline: 1px solid blue;
-        width: 116px;
+    .shopping-book-img{        
+        min-width: 116px;
         height: 165px;
         margin-right: 24px;
     }
@@ -240,9 +236,11 @@ img{
         height: 53px;
         margin-bottom: 32px;        
     }
-
-    .shopping-book-shops{        
-        // outline: 1px solid red;
+    
+    .shopping-book-item-footer{        
+        height: 30px;
+    }
+    .shopping-book-shops{  
         gap: 16px;        
         width: 140px;
         height: 30px;
@@ -250,7 +248,6 @@ img{
 
         
     .shopping-shop-link{
-        //height: 30px;
         display: flex;
         align-items: center;
     }
@@ -275,9 +272,9 @@ img{
 
 @media screen and (min-width: 1440px) {
     .shopping-book-item{            
-        max-width: 996px;
+        width: 996px;
     }
-    .shopping-book-description{        
-        margin-bottom: 35px; 
-    } 
+    // .shopping-book-description{        
+    //     margin-bottom: 35px; 
+    // } 
 }
