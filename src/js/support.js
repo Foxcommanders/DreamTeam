@@ -64,7 +64,7 @@ const refs = {
 
 createMarkupSupport(Fonds);
 
-refs.list.insertAdjacentHTML('afterbegin', createMarkupSupport(Fonds));
+refs.list.insertAdjacentHTML("afterbegin", createMarkupSupport(Fonds));
 
 const swiper = new Swiper('.mySwiper', {
   direction: 'vertical',
