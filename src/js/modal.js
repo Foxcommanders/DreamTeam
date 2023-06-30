@@ -3,6 +3,7 @@ import {getBookById} from './api-request.js';
 
 const backDrop = document.querySelector('.backdrop');
 const modal = document.querySelector('.modal');
+document.body.classList.add('is-hidden')
 
 backDrop.addEventListener('click', onBackDropClick);
 
@@ -13,8 +14,9 @@ function createMarkup(book) {
   const defaultText = 'lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem orem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem'
   if (!books.includes(book._id)) {
     textForeBtn = 'add to shopping list';
-    classForP = 'is-hidden'
+    classForP = 'hidden'
   }
+  const { buy_links } = book;
     const markup = 
      `
     <button class="js-modal-btn modal-close-btn">
@@ -29,27 +31,27 @@ function createMarkup(book) {
         <p class="modal-silver-text">${book.author}</p>
         <p class="modal-history-text">${book.description || defaultText}</p>
         <ul class="modal-list">
-          <li class="modal-item">
-            <a href="https://www.amazon.com/dp/0063276003?tag=NYTBSREV-20" class="">
+        ${buy_links[0]?`<li class="modal-item">
+            <a href="${buy_links[0].url}" class="">
               <svg class="modal-img" width="62" height="20">
                 <use href=${require('../images/modal-icons/symbol-defs.svg')}#Amazon_logo></use>
               </svg>
             </a>
-          </li>
-          <li class="modal-item">
-            <a href="https://www.amazon.com/dp/0063276003?tag=NYTBSREV-20" class="">
-              <svg class="modal-img" width="33" height="32">
+          </li>`: ''}
+        ${buy_links[1]?`<li class="modal-item">
+            <a href="${buy_links[1].url}" class="">
+             <svg class="modal-img" width="33" height="32">
                 <use href=${require('../images/modal-icons/symbol-defs.svg')}#open-book></use>
               </svg>
             </a>
-          </li>
-          <li class="modal-item">
-            <a href="https://bookshop.org/" class="">
-              <svg class="modal-img" width="38" height="36">
+          </li>`: ''}
+        ${buy_links[4] ?`<li class="modal-item">
+            <a href="${buy_links[4].url}" class="">
+              <svg class="modal-img " width="38" height="36">
                 <use href=${require('../images/modal-icons//symbol-defs.svg')}#book-shop></use>
               </svg>
-            </a>
-          </li>
+            </a> 
+          </li>`:''}
         </ul>
       </div>
     </div>
@@ -67,12 +69,12 @@ function createMarkup(book) {
 export async function showModal(bookId) {
   const book = await getBookById(bookId);
   createMarkup(book);
-  backDrop.classList.remove('is-hidden')
+   document.body.classList.remove('is-hidden')
   addListener()
 }
 
 function hideModal() {
-  backDrop.classList.add('is-hidden')
+  document.body.classList.add('is-hidden')
   window.removeEventListener('keydown', onModalClose);
 }
 
@@ -89,12 +91,12 @@ function onAddBtn(e) {
   let books = getShoppingList();
   if (books.includes(id)) {
     e.currentTarget.textContent = 'add to shopping list';
-    e.currentTarget.nextElementSibling.classList.add('is-hidden')
+    e.currentTarget.nextElementSibling.classList.add('hidden')
 
     books = books.filter(el=>el !== id)
   } else {
     e.currentTarget.textContent = 'remove from the shopping list';
-    e.currentTarget.nextElementSibling.classList.remove('is-hidden')
+    e.currentTarget.nextElementSibling.classList.remove('hidden')
     books.push(id);
   }
   localStorage.setItem('books', JSON.stringify(books));
@@ -123,11 +125,11 @@ const container = document.querySelector('.all-books-area');
 container.addEventListener('click', onBookClick);
 
 function onBookClick(e) {
-  const targetElem = e.target.closest('.book-item');
+ 
+  const targetElem = e.target.closest('.home-book-item');
   if (!targetElem) return;
   const id = targetElem.dataset.id;
   showModal(id);
 }
-
 
 
