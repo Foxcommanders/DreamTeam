@@ -22,6 +22,15 @@ const refs = {
 document.body.classList.add('is-hidden');
 refs.emptyList.classList.add('display');
 refs.bookList.classList.add('display');
+
+const booksLocalStorage = JSON.parse(localStorage.getItem('books') || '[]');
+console.log(booksLocalStorage);
+
+// const localStorage = localStorage.getItem("books");
+// console.log(localStorage);
+// const localStorage2 = JSON.parse(localStorage);
+// console.log(localStorage2);
+
 const books = [
   {
     _id: '643282b1e85766588626a080',
@@ -218,18 +227,18 @@ function containerSupport(screenWidth) {
 }
 containerSupport(screenWidth);
 
-function cutDescription(screenWidth) {
-  if (screenWidth < 768) {
-    description = description.split('').splice(0, 85).join('') + '...';
-  } else if (screenWidth >= 768 && screenWidth < 1440) {
-    description =
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga fugiat, dolorem repudiandae aspernatur iste minima dolore recusandae incidunt veritatis debitis nam quis maxime atque nulla voluptates quasi necessitatibus! Sunt, rem.';
-    description = description.split('').splice(0, 248).join('') + '...';
-  } else {
-    description = description;
-  }
-  return;
-}
+// function cutDescription(screenWidth) {
+//   if (screenWidth < 768) {
+//     description = description.split('').splice(0, 85).join('') + '...';
+//   } else if (screenWidth >= 768 && screenWidth < 1440) {
+//     description =
+//       'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga fugiat, dolorem repudiandae aspernatur iste minima dolore recusandae incidunt veritatis debitis nam quis maxime atque nulla voluptates quasi necessitatibus! Sunt, rem.';
+//     description = description.split('').splice(0, 248).join('') + '...';
+//   } else {
+//     description = description;
+//   }
+//   return;
+// }
 
 // function singleMarkUp(el) {
 //   //console.log(el.title);
@@ -288,23 +297,36 @@ function cutDescription(screenWidth) {
 // />`
 // }
 
-function markUp(arr) {
+const defaultBookData = {
+  bookTitle: 'Book title',
+  genres: 'Genres',
+  description:
+  'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga fugiat, dolorem repudiandae aspernatur iste minima dolore recusandae incidunt veritatis debitis nam quis maxime atque nulla voluptates quasi necessitatibus! Sunt, rem.',
+ author: 'Author',
+}
+
+export function markUp(arr, {bookTitle, genres, description, author}) {
   return arr
     .map(el => {
-      cutDescription(screenWidth);
+      
 
       let elDescription = el.description;
       let elTitle = el.title;
-
-      if (screenWidth < 768) {
+       
+      if (window.screen.width < 768) {
+        description = description.split('').splice(0, 85).join('') + '...';
         elDescription = elDescription.split('').splice(0, 85).join('') + '...';
-        if (elTitle.length > 16) {
+        if (elTitle.length > 16) {          
           elTitle = elTitle.split('').splice(0, 16).join('') + '...';
         }
-      } else if (screenWidth >= 768 && screenWidth < 1440) {
+      } else if (window.screen.width >= 768 && window.screen.width < 1440) {
+        description =
+        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga fugiat, dolorem repudiandae aspernatur iste minima dolore recusandae incidunt veritatis debitis nam quis maxime atque nulla voluptates quasi necessitatibus! Sunt, rem.';
+        description = description.split('').splice(0, 248).join('') + '...';
         elDescription = el.description;
         elDescription = elDescription.split('').splice(0, 248).join('') + '...';
       } else {
+        description = description;
         elDescription = el.description;
       }
 
@@ -364,14 +386,12 @@ function markUp(arr) {
 
 function checkLocalStorage(arr) {
   if (!books.length) {
-    shoppingEmptyMarkup();
     refs.emptyList.insertAdjacentHTML('afterbegin', shoppingEmptyMarkup());
     refs.emptyList.classList.remove('display');
     refs.bookList.classList.add('display');
     console.log('empty');
   } else {
-    markUp(arr);
-    refs.bookList.insertAdjacentHTML('beforeend', markUp(books));
+    refs.bookList.insertAdjacentHTML('afterbegin', markUp(books, defaultBookData));
     refs.emptyList.classList.add('display');
     refs.bookList.classList.remove('display');
     //return
