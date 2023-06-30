@@ -1,23 +1,24 @@
 import './support.js';
-import './render.js';
+//import './render.js';
 import './api-request.js';
 import './menu.js';
+import './scrollUp.js';
 
 import { shoppingEmptyMarkup } from './render.js';
+//import symbol from '../images/shopping-svg/symbol-defs.svg';
 import amazon from '../images/shopping-svg/amazon.png';
 import iShop from '../images/shopping-svg/i-shop.png';
-import iShop2 from '../images/shopping-svg/i-shop2.svg'
 import bookShop from '../images/shopping-svg/book-shop.png';
 import svg from '../images/shopping-svg/trash.svg';
-//import { markUp } from './render.js';
-// console.log(iShop2);
+//import emptyBooks from '../images/shopping-svg/empty-books.webp'
+
 const refs = {
   emptyList: document.querySelector('.shopping-empty-list'),
-  bookList: document.querySelector('.shopping-book-list'),
+  bookList: document.querySelector('.shopping-book-list'),  
   shoppingSupport: document.querySelector('.container-support')
 };
 
-refs.emptyList.classList.add("display");
+refs.emptyList.classList.add('display');
 refs.bookList.classList.add('display');
 const books = [
   {
@@ -203,149 +204,142 @@ const author = 'Author';
 
 const screenWidth = window.screen.width;
 
-function containerSupport(screenWidth){
-  if (screenWidth < 1440){
-    refs.shoppingSupport.classList.add('display')
-  }else{
-
-    refs.shoppingSupport.classList.remove('display')
+function containerSupport(screenWidth) {
+  if (screenWidth < 1440) {
+    refs.shoppingSupport.classList.add('display');
+  } else {
+    refs.shoppingSupport.classList.remove('display');
   }
-  return
+  return;
 }
-
 containerSupport(screenWidth);
+
 function cutDescription(screenWidth) {
   if (screenWidth < 768) {
-    description = description.split('').splice(0, 85).join('') + '...';
-    //console.log('bookTEST:', description.length);
+    description = description.split('').splice(0, 85).join('') + '...';    
   } else if (screenWidth >= 768 && screenWidth < 1440) {
     description =
       'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga fugiat, dolorem repudiandae aspernatur iste minima dolore recusandae incidunt veritatis debitis nam quis maxime atque nulla voluptates quasi necessitatibus! Sunt, rem.';
-    description = description.split('').splice(0, 248).join('') + '...';
-    //console.log('bookTEST:', description.length);
+    description = description.split('').splice(0, 248).join('') + '...';    
   } else {
-    description = description;
-    //console.log(description.length);
+    description = description;   
   }
   return;
 }
 
+// function singleMarkUp(el) {
+//   //console.log(el.title);
+//   // const markUp =
+//   return `<li class="shopping-book-item">
+//      <div class="shopping-book-img">
+//         <img class="shopping-book-poster" src="${el.book_image}" alt="${
+//           el.title ? el.title : bookTitle
+//         }" loading="lazy" />
+//   </div>
+//   <div class="shopping-book-text">
+//     <h2 class="shopping-book-title">${el.title ? elTitle : bookTitle}</h2>
+//     <p class="shopping-book-genres"></p>
+//     <p class="shopping-book-description"></p>
 
-function singleMarkUp (el){
-  console.log(el.title);
-  const markUp = `<li class="shopping-book-item">
-        <div class="shopping-book-img">
-          <img class="shopping-book-poster" src="${el.book_image}" alt="book-title '${el.title ? el.title : bookTitle}'" loading="lazy" />
-        </div>
-        <div class="shopping-book-text">
-          <h2 class="shopping-book-title">${el.title ? elTitle : bookTitle}</h2>
-          <p class="shopping-book-genres">${el.genres ? el.genres : genres}</p>
-          <p class="shopping-book-description">${el.description ? elDescription : description}</p>
+//     <div class="shopping-book-item-footer">
+//       <p class="shopping-book-author"></p>
+//       <ul class="shopping-book-shops">
+//         <li>
+//           <a class="shopping-shop-link" href="" target="_blank" rel="noreferrer noopener">
+//           <img class="shopping-svg-amazon" src="">
+//           </a>
+//         </li>
+//         <li>
+//           <a class="shopping-shop-link" href="" target="_blank" rel="noreferrer noopener">
+//           <img class="shopping-svg-open-book" src="">  
+//           </a>
+//         </li>
+//         <li>
+//           <a class="shopping-shop-link" href="" target="_blank" rel="noreferrer noopener">
+//           <img class="shopping-svg-book-shop" src="">
+//           </a>
+//         </li>
+//       </ul>
+//     </div>
+//     <button class="shopping-btn-delete">
+//       <svg class="svg-trash" width="16" height="16">
+//         <use class="svg" href="#trash"></use>
+//       </svg>
+//     </button>
+//   </div>
+// </li>`;
+//         //console.log(markUp);
+//         // return markUp
+// }
 
-          <div class="shopping-book-item-footer">
-            <p class="shopping-book-author">${el.author ? el.author : author}</p>
-            <ul class="shopping-book-shops">
-              <li>
-                <a href="${el.buy_links[0].url}" target="_blank" rel="noreferrer noopener">
-                  <svg width="32" height="11">
-                    <use
-                      href="${amazon}#Amazon_logo"
-                    ></use>                        
-                  </svg>
-                </a>
-              </li>
-              <li>
-                <a href="${el.buy_links[2].url}" target="_blank" rel="noreferrer noopener">
-                  <svg width="16" height="16">
-                    <use
-                      href="./images/shopping-svg/open-book.svg#open-book"
-                    ></use>
-                  </svg>
-                </a>
-              </li>
-              <li>
-                <a href="${el.buy_links[5].url}" target="_blank" rel="noreferrer noopener">
-                  <svg width="16" height="16">
-                    <use
-                      href="./images/shopping-svg/book-shop.svg#book-shop"
-                    ></use>
-                  </svg>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <button class="shopping-btn-delete">
-            <svg class="svg-trash" width="16" height="16">
-              <use class="svg" href="${svg}#trash"></use>
-            </svg>
-          </button>
-        </div>
-      </li>`
-      console.log(markUp);
-}
+//console.log(singleMarkUp());
+// function shoppingEmptyMarkup(){
+//   return `<p class="shopping-empty-text">
+//   This page is empty, add some books and proceed to order.
+// </p>
+// <img
+//   class="shopping-empty-img"
+//   src="${emptyBooks}"
+//   alt="books"
+// />`
+// }
 
-;
+
 
 function markUp(arr) {
   return arr
     .map(el => {
-      cutDescription(screenWidth);
-      //containerSupport(screenWidth);
+      cutDescription(screenWidth);      
 
       let elDescription = el.description;
       let elTitle = el.title;
-            
+
       if (screenWidth < 768) {
         elDescription = elDescription.split('').splice(0, 85).join('') + '...';        
         if(elTitle.length > 16){
         elTitle = elTitle.split('').splice(0, 16).join('') + '...';
-      }        
-        //console.log(elTitle);
+      }       
+        
       } else if (screenWidth >= 768 && screenWidth < 1440) {
         elDescription = el.description;
-        elDescription = elDescription.split('').splice(0, 248).join('') + '...';        
+        elDescription = elDescription.split('').splice(0, 248).join('') + '...';
       } else {
-        elDescription = el.description;        
+        elDescription = el.description;
       }
-      // const singleBook = singleMarkUp(el);
-      // return singleBook
+    
       return `<li class="shopping-book-item">
         <div class="shopping-book-img">
-          <img class="shopping-book-poster" src="${el.book_image}" alt="book-title '${el.title ? el.title : bookTitle}'" loading="lazy" />
+          <img class="shopping-book-poster" src="${
+            el.book_image
+          }" alt="book-title '${
+        el.title ? el.title : bookTitle
+      }'" loading="lazy" />
         </div>
         <div class="shopping-book-text">
           <h2 class="shopping-book-title">${el.title ? elTitle : bookTitle}</h2>
           <p class="shopping-book-genres">${el.genres ? el.genres : genres}</p>
-          <p class="shopping-book-description">${el.description ? elDescription : description}</p>
+          <p class="shopping-book-description">${
+            el.description ? elDescription : description
+          }</p>
 
           <div class="shopping-book-item-footer">
-            <p class="shopping-book-author">${el.author ? el.author : author}</p>
+            <p class="shopping-book-author">${
+              el.author ? el.author : author
+            }</p>
             <ul class="shopping-book-shops">
               <li>
-                <a href="${el.buy_links[0].url}" target="_blank" rel="noreferrer noopener">
-                  <svg width="32" height="11">
-                    <use
-                      href="${amazon}#Amazon_logo"
-                    ></use>                        
-                  </svg>
+                <a class="shopping-shop-link" href="${el.buy_links[0].url}" target="_blank" rel="noreferrer noopener">
+                <img class="shopping-svg-amazon" src="${amazon}">
                 </a>
               </li>
               <li>
-                <a href="${el.buy_links[2].url}" target="_blank" rel="noreferrer noopener">
-                  <svg width="16" height="16">
-                    <use
-                      href="${iShop2}#image0_0_1"
-                    ></use>
-                  </svg>
+                <a class="shopping-shop-link" href="${el.buy_links[2].url}" target="_blank" rel="noreferrer noopener">
+                <img class="shopping-svg-open-book" src="${iShop}">  
                 </a>
               </li>
               <li>
-                <a href="${el.buy_links[5].url}" target="_blank" rel="noreferrer noopener">
-                  <svg width="16" height="16">
-                    <use
-                      href="../images/shopping-svg/book-shop.png"
-                    ></use>
-                  </svg>
+                <a class="shopping-shop-link" href="${el.buy_links[5].url}" target="_blank" rel="noreferrer noopener">
+                <img class="shopping-svg-book-shop" src="${bookShop}">
                 </a>
               </li>
             </ul>
@@ -363,6 +357,8 @@ function markUp(arr) {
 
 function checkLocalStorage(arr) {
   if (!books.length) {
+    shoppingEmptyMarkup();
+    refs.emptyList.insertAdjacentHTML('afterbegin', shoppingEmptyMarkup());
     refs.emptyList.classList.remove('display');
     refs.bookList.classList.add('display');
     console.log('empty');
@@ -380,19 +376,18 @@ checkLocalStorage(books);
 
 refs.bookList.addEventListener('click', handlerDeleteBook);
 
-
 function handlerDeleteBook(evt) {
-  if (
+  if (   
     evt.target.nodeName !== 'BUTTON' &&
     evt.target.nodeName !== 'svg' &&
     evt.target.nodeName !== 'use'
-  ) {
-    console.log('error');
+    ) {
+      console.log('error');
+      return;
+    }       
+    const bookItem = document.querySelector('.shopping-book-item');
+    //removeItem(key); 
+    bookItem.remove();
     return;
-  }
-  const bookItem = document.querySelector('.shopping-book-item');
-  //console.log(evt.target);
-  //console.log('ok');
-  bookItem.remove();
-  return;
-}
+  } 
+ 
