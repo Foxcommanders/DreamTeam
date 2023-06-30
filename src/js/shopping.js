@@ -336,11 +336,6 @@ function handlerDeleteBook(evt) {
     return;
   } 
  
-  function qwe (){
-    refs.bookList.removeAttribute('checked');
-    refs.bookList.classList.add('qwe')
-
-    return
-  }
-  //console.log(qwe()); ;
+  const bookPoster = document.querySelector('.shopping-book-poster');
+console.log(bookPoster);
   
