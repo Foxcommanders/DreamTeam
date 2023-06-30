@@ -4,6 +4,7 @@ import './api-request.js';
 import './menu.js';
 import './scrollUp.js';
 import './pagination.js';
+import './loader.js';
 
 import { shoppingEmptyMarkup } from './render.js';
 //import symbol from '../images/shopping-svg/symbol-defs.svg';
