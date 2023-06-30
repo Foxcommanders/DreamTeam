@@ -1,5 +1,17 @@
 import Pagination from 'tui-pagination';
+import { markUp } from './shopping';
+import amazon from '../images/shopping-svg/amazon.png';
+import iShop from '../images/shopping-svg/i-shop.png';
+import bookShop from '../images/shopping-svg/book-shop.png';
+import svg from '../images/shopping-svg/trash.svg';
 
+const defaultBookData = {
+    bookTitle: 'Book title',
+    genres: 'Genres',
+    description:
+    'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga fugiat, dolorem repudiandae aspernatur iste minima dolore recusandae incidunt veritatis debitis nam quis maxime atque nulla voluptates quasi necessitatibus! Sunt, rem.',
+   author: 'Author',
+  }
 
 const paginationContainer = document.getElementById('tui-pagination-container');
 const paginationOptions = {
