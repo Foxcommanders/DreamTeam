@@ -194,6 +194,7 @@ const books = [
     ],
     __v: 0,
   },
+  
 ];
 
 const bookTitle = 'Book title';
@@ -364,7 +365,7 @@ function checkLocalStorage(arr) {
     console.log('empty');
   } else {
     markUp(arr);
-    refs.bookList.insertAdjacentHTML('afterbegin', markUp(books));
+    refs.bookList.insertAdjacentHTML('beforeend', markUp(books));
     refs.emptyList.classList.add('display');
     refs.bookList.classList.remove('display');
     //return
