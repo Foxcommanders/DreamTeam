@@ -1,16 +1,16 @@
 import './support.js';
-import './render.js';
+//import './render.js';
 import './api-request.js';
 import './menu.js';
+import './scrollUp.js';
 
 import { shoppingEmptyMarkup } from './render.js';
-import symbol from '../images/shopping-svg/symbol-defs.svg';
-import svg from '../images/shopping-svg/trash.svg';
+//import symbol from '../images/shopping-svg/symbol-defs.svg';
 import amazon from '../images/shopping-svg/amazon.png';
 import iShop from '../images/shopping-svg/i-shop.png';
-import bookShop from '../images/shopping-svg/image 2.png';
+import bookShop from '../images/shopping-svg/book-shop.png';
+import svg from '../images/shopping-svg/trash.svg';
 //import emptyBooks from '../images/shopping-svg/empty-books.webp'
-
 
 const refs = {
   emptyList: document.querySelector('.shopping-empty-list'),
@@ -212,92 +212,67 @@ function containerSupport(screenWidth) {
   }
   return;
 }
-
 containerSupport(screenWidth);
+
 function cutDescription(screenWidth) {
   if (screenWidth < 768) {
-    description = description.split('').splice(0, 85).join('') + '...';
-    //console.log('bookTEST:', description.length);
+    description = description.split('').splice(0, 85).join('') + '...';    
   } else if (screenWidth >= 768 && screenWidth < 1440) {
     description =
       'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga fugiat, dolorem repudiandae aspernatur iste minima dolore recusandae incidunt veritatis debitis nam quis maxime atque nulla voluptates quasi necessitatibus! Sunt, rem.';
-    description = description.split('').splice(0, 248).join('') + '...';
-    //console.log('bookTEST:', description.length);
+    description = description.split('').splice(0, 248).join('') + '...';    
   } else {
-    description = description;
-    //console.log(description.length);
+    description = description;   
   }
   return;
 }
 
-function singleMarkUp(el) {
-  console.log(el.title);
-  const markUp = `<li class="shopping-book-item">
-        <div class="shopping-book-img">
-          <img class="shopping-book-poster" src="${
-            el.book_image
-          }" alt="book-title '${
-    el.title ? el.title : bookTitle
-  }'" loading="lazy" />
-        </div>
-        <div class="shopping-book-text">
-          <h2 class="shopping-book-title">${el.title ? elTitle : bookTitle}</h2>
-          <p class="shopping-book-genres">${el.genres ? el.genres : genres}</p>
-          <p class="shopping-book-description">${
-            el.description ? elDescription : description
-          }</p>
+// function singleMarkUp(el) {
+//   //console.log(el.title);
+//   // const markUp =
+//   return `<li class="shopping-book-item">
+//      <div class="shopping-book-img">
+//         <img class="shopping-book-poster" src="${el.book_image}" alt="${
+//           el.title ? el.title : bookTitle
+//         }" loading="lazy" />
+//   </div>
+//   <div class="shopping-book-text">
+//     <h2 class="shopping-book-title">${el.title ? elTitle : bookTitle}</h2>
+//     <p class="shopping-book-genres"></p>
+//     <p class="shopping-book-description"></p>
 
-          <div class="shopping-book-item-footer">
-            <p class="shopping-book-author">${
-              el.author ? el.author : author
-            }</p>
-            <ul class="shopping-book-shops">
-              <li>
-                <a href="${
-                  el.buy_links[0].url
-                }" target="_blank" rel="noreferrer noopener">
-                  <svg width="32" height="11">
-                    <use
-                      href="${amazon}#Amazon_logo"
-                    ></use>                        
-                  </svg>
-                </a>
-              </li>
-              <li>
-                <a href="${
-                  el.buy_links[2].url
-                }" target="_blank" rel="noreferrer noopener">
-                  <svg width="16" height="16">
-                    <use
-                      href="./images/shopping-svg/open-book.svg#open-book"
-                    ></use>
-                  </svg>
-                </a>
-              </li>
-              <li>
-                <a href="${
-                  el.buy_links[5].url
-                }" target="_blank" rel="noreferrer noopener">
-                  <svg width="16" height="16">
-                    <use
-                      href="${symbol}#open-book2"
-                    ></use>
-                  </svg>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <button class="shopping-btn-delete">
-            <svg class="svg-trash" width="16" height="16">
-              <use class="svg" href="${svg}#trash"></use>
-            </svg>
-          </button>
-        </div>
-      </li>`;
-  console.log(markUp);
-}
+//     <div class="shopping-book-item-footer">
+//       <p class="shopping-book-author"></p>
+//       <ul class="shopping-book-shops">
+//         <li>
+//           <a class="shopping-shop-link" href="" target="_blank" rel="noreferrer noopener">
+//           <img class="shopping-svg-amazon" src="">
+//           </a>
+//         </li>
+//         <li>
+//           <a class="shopping-shop-link" href="" target="_blank" rel="noreferrer noopener">
+//           <img class="shopping-svg-open-book" src="">  
+//           </a>
+//         </li>
+//         <li>
+//           <a class="shopping-shop-link" href="" target="_blank" rel="noreferrer noopener">
+//           <img class="shopping-svg-book-shop" src="">
+//           </a>
+//         </li>
+//       </ul>
+//     </div>
+//     <button class="shopping-btn-delete">
+//       <svg class="svg-trash" width="16" height="16">
+//         <use class="svg" href="#trash"></use>
+//       </svg>
+//     </button>
+//   </div>
+// </li>`;
+//         //console.log(markUp);
+//         // return markUp
+// }
 
-
+//console.log(singleMarkUp());
 // function shoppingEmptyMarkup(){
 //   return `<p class="shopping-empty-text">
 //   This page is empty, add some books and proceed to order.
@@ -314,8 +289,7 @@ function singleMarkUp(el) {
 function markUp(arr) {
   return arr
     .map(el => {
-      cutDescription(screenWidth);
-      //containerSupport(screenWidth);
+      cutDescription(screenWidth);      
 
       let elDescription = el.description;
       let elTitle = el.title;
@@ -332,8 +306,7 @@ function markUp(arr) {
       } else {
         elDescription = el.description;
       }
-      // const singleBook = singleMarkUp(el);
-      // return singleBook
+    
       return `<li class="shopping-book-item">
         <div class="shopping-book-img">
           <img class="shopping-book-poster" src="${
@@ -382,7 +355,6 @@ function markUp(arr) {
     .join('');
 }
 
-
 function checkLocalStorage(arr) {
   if (!books.length) {
     shoppingEmptyMarkup();
@@ -404,11 +376,6 @@ checkLocalStorage(books);
 
 refs.bookList.addEventListener('click', handlerDeleteBook);
 
-const deleteBtn = document.querySelector('.shopping-btn-delete');
-const deleteSvg = document.querySelector('.svg-trash');
-const deleteUse = document.querySelector('.svg');
-
-
 function handlerDeleteBook(evt) {
   if (   
     evt.target.nodeName !== 'BUTTON' &&
@@ -418,29 +385,9 @@ function handlerDeleteBook(evt) {
       console.log('error');
       return;
     }       
-    const bookItem = document.querySelector('.shopping-book-item'); 
+    const bookItem = document.querySelector('.shopping-book-item');
+    //removeItem(key); 
     bookItem.remove();
     return;
-  }
-
-
-  //<svg class="shopping-svg-amazon">
-  //                  <use
-    //                  href="${symbol}#Amazon_logo"
-      //              ></use>                        
-        //          </svg>
-
-//<svg class="shopping-svg-open-book">
-  //                  <use
-    //                  href="${symbol}#open-book"
-      //              ></use>
-        //          </svg>
-
-//<svg class="shopping-svg-book-shop">
-  //                  <use
-    //                  href="${symbol}#book-shop"
-      //              ></use>
-        //          </svg>
-
-
+  } 
  
