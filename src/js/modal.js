@@ -3,7 +3,7 @@ import {getBookById} from './api-request.js';
 
 const backDrop = document.querySelector('.backdrop');
 const modal = document.querySelector('.modal');
-document.body.classList.add('is-hidden');
+document.body.classList.add('is-hidden')
 
 backDrop.addEventListener('click', onBackDropClick);
 
@@ -114,6 +114,7 @@ function onModalClose(e) {
    hideModal() 
 }
 function getShoppingList() {
+  
   const books = JSON.parse(localStorage.getItem('books') || '[]');
   return books;
 }
@@ -130,4 +131,5 @@ function onBookClick(e) {
   const id = targetElem.dataset.id;
   showModal(id);
 }
-// showModal('643282b1e85766588626a0a0');
+
+
