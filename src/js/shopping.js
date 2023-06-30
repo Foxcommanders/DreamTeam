@@ -197,6 +197,7 @@ const books = [
   
 ];
 
+
 const bookTitle = 'Book title';
 const genres = 'Genres';
 let description =
@@ -227,65 +228,6 @@ function cutDescription(screenWidth) {
   }
   return;
 }
-
-// function singleMarkUp(el) {
-//   //console.log(el.title);
-//   // const markUp =
-//   return `<li class="shopping-book-item">
-//      <div class="shopping-book-img">
-//         <img class="shopping-book-poster" src="${el.book_image}" alt="${
-//           el.title ? el.title : bookTitle
-//         }" loading="lazy" />
-//   </div>
-//   <div class="shopping-book-text">
-//     <h2 class="shopping-book-title">${el.title ? elTitle : bookTitle}</h2>
-//     <p class="shopping-book-genres"></p>
-//     <p class="shopping-book-description"></p>
-
-//     <div class="shopping-book-item-footer">
-//       <p class="shopping-book-author"></p>
-//       <ul class="shopping-book-shops">
-//         <li>
-//           <a class="shopping-shop-link" href="" target="_blank" rel="noreferrer noopener">
-//           <img class="shopping-svg-amazon" src="">
-//           </a>
-//         </li>
-//         <li>
-//           <a class="shopping-shop-link" href="" target="_blank" rel="noreferrer noopener">
-//           <img class="shopping-svg-open-book" src="">  
-//           </a>
-//         </li>
-//         <li>
-//           <a class="shopping-shop-link" href="" target="_blank" rel="noreferrer noopener">
-//           <img class="shopping-svg-book-shop" src="">
-//           </a>
-//         </li>
-//       </ul>
-//     </div>
-//     <button class="shopping-btn-delete">
-//       <svg class="svg-trash" width="16" height="16">
-//         <use class="svg" href="#trash"></use>
-//       </svg>
-//     </button>
-//   </div>
-// </li>`;
-//         //console.log(markUp);
-//         // return markUp
-// }
-
-//console.log(singleMarkUp());
-// function shoppingEmptyMarkup(){
-//   return `<p class="shopping-empty-text">
-//   This page is empty, add some books and proceed to order.
-// </p>
-// <img
-//   class="shopping-empty-img"
-//   src="${emptyBooks}"
-//   alt="books"
-// />`
-// }
-
-
 
 function markUp(arr) {
   return arr
@@ -392,3 +334,11 @@ function handlerDeleteBook(evt) {
     return;
   } 
  
+  function qwe (){
+    refs.bookList.removeAttribute('checked');
+    refs.bookList.classList.add('qwe')
+
+    return
+  }
+  //console.log(qwe()); ;
+  
