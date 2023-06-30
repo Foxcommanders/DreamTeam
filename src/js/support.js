@@ -7,9 +7,7 @@ import razom from '../Fondu/razom@2x.png';
 import hunger from '../Fondu/hunger@2x.png';
 import emergencies from '../Fondu/emergencies@2x.png';
 import prytula from '../Fondu/prytula@2x.png';
-
 import { createMarkupSupport } from './render.js';
-
 
 const Fonds = [
   {
@@ -62,20 +60,30 @@ const Fonds = [
 const refs = {
   list: document.querySelector('.js-list'),
   btn: document.querySelector('.show-more'),
-  images: document.querySelectorAll('img'),
 };
 
-
 createMarkupSupport(Fonds);
+
 refs.list.insertAdjacentHTML('afterbegin', createMarkupSupport(Fonds));
 
+const swiper = new Swiper('.mySwiper', {
+  direction: 'vertical',
+  loop: true,
+  spaceBetween: 20,
+  centeredSlides: true,
+  autoplay: {
+    delay: 1500,
+    disableOnInteraction: false,
+  },
+  slidesPerView: 6,
 
+  navigation: {
+    nextEl: '.swiper-button-next',
+  },
+});
 
-const container = document.querySelector('.sup');
-container.addEventListener('wheel', (event)=> {
-  container.scrollBy(0, event.deltaY);
-  event.preventDefault();
-})
+refs.btn.addEventListener("click", ()=>{swiper.slideNext(1000, false)})
+
 
 
 
