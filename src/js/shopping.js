@@ -2,9 +2,6 @@ import './support.js';
 //import './render.js';
 import './api-request.js';
 import './menu.js';
-import './pagination.js';
-
-import symbol from '../images/shopping-svg/symbol-defs.svg';
 import './scrollUp.js';
 
 import { shoppingEmptyMarkup } from './render.js';
@@ -18,9 +15,8 @@ import svg from '../images/shopping-svg/trash.svg';
 const refs = {
   emptyList: document.querySelector('.shopping-empty-list'),
   bookList: document.querySelector('.shopping-book-list'),  
-  shoppingSupport: document.querySelector('.container-support'),
+  shoppingSupport: document.querySelector('.container-support')
 };
-
 
 refs.emptyList.classList.add('display');
 refs.bookList.classList.add('display');
