@@ -73,7 +73,7 @@
 
 @media screen and (min-width: 768px) {
 
-
+  
   .home-title {
     font-size: 48px;
     line-height: 1.08;
@@ -107,9 +107,16 @@
   }
 }
 
-// @media only screen and (min-width: 768px) and (max-width: 1279px) {
-
-// }
+@media only screen and (min-width: 768px) and (max-width: 1439px) {
+  .sidebar-container{
+    display: flex;
+    gap: 32px;
+    margin-bottom: 100px;
+  }
+  .all-books-area{
+    margin-bottom: 100px;
+  }
+}
 
 @media screen and (min-width: 1280px) {
 }
