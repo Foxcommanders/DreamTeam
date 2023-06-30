@@ -486,6 +486,9 @@ input:checked + .slider:before {
   .auth-btn {
     display: none;
   }
+  .log-out-btn {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 768px) {
