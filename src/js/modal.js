@@ -124,7 +124,8 @@ const container = document.querySelector('.all-books-area');
 container.addEventListener('click', onBookClick);
 
 function onBookClick(e) {
-  const targetElem = e.target.closest('.book-item');
+ 
+  const targetElem = e.target.closest('.home-book-item');
   if (!targetElem) return;
   const id = targetElem.dataset.id;
   showModal(id);
