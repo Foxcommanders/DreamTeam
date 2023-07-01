@@ -1,32 +1,37 @@
 <!DOCTYPE html>
-<html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page title</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./sass/main.scss" />
+<html lang="en">
 
-  </head>
-  <body>
-    <include src="./partials/header.html"></include>
-    <main>
-      <div class="container">
-        <div class="sidebar-container">
-          <include src="./partials/sidebar.html"></include>
-          <include src="./partials/support.html"></include>
-        </div>
-        <include src="./partials/container.html"></include>
-        <include src="./partials/modal.html"></include>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page title</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="./sass/main.scss" />
 
+</head>
+
+<body>
+  <div class="loader-container">
+    <div class="loader"></div>
+  </div>
+  <include src="./partials/header.html"></include>
+  <main>
+    <div class="container">
+      <div class="sidebar-container">
+        <include src="./partials/sidebar.html"></include>
+        <include src="./partials/support.html"></include>
+      </div>
+      <include src="./partials/container.html"></include>
+      <include src="./partials/modal.html"></include>
+    </div>
+    </div>
   </main>
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
   <script type="module" src="./js/index.js"></script>
 
-  </body>
+</body>
+
 </html>
