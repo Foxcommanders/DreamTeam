@@ -197,7 +197,7 @@ function handlerDeleteBook(evt) {
   // refs.bookList.innerHTML = allBooksInfo(newLocalStorage);
   if(!newLocalStorage.length){
     console.log(222);
-    
+    document.getElementById('tui-pagination-container').setAttribute('hidden', 'true');
     refs.emptyList.insertAdjacentHTML('afterbegin', shoppingEmptyMarkup());
     //refs.emptyList.innerHTML = shoppingEmptyMarkup();
     refs.emptyList.classList.remove('display');
