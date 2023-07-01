@@ -98,6 +98,14 @@
   font-weight: 700;
   line-height: 1.29;
   letter-spacing: -0.14px;
+  background: inherit;
+  color: inherit;
+}
+
+.load-more:hover,
+.load-more:focus{
+  background: #4f2ee8;
+  color: rgba(255, 255, 255, 1);
 }
 
 .blur-up {
