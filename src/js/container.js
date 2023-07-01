@@ -23,12 +23,19 @@ async function handlerClickLoad(event) {
     }
   }
 }
+
 export function makeTitleAccent(categoryName) {
   console.log(categoryName);
   const arrOfName = categoryName.split(' ');
-  document.querySelector('.home-title').textContent = arrOfName.slice(0, arrOfName.length - 1).join(' ');
-  document.querySelector('.home-title').insertAdjacentHTML(
-    'beforeend',
-    ` <span class="home-title-accent">${arrOfName[arrOfName.length - 1]}</span>`
-  );
+  document.querySelector('.home-title').textContent = arrOfName
+    .slice(0, arrOfName.length - 1)
+    .join(' ');
+  document
+    .querySelector('.home-title')
+    .insertAdjacentHTML(
+      'beforeend',
+      ` <span class="home-title-accent">${
+        arrOfName[arrOfName.length - 1]
+      }</span>`
+    );
 }
