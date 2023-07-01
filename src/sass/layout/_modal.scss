@@ -135,14 +135,20 @@
         max-width: 288px;
     }
 
-    .js-elem {
-        display: block;
-        border-radius: 8px;
-        margin-bottom: 14px;
-        max-height: 408px;
-        width: 287px;
+  .modal-text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 288px;
+  }
+  .hidden {
+      opacity: 0;
+      display: none;
+      margin: 0;
+      height: 0;
+  }
 
-    }
+    
 
     .modal-text-container {
         display: flex;
