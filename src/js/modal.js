@@ -11,7 +11,7 @@ function createMarkup(book) {
   let textForeBtn = 'remove from the shopping list';
   let classForP = '';
   let books = getShoppingList();
-  const defaultText = 'lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem orem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem'
+  const defaultText = 'This book is suitable for a wide audience of readers. Its content will surely interest the reader. Also, the book provides a lot of new knowledge in various areas of life and gives food for thought. Enjoy reading!'
   if (!books.includes(book._id)) {
     textForeBtn = 'add to shopping list';
     classForP = 'hidden'
@@ -32,25 +32,31 @@ function createMarkup(book) {
         <p class="modal-history-text">${book.description || defaultText}</p>
         <ul class="modal-list">
         ${buy_links[0]?`<li class="modal-item">
-            <a href="${buy_links[0].url}" class="">
-              <svg class="modal-img" width="62" height="20">
-                <use href=${require('../images/modal-icons/symbol-defs.svg')}#Amazon_logo></use>
-              </svg>
+            <div class="modal-img-thumb">
+              <a href="${buy_links[0].url}" class="">
+                <svg class="modal-img" width="62" height="20">
+                  <use href=${require('../images/modal-icons/symbol-defs.svg')}#Amazon_logo></use>
+                </svg>
             </a>
+            </div>
           </li>`: ''}
         ${buy_links[1]?`<li class="modal-item">
-            <a href="${buy_links[1].url}" class="">
-             <svg class="modal-img" width="33" height="32">
-                <use href=${require('../images/modal-icons/symbol-defs.svg')}#open-book></use>
-              </svg>
-            </a>
+            <div class="modal-img-thumb">
+              <a href="${buy_links[1].url}" class="">
+                <svg class="modal-img" width="33" height="32">
+                  <use href=${require('../images/modal-icons/symbol-defs.svg')}#open-book></use>
+                </svg>
+              </a>
+            </div>
           </li>`: ''}
         ${buy_links[4] ?`<li class="modal-item">
-            <a href="${buy_links[4].url}" class="">
-              <svg class="modal-img " width="38" height="36">
-                <use href=${require('../images/modal-icons//symbol-defs.svg')}#book-shop></use>
-              </svg>
-            </a> 
+            <div class="modal-img-thumb">
+              <a href="${buy_links[4].url}" class="">
+                <svg class="modal-img " width="38" height="36">
+                  <use href=${require('../images/modal-icons//symbol-defs.svg')}#book-shop></use>
+                </svg>
+              </a> 
+            </div>
           </li>`:''}
         </ul>
       </div>
@@ -131,5 +137,3 @@ function onBookClick(e) {
   const id = targetElem.dataset.id;
   showModal(id);
 }
-
-
