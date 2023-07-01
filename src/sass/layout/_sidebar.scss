@@ -20,12 +20,12 @@ font-weight: 700;
 text-transform: uppercase;
 }
 
-.dark{
-    background-color: var(--main-dark-bg-color);
+body.dark .category-container{
+    // background-color: var(--main-dark-bg-color);
     color: rgba(255, 255, 255, 0.60);
 }
 
-.dark.active-category{
+body.dark .active-category{
     color: var(--another-accent-color);
 }
 
