@@ -1,8 +1,46 @@
 /*=============== HEADER ===============*/
+body.dark .page-header {
+  background-color: var(--main-dark-color);
+}
+
+body.dark .page-header {
+  border: 1.5px solid var(--main-white-color);
+}
+
+body.dark .logo-text {
+  color: var(--white-logo-color);
+}
+
+body.dark .nav-link {
+  color: var(--main-white-color);
+}
+
+body.dark .icon-header {
+  fill: var(--main-white-color);
+}
+
+body.dark .current {
+  color: var(--main-dark-color);
+}
+
+body.dark .shoplist.current {
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+body.dark .current .icon-header {
+  fill: var(--main-dark-color);
+}
+
+body.dark .icon-menu,
+body.dark .icon-cross {
+  stroke: var(--main-white-color);
+}
+
 .page-header {
   background-color: var(--main-white-color);
   border-radius: 0px 0px 8px 8px;
-  border: 1.5px solid #111;
+  border: 1.5px solid var(--main-dark-color);
   max-width: 1440px;
   margin: 0 auto;
 }
