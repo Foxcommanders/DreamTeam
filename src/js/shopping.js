@@ -222,30 +222,7 @@ function containerSupport(screenWidth) {
 }
 containerSupport(screenWidth);
 
-
-// function bookCardNormalize(el){
-//   let elDescription = el.description;
-//   let elTitle = el.title;
-//   if (window.screen.width < 768) {
-//     defaultBookData.description = defaultBookData.description.split('').splice(0, 85).join('') + '...';
-//     elDescription = elDescription.split('').splice(0, 85).join('') + '...';
-//     if(elTitle.length > 16){
-//     elTitle = elTitle.split('').splice(0, 16).join('') + '...';
-//   }
-//   } else if (window.screen.width >= 768 && window.screen.width < 1440) {
-//     elDescription = el.description;
-//     elDescription = elDescription.split('').splice(0, 248).join('') + '...';
-//     defaultBookData.description =
-//     'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga fugiat, dolorem repudiandae aspernatur iste minima dolore recusandae incidunt veritatis debitis nam quis maxime atque nulla voluptates quasi necessitatibus! Sunt, rem.';
-//     defaultBookData.description = defaultBookData.description.split('').splice(0, 248).join('') + '...';
-//   } else {
-//     elDescription = el.description;
-//     defaultBookData.description = defaultBookData.description;
-//   }
-//   return [elDescription, elTitle]
-// }
-
-function markUp(arr, { bookTitle,  genres,  description,  author}) {
+export function markUp(arr, { bookTitle,  genres,  description,  author}) {
   return arr.map(el => {
     let elDescription = el.description;
     let elTitle = el.title;
@@ -274,10 +251,10 @@ function markUp(arr, { bookTitle,  genres,  description,  author}) {
       }'" loading="lazy" />
         </div>
         <div class="shopping-book-text">
-          <h2 class="shopping-book-title">${el.title ? normalizedTitle : bookTitle}</h2>
+          <h2 class="shopping-book-title">${el.title ? elTitle : bookTitle}</h2>
           <p class="shopping-book-genres">${el.genres ? el.genres : genres}</p>
           <p class="shopping-book-description">${
-            el.description ? normalizedDescr : description
+            el.description ?  elDescription : description
           }</p>
 
           <div class="shopping-book-item-footer">
@@ -321,8 +298,8 @@ function checkLocalStorage(arr) {
     refs.bookList.classList.add('display');
     console.log('empty');
   } else {
-    markUp(arr);
-    refs.bookList.insertAdjacentHTML('afterbegin', markUp(books));
+    // markUp(arr, defaultBookData);
+    refs.bookList.insertAdjacentHTML('afterbegin', markUp(books, defaultBookData));
     refs.emptyList.classList.add('display');
     refs.bookList.classList.remove('display');
     //return
