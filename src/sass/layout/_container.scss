@@ -36,13 +36,21 @@
 }
 
 .home-book-list {
+  display: flex;
+    flex-direction: column;
+    row-gap: 40px;
   max-width: 335px;
   margin-bottom: 8px;
+}
+
+.home-book-item {
+  width: 335px;
 }
 
 .home-book-photo {
   display: block;
   max-width: 335px;
+  width: 100%;
   margin-bottom: 14px;
   height: 485px;
 }
@@ -71,6 +79,7 @@
   align-items: flex-start;
   border-radius: 40px;
   border: 2px solid var(--accent-color);
+  font-style: normal;
   font-size: 14px;
   font-weight: 700;
   line-height: 1.29;
@@ -108,7 +117,8 @@
     margin-bottom: 20px;
     display: flex;
     flex-direction: row;
-    gap: 25px;
+    flex-wrap: wrap;
+    column-gap: 25px;
   }
 
   .home-book-item {
@@ -144,9 +154,7 @@
   .home-book-list {
     max-width: 996px;
     margin-bottom: 32px;
-    display: flex;
-    flex-direction: row;
-    gap: 24px;
+    column-gap: 24px;
   }
 
   .home-book-item {

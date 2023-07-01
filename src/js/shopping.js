@@ -1,10 +1,11 @@
 import './support.js';
-import './render.js';
-import './api-request.js';
+//import './render.js';
+//import './api-request.js';
 import './menu.js';
 import './scrollUp.js';
 import './pagination.js';
 import './loader.js';
+import './theme-swich.js';
 
 import { shoppingEmptyMarkup } from './render.js';
 import {getBookById} from './api-request.js';
@@ -50,20 +51,18 @@ containerSupport(screenWidth);
 export function markUp(arr, {bookTitle, genres, description, author}) {
   return arr
     .map(el => {
-      
-
       let elDescription = el.description;
       let elTitle = el.title;
-       
+
       if (window.screen.width < 768) {
         description = description.split('').splice(0, 85).join('') + '...';
         elDescription = elDescription.split('').splice(0, 85).join('') + '...';
-        if (elTitle.length > 16) {          
+        if (elTitle.length > 16) {
           elTitle = elTitle.split('').splice(0, 16).join('') + '...';
         }
       } else if (window.screen.width >= 768 && window.screen.width < 1440) {
         description =
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga fugiat, dolorem repudiandae aspernatur iste minima dolore recusandae incidunt veritatis debitis nam quis maxime atque nulla voluptates quasi necessitatibus! Sunt, rem.';
+          'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga fugiat, dolorem repudiandae aspernatur iste minima dolore recusandae incidunt veritatis debitis nam quis maxime atque nulla voluptates quasi necessitatibus! Sunt, rem.';
         description = description.split('').splice(0, 248).join('') + '...';
         elDescription = el.description;
         elDescription = elDescription.split('').splice(0, 248).join('') + '...';
@@ -84,7 +83,7 @@ export function markUp(arr, {bookTitle, genres, description, author}) {
           <h2 class="shopping-book-title">${el.title ? elTitle : bookTitle}</h2>
           <p class="shopping-book-genres">${el.genres ? el.genres : genres}</p>
           <p class="shopping-book-description">${
-            el.description ? elDescription : description
+            el.description ?  elDescription : description
           }</p>
 
           <div class="shopping-book-item-footer">
@@ -139,8 +138,9 @@ async function allBooksInfo (arr){
 }
 
 function checkLocalStorage(arr) {
-  if (!arr.length) {
-    refs.emptyList.insertAdjacentHTML('afterbegin', shoppingEmptyMarkup());
+  if (!books.length) {
+    document.getElementById('tui-pagination-container').setAttribute('hidden', 'true');
+    refs.emptyList.insertAdjacentHTML('afterbegin', shoppingEmptyMarkup());////if (!arr.length) {
     refs.emptyList.classList.remove('display');
     refs.bookList.classList.add('display');
     console.log('empty');
