@@ -3,8 +3,7 @@ import {getBookById} from './api-request.js';
 
 const backDrop = document.querySelector('.backdrop');
 const modal = document.querySelector('.modal');
-document.body.classList.add('is-hidden')
-
+document.body.classList.add('is-hidden');
 backDrop.addEventListener('click', onBackDropClick);
 
 function createMarkup(book) {
