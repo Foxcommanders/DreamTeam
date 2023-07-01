@@ -252,14 +252,14 @@ input:checked + .slider:before {
 .purpul-background {
   background: radial-gradient(
     189.32% 190.93% at 59.76% -23.42%,
-    #4f2ee8 18.03%,
+    #6f53ef 18.03%,
     #fff 100%
   );
 }
 
 .overlay {
   position: fixed;
-  top: 65.5px;
+  top: 67.5px;
   left: 0;
   z-index: 12;
   overflow: auto;
