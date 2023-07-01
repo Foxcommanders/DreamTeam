@@ -136,3 +136,19 @@ function onBookClick(e) {
   const id = targetElem.dataset.id;
   showModal(id);
 }
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   const changeColor = document.querySelector('input[name=switcher_checkbox]');
+//   const modal = document.getElementById('.modal'); 
+
+//   changeColor.addEventListener('change', (e) => {
+//     e.preventDefault();
+//     if (changeColor.checked) {
+//       modal.style.backgroundColor = '#202024';
+//       localStorage.setItem('mode', 'dark');
+//     } else {
+//       modal.style.backgroundColor = '#F6F6F6';
+//       localStorage.setItem('mode', 'light');
+//     }
+//   });
+// });
