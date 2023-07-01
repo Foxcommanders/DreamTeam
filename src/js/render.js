@@ -1,5 +1,25 @@
 import emptyBooks from '../images/shopping-svg/empty-books.webp';
-import { clipBookTitle } from './container.js';
+
+function clipBookTitle(title) {
+  let clippedTitle = '';
+  if (window.screen.width < 768) {
+    let maxLength = 33;
+    title.length > maxLength
+      ? (clippedTitle = title.slice(0, maxLength - 1) + '...')
+      : (clippedTitle = title);
+  } else if (window.screen.width >= 768 && window.screen.width < 1440) {
+    let maxLength = 21;
+    title.length > maxLength
+      ? (clippedTitle = title.slice(0, maxLength - 1) + '...')
+      : (clippedTitle = title);
+  } else {
+    let maxLength = 18;
+    title.length > maxLength
+      ? (clippedTitle = title.slice(0, maxLength - 1) + '...')
+      : (clippedTitle = title);
+  }
+  return clippedTitle;
+}
 
 export function createCategoriesMarkup(arr) {
   return arr
