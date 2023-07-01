@@ -168,8 +168,10 @@ function handlerDeleteBook(evt) {
   const bookItem = document.querySelector('.shopping-book-item');  
   // const arr = Array.from(evt.currentTarget.children);
   // console.log(arr);
-  const deleteBook = evt.target.parentNode.parentNode;
-  //console.log(evt.target.parentNode.parentNode);
+  const deleteBook = evt.target.parentNode.parentNode
+  // || evt.target.parentNode.parentNode.parentNode || evt.target.parentNode.parentNode.parentNode.parentNode
+  console.log("Батько:", evt.target.parentNode.parentNode);
+  console.log('Де клік:', evt.target);
   const onId = deleteBook.dataset['id'];
   //console.log(onId);
   const deleteIndex = newLocalStorage.indexOf(onId);
@@ -182,7 +184,8 @@ function handlerDeleteBook(evt) {
   refs.bookList.innerHTML = allBooksInfo(renewLocal)
   if(!renewLocal.length){
     console.log(222);
-    refs.emptyList.innerHTML = shoppingEmptyMarkup();
+    refs.emptyList.insertAdjacentHTML('afterbegin', shoppingEmptyMarkup());
+    //refs.emptyList.innerHTML = shoppingEmptyMarkup();
     refs.emptyList.classList.remove('display');
     refs.bookList.classList.add('display')
     //refs.emptyList.inneinsertAdjacentHTML('afterbegin', shoppingEmptyMarkup());

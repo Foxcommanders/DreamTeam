@@ -187,6 +187,11 @@ img{
 .svg-trash{
     fill: var(--accent-color);
 }
+.svg{
+    display: block;
+    min-width:16px;
+    height:16px;
+}
 
 // .shopping-btn-next{
 //     display: block;
