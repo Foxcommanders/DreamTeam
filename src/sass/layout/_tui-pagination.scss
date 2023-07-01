@@ -235,13 +235,10 @@
 .tui-pagination .tui-ico-first, .tui-pagination .tui-ico-prev, .tui-pagination .tui-ico-next, .tui-pagination .tui-ico-last, .tui-pagination .tui-ico-ellip {
     vertical-align: sub;
 }
+}
 
 .tui-pagination .tui-is-disabled.tui-first{
     background-color: black;}
-
-}
-
-
 
 .tui-pagination .tui-is-disabled.tui-prev{
     background-color: black;
@@ -256,6 +253,11 @@
 body.dark .tui-pagination .tui-page-btn {
     color: #fff;
     border: 1px solid #fff;
+}
+
+body.dark .tui-pagination .tui-page-btn:hover {
+    color:  #EAC645;
+
 }
 
 body.dark .tui-pagination .tui-is-selected{
