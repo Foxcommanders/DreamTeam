@@ -102,7 +102,7 @@ export function renderMarkupBook(books, valueIteration) {
 export function createMarkupSupport(arr) {
   const markup = arr
     .map(({ title, url, img }, idx) => {
-      return `<li class="list-item"><span class="number" >0${idx + 1}</span>
+      return `<li class="list-item swiper-slide"><span class="number" >0${idx + 1}</span>
         <a  href="${url}">
             <img class="normalize-img" src="${img}" alt="${title} height="35">
             </a>
@@ -122,3 +122,5 @@ export function shoppingEmptyMarkup() {
   alt="books"
 />`;
 }
+
+
