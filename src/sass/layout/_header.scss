@@ -402,6 +402,10 @@ input:checked + .slider:before {
   .log-out-btn {
     display: none;
   }
+
+  .scroll-up-btn {
+    width: 40px;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -465,8 +469,4 @@ input:checked + .slider:before {
 
 .scroll-up.show {
   opacity: 1;
-}
-
-.scroll-up-btn {
-  width: 40px;
 }
