@@ -37,10 +37,13 @@ export function renderBooks(arr) {
     .map(({ _id, title, author, book_image }) => {
       titleBook = clipBookTitle(title);
       return `<li class="home-book-item" data-id="${_id}">
+            <div class="home-thumb-photo">
               <img data-src="${book_image}"
                 alt="${title}"
                 class="lazyload home-book-photo blur-up"
                 >
+                <p class="overlay-text">quick view</p>
+            </div>
               <h3 class="home-book-name">${titleBook}</h3>
               <p class="home-book-author">${author}</p>
             </li>`;
@@ -63,10 +66,12 @@ export function renderTopBooks(arr) {
 
           <ul class="home-book-list">
           <li class="home-book-item" data-id="${_id}">
+          <div class="home-thumb-photo">
               <img data-src="${book_image}"
                 alt="${title}"
                 class="lazyload home-book-photo blur-up"
                 >
+            </div>
               <h3 class="home-book-name">${titleBook}</h3>
               <p class="home-book-author">${author}</p>
             </li>
@@ -108,10 +113,13 @@ export function renderMarkupBook(books, valueIteration) {
   for (let i = 0; i < valueIteration; i += 1) {
     titleBook = clipBookTitle(books[i].title);
     markItem += `<li class="home-book-item" data-id="${books[i]._id}">
+              <div class="home-thumb-photo">
               <img data-src="${books[i].book_image}"
                 alt="${books[i].title}"
                 class="lazyload home-book-photo blur-up"
                 >
+                <p class="overlay-text">quick view</p>
+                </div>
               <h3 class="home-book-name">${titleBook}</h3>
               <p class="home-book-author">${books[i].author}</p>
             </li>`;
@@ -122,7 +130,9 @@ export function renderMarkupBook(books, valueIteration) {
 export function createMarkupSupport(arr) {
   const markup = arr
     .map(({ title, url, img }, idx) => {
-      return `<li class="list-item swiper-slide"><span class="number" >0${idx + 1}</span>
+      return `<li class="list-item swiper-slide"><span class="number" >0${
+        idx + 1
+      }</span>
         <a  href="${url}">
             <img class="normalize-img" src="${img}" alt="${title} height="35">
             </a>
@@ -142,5 +152,3 @@ export function shoppingEmptyMarkup() {
   alt="books"
 />`;
 }
-
-
