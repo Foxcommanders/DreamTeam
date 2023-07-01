@@ -5,6 +5,7 @@ import './menu.js';
 import './scrollUp.js';
 import './pagination.js';
 import './loader.js';
+import './theme-swich.js';
 
 import { shoppingEmptyMarkup } from './render.js';
 //import symbol from '../images/shopping-svg/symbol-defs.svg';
@@ -205,9 +206,7 @@ const books = [
     ],
     __v: 0,
   },
-  
 ];
-
 
 const bookTitle = 'Book title';
 const genres = 'Genres';
@@ -301,27 +300,25 @@ const defaultBookData = {
   bookTitle: 'Book title',
   genres: 'Genres',
   description:
-  'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga fugiat, dolorem repudiandae aspernatur iste minima dolore recusandae incidunt veritatis debitis nam quis maxime atque nulla voluptates quasi necessitatibus! Sunt, rem.',
- author: 'Author',
-}
+    'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga fugiat, dolorem repudiandae aspernatur iste minima dolore recusandae incidunt veritatis debitis nam quis maxime atque nulla voluptates quasi necessitatibus! Sunt, rem.',
+  author: 'Author',
+};
 
-export function markUp(arr, {bookTitle, genres, description, author}) {
+export function markUp(arr, { bookTitle, genres, description, author }) {
   return arr
     .map(el => {
-      
-
       let elDescription = el.description;
       let elTitle = el.title;
-       
+
       if (window.screen.width < 768) {
         description = description.split('').splice(0, 85).join('') + '...';
         elDescription = elDescription.split('').splice(0, 85).join('') + '...';
-        if (elTitle.length > 16) {          
+        if (elTitle.length > 16) {
           elTitle = elTitle.split('').splice(0, 16).join('') + '...';
         }
       } else if (window.screen.width >= 768 && window.screen.width < 1440) {
         description =
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga fugiat, dolorem repudiandae aspernatur iste minima dolore recusandae incidunt veritatis debitis nam quis maxime atque nulla voluptates quasi necessitatibus! Sunt, rem.';
+          'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga fugiat, dolorem repudiandae aspernatur iste minima dolore recusandae incidunt veritatis debitis nam quis maxime atque nulla voluptates quasi necessitatibus! Sunt, rem.';
         description = description.split('').splice(0, 248).join('') + '...';
         elDescription = el.description;
         elDescription = elDescription.split('').splice(0, 248).join('') + '...';
@@ -392,7 +389,10 @@ function checkLocalStorage(arr) {
     refs.bookList.classList.add('display');
     console.log('empty');
   } else {
-    refs.bookList.insertAdjacentHTML('afterbegin', markUp(books, defaultBookData));
+    refs.bookList.insertAdjacentHTML(
+      'afterbegin',
+      markUp(books, defaultBookData)
+    );
     refs.emptyList.classList.add('display');
     refs.bookList.classList.remove('display');
     //return
