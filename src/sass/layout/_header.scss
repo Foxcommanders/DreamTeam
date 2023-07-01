@@ -1,3 +1,7 @@
+.header-btn {
+  cursor: pointer;
+}
+
 /*=============== HEADER ===============*/
 body.dark .page-header {
   background-color: var(--main-dark-color);
@@ -35,6 +39,24 @@ body.dark .current .icon-header {
 body.dark .icon-menu,
 body.dark .icon-cross {
   stroke: var(--main-white-color);
+}
+
+body.dark .log-out-btn {
+  background: radial-gradient(
+    189.32% 190.93% at 59.76% -23.42%,
+    #4f2ee8 18.03%,
+    #fff 100%
+  );
+  color: var(--main-white-color);
+}
+
+body.dark .sign-up-btn {
+  background: radial-gradient(
+    189.32% 190.93% at 59.76% -23.42%,
+    #4f2ee8 18.03%,
+    #fff 100%
+  );
+  color: var(--main-white-color);
 }
 
 .page-header {
@@ -216,26 +238,46 @@ input:checked + .slider:before {
   stroke: var(--accent-color);
 }
 
-// .auth-btn {
-//   color: var(--main-white-color);
-//   background-color: var(--accent-color);
-//   border-color: transparent;
-//   width: 184px;
-//   height: 45px;
-//   border-radius: 36px;
-//   font-size: 22px;
-//   font-weight: 700;
-//   letter-spacing: -0.44px;
-// }
+.auth-btn {
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+  padding-right: 12px;
+  color: var(--main-white-color);
+  background-color: var(--accent-color);
+  border: 1.5px solid var(--accent-color);
+  width: 184px;
+  height: 45px;
+  border-radius: 36px;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.44px;
+}
+.auth-img {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 37px;
+  height: 37px;
+  border-radius: 50%;
+  color: #fff;
+  background-color: var(--main-white-color);
+  margin-right: 9px;
+}
+.auth-user-icon {
+  fill: var(--accent-color);
+}
 
-.log-out-btn {
+.auth-icon {
+  fill: var(--main-white-color);
+  margin-left: 4px;
+}
+
+.unauth-btn {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 14px 14px;
-  color: var(--main-dark-color);
-  background-color: var(--main-white-color);
-  border: 1.5px solid #111;
   width: 184px;
   height: 48px;
   border-radius: 18px;
@@ -243,8 +285,26 @@ input:checked + .slider:before {
   line-height: 1.29;
   letter-spacing: -0.56px;
 }
-.log-out-icon {
+
+.log-out-btn {
+  // background: radial-gradient(
+  //   189.32% 190.93% at 59.76% -23.42%,
+  //   #4f2ee8 18.03%,
+  //   #fff 100%
+  // );
+  color: var(--main-dark-color);
+  background-color: var(--main-white-color);
+  border: 1.5px solid var(--main-dark-color);
+}
+
+.arrow-right-icon {
   stroke: var(--another-accent-color);
+}
+
+.sign-up-btn {
+  color: var(--main-white-color);
+  background-color: var(--accent-color);
+  border: 1.5px solid var(--main-dark-color);
 }
 
 // =============Mobile menu====================
@@ -252,14 +312,14 @@ input:checked + .slider:before {
 .purpul-background {
   background: radial-gradient(
     189.32% 190.93% at 59.76% -23.42%,
-    #4f2ee8 18.03%,
+    #6f53ef 18.03%,
     #fff 100%
   );
 }
 
 .overlay {
   position: fixed;
-  top: 65.5px;
+  top: 67.5px;
   left: 0;
   z-index: 12;
   overflow: auto;
