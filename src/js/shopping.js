@@ -1,6 +1,6 @@
 import './support.js';
-import './render.js';
-import './api-request.js';
+//import './render.js';
+//import './api-request.js';
 import './menu.js';
 import './scrollUp.js';
 import './pagination.js';
@@ -339,7 +339,7 @@ export function markUp(arr, { bookTitle, genres, description, author }) {
           <h2 class="shopping-book-title">${el.title ? elTitle : bookTitle}</h2>
           <p class="shopping-book-genres">${el.genres ? el.genres : genres}</p>
           <p class="shopping-book-description">${
-            el.description ? elDescription : description
+            el.description ?  elDescription : description
           }</p>
 
           <div class="shopping-book-item-footer">
@@ -383,6 +383,7 @@ export function markUp(arr, { bookTitle, genres, description, author }) {
 
 function checkLocalStorage(arr) {
   if (!books.length) {
+    document.getElementById('tui-pagination-container').setAttribute('hidden', 'true');
     refs.emptyList.insertAdjacentHTML('afterbegin', shoppingEmptyMarkup());
     refs.emptyList.classList.remove('display');
     refs.bookList.classList.add('display');
