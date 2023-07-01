@@ -108,10 +108,10 @@ export function renderMarkupBook(books, valueIteration, widthImg, heigthImg) {
 
 export function createMarkupSupport(arr) {
   const markup = arr
-    .map(({ title, url, img }, idx) => {
+    .map(({ title, url, img, img2 }, idx) => {
       return `<li class="list-item swiper-slide"><span class="number" >0${idx + 1}</span>
         <a  href="${url}">
-            <img class="normalize-img" src="${img}" alt="${title} height="35">
+            <img class="normalize-img" src="${img}" srcset="${img} 1x, ${img2} 2x" alt="${title} loading="laxy">
             </a>
             </li>`;
     })
