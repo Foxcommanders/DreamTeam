@@ -3,9 +3,8 @@ import { getBookById } from './api-request.js';
 
 const backDrop = document.querySelector('.backdrop');
 const modal = document.querySelector('.modal');
-document.body.classList.add('is-hidden');
+document.body.classList.add('is-hidden')
 backDrop.addEventListener('click', onBackDropClick);
-
 function createMarkup(book) {
   let textForBtn = 'remove from the shopping list';
   let classForP = '';
@@ -53,7 +52,7 @@ function createMarkup(book) {
                 <svg class="modal-img " width="38" height="36">
                   <use href=${require('../images/modal-icons//symbol-defs.svg')}#book-shop></use>
                 </svg>
-              </a> 
+              </a>
             </div>
           </li>` : ''}
         </ul>
@@ -64,7 +63,6 @@ function createMarkup(book) {
   `;
   modal.innerHTML = markup;
 };
-
 export async function showModal(bookId) {
   const book = await getBookById(bookId);
   createMarkup(book);
@@ -72,13 +70,11 @@ export async function showModal(bookId) {
   document.body.classList.add('lock-body');
   addListener();
 }
-
 function hideModal() {
   document.body.classList.remove('lock-body');
   document.body.classList.add('is-hidden')
   window.removeEventListener('keydown', onModalClose);
 }
-
 function addListener() {
   const modalBtn = modal.querySelector('.js-modal-btn');
   modalBtn.addEventListener('click', hideModal);
@@ -86,7 +82,6 @@ function addListener() {
   const addBtn = document.querySelector('.js-modal-addbtn');
   addBtn.addEventListener('click', onAddBtn);
 }
-
 function onAddBtn(e) {
   const id = e.currentTarget.dataset['id'];
   let books = getShoppingList();
@@ -101,32 +96,32 @@ function onAddBtn(e) {
   }
   localStorage.setItem('books', JSON.stringify(books));
 }
-
 function onBackDropClick(e) {
   if (e.target !== e.currentTarget)
     return;
   hideModal();
 }
-
 function onModalClose(e) {
   if (e.key === 'Escape')
     hideModal();
 }
-
 function getShoppingList() {
   const books = JSON.parse(localStorage.getItem('books') || '[]');
   return books;
 }
-
 const container = document.querySelector('.all-books-area');
-
 container.addEventListener('click', onBookClick);
-
 function onBookClick(e) {
   const targetElem = e.target.closest('.home-book-item');
   if (!targetElem) return;
   const id = targetElem.dataset.id;
   showModal(id);
 }
+
+
+
+
+
+
 
 
