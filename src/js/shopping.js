@@ -1,6 +1,6 @@
 import './support.js';
-//import './render.js';
-//import './api-request.js';
+import './render.js';
+import './api-request.js';
 import './menu.js';
 import './scrollUp.js';
 import './pagination.js';
@@ -9,11 +9,11 @@ import './theme-swich.js';
 
 import { shoppingEmptyMarkup } from './render.js';
 import {getBookById} from './api-request.js';
-import axios, { all } from 'axios';
-//import symbol from '../images/shopping-svg/symbol-defs.svg';
-import amazon from '../images/shopping-svg/amazon.png';
-import iShop from '../images/shopping-svg/i-shop.png';
-import bookShop from '../images/shopping-svg/book-shop.png';
+//import axios, { all } from 'axios';
+import symbol from '../images/shopping-svg/symbol-defs.svg';
+// import amazon from '../images/shopping-svg/amazon.png';
+// import iShop from '../images/shopping-svg/i-shop.png';
+// import bookShop from '../images/shopping-svg/book-shop.png';
 import svg from '../images/shopping-svg/trash.svg';
 //import emptyBooks from '../images/shopping-svg/empty-books.webp'
 
@@ -28,18 +28,21 @@ refs.bookList.classList.add('display');
 
 
 const booksLocalStorage = JSON.parse(localStorage.getItem('books') || '[]');
-const screenWidth = window.screen.width;
+let screenWidth = window.innerWidth;
+// let screenWidth = window.screen.width;
+console.log('let', screenWidth);
+// console.log(booksLocalStorage);
 
 const defaultBookData = {
   bookTitle: 'Book title',
   genres: 'Genres',
   description:
-  'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga fugiat, dolorem repudiandae aspernatur iste minima dolore recusandae incidunt veritatis debitis nam quis maxime atque nulla voluptates quasi necessitatibus! Sunt, rem.',
+  'This book is suitable for a wide audience of readers. Its content will surely interest the reader. Also, the book provides a lot of new knowledge in various areas of life and gives food for thought. Enjoy reading!',
  author: 'Author',
 }
 
-function containerSupport(screenWidth) {
-  if (screenWidth < 1440) {
+function containerSupport(screen) {
+  if (screen < 1440) {
     refs.shoppingSupport.classList.add('display');
   } else {
     refs.shoppingSupport.classList.remove('display');
@@ -48,19 +51,30 @@ function containerSupport(screenWidth) {
 }
 containerSupport(screenWidth);
 
+function containerSupportDynamic(screen) {
+  if (screen < 1421) {    
+    refs.shoppingSupport.classList.add('display')
+  } else { 
+    refs.shoppingSupport.classList.remove('display');
+  }
+  return;
+}
+
+console.log(screenWidth);
+
 export function markUp(arr, {bookTitle, genres, description, author}) {
   return arr
     .map(el => {
       let elDescription = el.description;
       let elTitle = el.title;
 
-      if (window.screen.width < 768) {
+      if (window.innerWidth < 768) {
         description = description.split('').splice(0, 85).join('') + '...';
         elDescription = elDescription.split('').splice(0, 85).join('') + '...';
         if (elTitle.length > 16) {
           elTitle = elTitle.split('').splice(0, 16).join('') + '...';
         }
-      } else if (window.screen.width >= 768 && window.screen.width < 1440) {
+      } else if (window.innerWidth >= 768 && window.innerWidth < 1440) {
         description =
           'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga fugiat, dolorem repudiandae aspernatur iste minima dolore recusandae incidunt veritatis debitis nam quis maxime atque nulla voluptates quasi necessitatibus! Sunt, rem.';
         description = description.split('').splice(0, 248).join('') + '...';
@@ -95,21 +109,27 @@ export function markUp(arr, {bookTitle, genres, description, author}) {
                 <a class="shopping-shop-link" href="${
                   el.buy_links[0].url
                 }" target="_blank" rel="noreferrer noopener">
-                <img class="shopping-svg-amazon" src="${amazon}">
+                  <svg class="shopping-svg-amazon" width="16" height="16">
+                    <use class="svg" href="${symbol}#Amazon_logo"></use>
+                  </svg>                
                 </a>
               </li>
               <li>
                 <a class="shopping-shop-link" href="${
-                  el.buy_links[2].url
+                  el.buy_links[1].url
                 }" target="_blank" rel="noreferrer noopener">
-                <img class="shopping-svg-open-book" src="${iShop}">  
+                  <svg class="shopping-svg-open-book" width="16" height="16">
+                    <use class="svg" href="${symbol}#open-book"></use>
+                  </svg>
                 </a>
               </li>
               <li>
                 <a class="shopping-shop-link" href="${
-                  el.buy_links[5].url
+                  el.buy_links[4].url
                 }" target="_blank" rel="noreferrer noopener">
-                <img class="shopping-svg-book-shop" src="${bookShop}">
+                  <svg class="shopping-svg-book-shop" width="16" height="16">
+                    <use class="svg" href="${symbol}#book-shop"></use>
+                  </svg>
                 </a>
               </li>
             </ul>
@@ -127,20 +147,35 @@ export function markUp(arr, {bookTitle, genres, description, author}) {
 
 async function allBooksInfo (arr){   
   const booksArrPromises = arr.map(async id=>{
-    const eachBook = await getBookById(id);
-    //console.log('eachBook', eachBook);
+    const eachBook = await getBookById(id);    
     return eachBook;
   }) 
 
   const booksArrOfObjects = await Promise.all(booksArrPromises)
-  //console.log('ready', booksArrOfObjects);
+  //console.log('ready:', booksArrOfObjects);
   refs.bookList.insertAdjacentHTML('afterbegin', markUp(booksArrOfObjects, defaultBookData))  
 }
 
 function checkLocalStorage(arr) {
-  if (!books.length) {
+  if (!arr.length) {
     document.getElementById('tui-pagination-container').setAttribute('hidden', 'true');
     refs.emptyList.insertAdjacentHTML('afterbegin', shoppingEmptyMarkup());////if (!arr.length) {
+    refs.emptyList.classList.remove('display');
+    refs.bookList.classList.add('display');
+    console.log('empty');
+  } else {
+    allBooksInfo(arr);
+    //refs.bookList.insertAdjacentHTML('afterbegin', markUp(books, defaultBookData));
+    refs.emptyList.classList.add('display');
+    refs.bookList.classList.remove('display');    
+  }
+  return;
+}
+
+function checkLocalStorageDynamic(arr) {
+  if (!arr.length) {
+    document.getElementById('tui-pagination-container').setAttribute('hidden', 'true');
+    refs.emptyList.insertAdjacentHTML('afterbegin', shoppingEmptyMarkup());    
     refs.emptyList.classList.remove('display');
     refs.bookList.classList.add('display');
     console.log('empty');
@@ -157,48 +192,58 @@ refs.bookList.addEventListener('click', handlerDeleteBook);
 
 function handlerDeleteBook(evt) {
   if (
-    evt.target.nodeName !== 'BUTTON' &&
-    evt.target.nodeName !== 'svg' &&
-    evt.target.nodeName !== 'use'
+    evt.target.nodeName !== 'BUTTON'
+    //&&
+    // evt.target.nodeName !== 'svg' &&
+    // evt.target.nodeName !== 'use'
   ) {
     console.log('error');
     return;
   }
   let newLocalStorage = booksLocalStorage;
-  const bookItem = document.querySelector('.shopping-book-item');  
-  // const arr = Array.from(evt.currentTarget.children);
-  // console.log(arr);
-  const deleteBook = evt.target.parentNode.parentNode
-  // || evt.target.parentNode.parentNode.parentNode || evt.target.parentNode.parentNode.parentNode.parentNode
-  console.log("Батько:", evt.target.parentNode.parentNode);
-  console.log('Де клік:', evt.target);
-  const onId = deleteBook.dataset['id'];
-  //console.log(onId);
-  const deleteIndex = newLocalStorage.indexOf(onId);
-  //console.log(newLocalStorage.indexOf(onId)); 
-  const newLocal = newLocalStorage.splice(deleteIndex, 1);
+  //console.log(newLocalStorage);
+  //const bookItem = document.querySelector('.shopping-book-item');
+  // const deleteBtn = document.querySelector('.shopping-btn-delete');
+  // const deleteSvg =document.querySelector('.svg-trash');
+  // const svgUse = document.querySelector('.svg');
+  // const bookId = bookItem.dataset['id'];
+
+
+  const deleteBook = evt.target.parentNode.parentNode;  
+  // console.log("Parent:", evt.target.parentNode.parentNode);
+  // console.log('Clck place:', evt.target);
+
+  const deleteBookId = deleteBook.dataset['id'];
+  const deleteIndex = newLocalStorage.indexOf(deleteBookId); 
+  newLocalStorage.splice(deleteIndex, 1);
   console.log(newLocalStorage);
+  deleteBook.remove();
   localStorage.setItem('books', JSON.stringify(newLocalStorage));
-  const renewLocal = JSON.parse(localStorage.getItem('books'));
-  console.log(renewLocal.length);
-  refs.bookList.innerHTML = allBooksInfo(renewLocal)
-  if(!renewLocal.length){
+  newLocalStorage = JSON.parse(localStorage.getItem('books'));  
+  // refs.bookList.innerHTML = allBooksInfo(newLocalStorage);
+  // bookItem.stopPropagation();
+  if(!newLocalStorage.length){
     console.log(222);
     refs.emptyList.insertAdjacentHTML('afterbegin', shoppingEmptyMarkup());
     //refs.emptyList.innerHTML = shoppingEmptyMarkup();
     refs.emptyList.classList.remove('display');
-    refs.bookList.classList.add('display')
-    //refs.emptyList.inneinsertAdjacentHTML('afterbegin', shoppingEmptyMarkup());
-  }
-
-  if(bookItem.dataset['id']){
-    console.log(123);
-    //bookItem.remove();
+    refs.bookList.classList.add('display')    
   }  
-
-  //const findId = local.find(id=>id === onId);
-  //console.log(findId);  
   return;
 }
 
 checkLocalStorage(booksLocalStorage);
+
+window.addEventListener('resize',(e) => {
+  const width= document.body.clientWidth;
+  console.log('width=', width);
+  //screenWidth = width;  
+   
+  containerSupportDynamic(width);
+  //checkLocalStorageDynamic(booksLocalStorage);
+
+  return width;
+   
+});
+
+/* <img class="shopping-svg-amazon" src="${amazon}"></img> */
