@@ -1,6 +1,6 @@
 import './support.js';
-import './render.js';
-import './api-request.js';
+//import './render.js';
+//import './api-request.js';
 import './menu.js';
 import './scrollUp.js';
 import './pagination.js';
