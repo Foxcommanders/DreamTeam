@@ -3,6 +3,9 @@ import { createCategoriesMarkup } from './render';
 import { renderBooks } from './render';
 import { getBooksByCategory } from './api-request';
 import { getCategories } from './api-request';
+import { renderTopBooks } from './render';
+import { loadTopBooks } from './api-request';
+import { makeTitleAccent } from './container';
 
 
 Notiflix.Notify.init({
@@ -42,14 +45,25 @@ async function categoryPicker(evt) {
     currentActiveCategory.classList.remove('active-category');
     evt.target.classList.add('active-category');
     try {
-      const booksByCategory = await getBooksByCategory(evt.target.dataset.id);
+      if(evt.target.dataset.id === "allCategories"){
+        loadTopBooks().then(data => {
+          refs.homeContainer.innerHTML = renderTopBooks(data.data);
+         
+          makeTitleAccent("Best Sellers Books");
+        });
+      }
+      else{
+        const booksByCategory = await getBooksByCategory(evt.target.dataset.id);
+        refs.homeContainer.innerHTML = renderBooks(booksByCategory.data);
+        makeTitleAccent(evt.target.dataset.id);
       if (!booksByCategory.data) {
         throw new Error();
-      }
-      refs.homeContainer.innerHTML = renderBooks(booksByCategory.data);
+      }}
     } catch (error) {
       Notiflix.Notify.failure('Sorry, no books match this category');
     }
   }
 }
+
+
 

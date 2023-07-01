@@ -1,5 +1,26 @@
 import emptyBooks from '../images/shopping-svg/empty-books.webp';
 
+function clipBookTitle(title) {
+  let clippedTitle = '';
+  if (window.screen.width < 768) {
+    let maxLength = 33;
+    title.length > maxLength
+      ? (clippedTitle = title.slice(0, maxLength - 1) + '...')
+      : (clippedTitle = title);
+  } else if (window.screen.width >= 768 && window.screen.width < 1440) {
+    let maxLength = 21;
+    title.length > maxLength
+      ? (clippedTitle = title.slice(0, maxLength - 1) + '...')
+      : (clippedTitle = title);
+  } else {
+    let maxLength = 18;
+    title.length > maxLength
+      ? (clippedTitle = title.slice(0, maxLength - 1) + '...')
+      : (clippedTitle = title);
+  }
+  return clippedTitle;
+}
+
 export function createCategoriesMarkup(arr) {
   return arr
     .map(({ list_name }) => {
@@ -9,39 +30,49 @@ export function createCategoriesMarkup(arr) {
 }
 
 export function renderBooks(arr) {
-  return arr.map(({ book_image, book_image_width, title, author, _id }) => {
-    const markup = ` <li data-id="${_id}"><img
-    src="${book_image}"
-   alt="${title}"
-    width="${book_image_width}"
-    class="book-photo"
-    loading="lazy"
-    />
-    <h3 class="book-name">${title}</h3>
-    <p class="book-author">${author}</p>
-    </li>`;
-    return markup;
-  });
+  let markLoadItems = '';
+  let titleBook = '';
+
+  markLoadItems += arr
+    .map(({ _id, title, author, book_image }) => {
+      titleBook = clipBookTitle(title);
+      return `<li class="home-book-item" data-id="${_id}">
+            <div class="home-thumb-photo">
+              <img data-src="${book_image}"
+                alt="${title}"
+                class="lazyload home-book-photo blur-up"
+                >
+                <p class="overlay-text">quick view</p>
+            </div>
+              <h3 class="home-book-name">${titleBook}</h3>
+              <p class="home-book-author">${author}</p>
+            </li>`;
+    })
+    .join('');
+  let markupLoadCategory = `<ul class="home-book-list">${markLoadItems}</ul>`;
+  return markupLoadCategory;
 }
 
 export function renderTopBooks(arr) {
-  let markTopBooks = '';
   let valueIteration = 0;
+  let titleBook = '';
+
   if (window.screen.width < 768) {
     return arr
       .map(({ books: [{ _id, title, author, book_image }], list_name }) => {
+        titleBook = clipBookTitle(title);
         return `<div class="home-books-field">
           <h2 class="home-category-title">${list_name}</h2>
 
           <ul class="home-book-list">
           <li class="home-book-item" data-id="${_id}">
+          <div class="home-thumb-photo">
               <img data-src="${book_image}"
                 alt="${title}"
-                width="335"
-                heigth="485"
                 class="lazyload home-book-photo blur-up"
                 >
-              <h3 class="home-book-name">${title}</h3>
+            </div>
+              <h3 class="home-book-name">${titleBook}</h3>
               <p class="home-book-author">${author}</p>
             </li>
           </ul>
@@ -51,17 +82,10 @@ export function renderTopBooks(arr) {
       })
       .join('');
   } else if (window.screen.width >= 768 && window.screen.width < 1440) {
-    let widthImg = 218;
-    let heigthImg = 316;
     return arr
       .map(({ books, list_name }) => {
         valueIteration = 3;
-        let markItem = renderMarkupBook(
-          books,
-          valueIteration,
-          widthImg,
-          heigthImg
-        );
+        let markItem = renderMarkupBook(books, valueIteration);
         return `<div class="home-books-field">
      <h2 class="home-category-title">${list_name}</h2>
      <ul class="home-book-list">${markItem}</ul><button class="btn load-more">see more</button>
@@ -69,17 +93,10 @@ export function renderTopBooks(arr) {
       })
       .join('');
   } else {
-    let widthImg = 180;
-    let heigthImg = 256;
     return arr
       .map(({ books, list_name }) => {
         valueIteration = 5;
-        let markItems = renderMarkupBook(
-          books,
-          valueIteration,
-          widthImg,
-          heigthImg
-        );
+        let markItems = renderMarkupBook(books, valueIteration);
         return `<div class="home-books-field">
      <h2 class="home-category-title">${list_name}</h2>
      <ul class="home-book-list">${markItems}</ul><button class="btn load-more">see more</button>
@@ -89,17 +106,21 @@ export function renderTopBooks(arr) {
   }
 }
 
-export function renderMarkupBook(books, valueIteration, widthImg, heigthImg) {
+export function renderMarkupBook(books, valueIteration) {
   let markItem = '';
+  let titleBook = '';
+
   for (let i = 0; i < valueIteration; i += 1) {
+    titleBook = clipBookTitle(books[i].title);
     markItem += `<li class="home-book-item" data-id="${books[i]._id}">
+              <div class="home-thumb-photo">
               <img data-src="${books[i].book_image}"
                 alt="${books[i].title}"
-                width="${widthImg}"
-                heigth="${heigthImg}"
                 class="lazyload home-book-photo blur-up"
                 >
-              <h3 class="home-book-name">${books[i].title}</h3>
+                <p class="overlay-text">quick view</p>
+                </div>
+              <h3 class="home-book-name">${titleBook}</h3>
               <p class="home-book-author">${books[i].author}</p>
             </li>`;
   }
@@ -109,7 +130,9 @@ export function renderMarkupBook(books, valueIteration, widthImg, heigthImg) {
 export function createMarkupSupport(arr) {
   const markup = arr
     .map(({ title, url, img }, idx) => {
-      return `<li class="list-item swiper-slide"><span class="number" >0${idx + 1}</span>
+      return `<li class="list-item swiper-slide"><span class="number" >0${
+        idx + 1
+      }</span>
         <a  href="${url}">
             <img class="normalize-img" src="${img}" alt="${title} height="35">
             </a>

@@ -7,7 +7,7 @@ img{
     width: 100%;    
     // flex-direction: column;
     // align-items: center;
-    padding-bottom: 40px;
+    // padding-bottom: 40px;
     box-sizing: border-box;
 }
 
@@ -28,7 +28,7 @@ img{
 .shopping-empty-list{    
     max-width: 265px;
     max-height: 248px;
-    margin: 120px auto 0;
+    margin: 120px auto 302px;
     display: flex;
     flex-direction: column;
     align-items: center;     
@@ -89,7 +89,7 @@ img{
 
 .shopping-book-title{
     margin-bottom: 4px;
-    color: var(--main-dark-color);
+    //color: var(--main-dark-color);
     //font-size: calc((100vw - 320px) / (380 - 320) * (16 - 14) + 14px);
     font-size: 16px;
     font-family: DM Sans;
@@ -111,7 +111,7 @@ img{
 .shopping-book-description{
     height: 68px;
     margin-bottom: 14px;
-    color: var(--main-dark-color);
+    //color: var(--main-dark-color);
     
     //font-size: calc((100vw - 320px) / (380 - 320) * (14 - 12) + 12px);
     
@@ -158,10 +158,12 @@ img{
     width:32px;
     height: 11px;
     border-radius: 0;
+
 }
 .shopping-svg-open-book{
     width:16px;
     height: 16px;
+    background-repeat: no-repeat;
 }
 
 .shopping-svg-book-shop{
@@ -182,10 +184,17 @@ img{
     padding: 0;
     background-color: var(--accent-color);
     border-color: transparent;
+    cursor: pointer;
 }
 
 .svg-trash{
     fill: var(--accent-color);
+    pointer-events: none;
+}
+.svg{
+    display: block;
+    min-width:16px;
+    height:16px;
 }
 
 // .shopping-btn-next{
@@ -194,6 +203,27 @@ img{
 // }
 .display{
     display: none;
+}
+
+.img-thumb {
+    position: relative;
+}
+
+.img-thumb:hover::after {
+    content: "";
+    opacity: 0.3;
+    filter: blur(6.5914px);
+    background: #000;
+    border-radius: 50%;
+    width: 100%;
+    height: 38%;
+    display: block;
+    position: absolute;
+    bottom: 0.01%;
+}
+
+.img-thumb::before {
+    opacity: 0;
 }
 
 @media screen and (min-width: 768px) {
@@ -205,7 +235,7 @@ img{
     .shopping-empty-list{
         max-width: 349px;
         max-height: 309px;
-        margin: 140px auto 0;
+        margin: 140px auto 394px;
     }
     .shopping-empty-text{
         width: 349px;
@@ -249,7 +279,6 @@ img{
         height: 30px;
     }
 
-        
     .shopping-shop-link{
         display: flex;
         align-items: center;
@@ -276,6 +305,9 @@ img{
 @media screen and (min-width: 1440px) {
     .shopping-book-item{            
         width: 996px;
+    }
+    .shopping-empty-list{
+        margin-bottom: 157px;
     }
     // .shopping-book-description{        
     //     margin-bottom: 35px; 
