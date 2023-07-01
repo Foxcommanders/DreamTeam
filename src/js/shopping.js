@@ -386,6 +386,7 @@ export function markUp(arr, {bookTitle, genres, description, author}) {
 
 function checkLocalStorage(arr) {
   if (!books.length) {
+    document.getElementById('tui-pagination-container').setAttribute('hidden', 'true');
     refs.emptyList.insertAdjacentHTML('afterbegin', shoppingEmptyMarkup());
     refs.emptyList.classList.remove('display');
     refs.bookList.classList.add('display');
