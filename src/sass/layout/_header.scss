@@ -1,8 +1,46 @@
 /*=============== HEADER ===============*/
+body.dark .page-header {
+  background-color: var(--main-dark-color);
+}
+
+body.dark .page-header {
+  border: 1.5px solid var(--main-white-color);
+}
+
+body.dark .logo-text {
+  color: var(--white-logo-color);
+}
+
+body.dark .nav-link {
+  color: var(--main-white-color);
+}
+
+body.dark .icon-header {
+  fill: var(--main-white-color);
+}
+
+body.dark .current {
+  color: var(--main-dark-color);
+}
+
+body.dark .shoplist.current {
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+body.dark .current .icon-header {
+  fill: var(--main-dark-color);
+}
+
+body.dark .icon-menu,
+body.dark .icon-cross {
+  stroke: var(--main-white-color);
+}
+
 .page-header {
   background-color: var(--main-white-color);
   border-radius: 0px 0px 8px 8px;
-  border: 1.5px solid #111;
+  border: 1.5px solid var(--main-dark-color);
   max-width: 1440px;
   margin: 0 auto;
 }
@@ -211,19 +249,26 @@ input:checked + .slider:before {
 
 // =============Mobile menu====================
 
-.overlay {
-  position: fixed;
-  top: 65.5px;
-  left: 0;
-  z-index: 2;
-  overflow: auto;
-  transform: translateX(-100%);
-  transition: transform 250ms linear;
+.purpul-background {
   background: radial-gradient(
     189.32% 190.93% at 59.76% -23.42%,
     #4f2ee8 18.03%,
     #fff 100%
   );
+}
+
+.overlay {
+  position: fixed;
+  top: 65.5px;
+  left: 0;
+  z-index: 12;
+  overflow: auto;
+  transform: translateX(-100%);
+  transition: transform 250ms linear;
+  background-image: url(../images/icons/Menu.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   width: 100vw;
   height: calc(100vh - 65.5px);
   padding: 24px 20px 20px;
@@ -277,10 +322,6 @@ input:checked + .slider:before {
   text-align: center;
 }
 
-.item-home {
-  margin: 8px 0 16px;
-}
-
 .mobile-menu-link {
   text-decoration: none;
   letter-spacing: -0.56px;
@@ -294,6 +335,9 @@ input:checked + .slider:before {
   border-radius: 36px;
   color: var(--main-dark-color);
   margin-bottom: 16px;
+  display: flex;
+  justify-content: center;
+  width: 72px;
 }
 
 .link-shop {
@@ -421,4 +465,8 @@ input:checked + .slider:before {
 
 .scroll-up.show {
   opacity: 1;
+}
+
+.scroll-up-btn {
+  width: 40px;
 }
