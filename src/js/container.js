@@ -23,8 +23,12 @@ async function handlerClickLoad(event) {
       makeTitleAccent(categoryName);
       makeNameCategoryAccent(categoryName);
       allBooks.innerHTML = renderBooks(booksLoadMore.data);
+      console.log(booksLoadMore.data);
+      if (!booksLoadMore.data) {
+        throw new Error();
+      }
     } catch (error) {
-      console.log(error);
+      Notiflix.Notify.failure('Sorry, no books match this category');
     }
   }
 }

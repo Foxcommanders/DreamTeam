@@ -154,7 +154,6 @@ function checkLocalStorage(arr) {
     refs.emptyList.insertAdjacentHTML('afterbegin', shoppingEmptyMarkup());////if (!arr.length) {
     refs.emptyList.classList.remove('display');
     refs.bookList.classList.add('display');
-    console.log('empty');
   } else {
     allBooksInfo(arr);
     //refs.bookList.insertAdjacentHTML('afterbegin', markUp(books, defaultBookData));
@@ -170,7 +169,7 @@ function checkLocalStorageDynamic(arr) {
     refs.emptyList.insertAdjacentHTML('afterbegin', shoppingEmptyMarkup());    
     refs.emptyList.classList.remove('display');
     refs.bookList.classList.add('display');
-    console.log('empty');
+    
   } else {
     allBooksInfo(arr);
     //refs.bookList.insertAdjacentHTML('afterbegin', markUp(books, defaultBookData));
@@ -196,7 +195,7 @@ function handlerDeleteBook(evt) {
   newLocalStorage = JSON.parse(localStorage.getItem('books'));  
   // refs.bookList.innerHTML = allBooksInfo(newLocalStorage);
   if(!newLocalStorage.length){
-    console.log(222);
+    
     document.getElementById('tui-pagination-container').setAttribute('hidden', 'true');
     refs.emptyList.insertAdjacentHTML('afterbegin', shoppingEmptyMarkup());
     //refs.emptyList.innerHTML = shoppingEmptyMarkup();
