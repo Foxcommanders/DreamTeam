@@ -44,7 +44,7 @@
     });
   }
 
-  window.matchMedia('(min-width: 768px)').addEventListener('change', (e) => {
+  window.matchMedia('(min-width: 768px)').addEventListener('change', e => {
     if (!e.matches) return;
     mobileMenuRef.classList.remove('is-open');
     menuBtnRef.setAttribute('aria-expanded', false);
@@ -54,3 +54,24 @@
     isBackgroundChange = false;
   });
 })();
+
+//================== Current page =======================
+const navLinks = document.querySelectorAll('.nav-link');
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    const activeLinkId = link.getAttribute('id');
+    navLinks.forEach(navLink => navLink.classList.remove('current'));
+    link.classList.add('current');
+    sessionStorage.setItem('activeNavLinkId', activeLinkId);
+  });
+});
+document.addEventListener('DOMContentLoaded', () => {
+  const activeNavLinkId = sessionStorage.getItem('activeNavLinkId');
+  if (activeNavLinkId) {
+    const activeLink = document.getElementById(activeNavLinkId);
+    if (activeLink) {
+      navLinks.forEach(navLink => navLink.classList.remove('current'));
+      activeLink.classList.add('current');
+    }
+  }
+});

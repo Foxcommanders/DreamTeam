@@ -2,7 +2,6 @@ function addDarkClassToBody() {
   try {
     if (localStorage.getItem('theme') === 'dark') {
       document.querySelector('body').classList.add('dark');
-      console.log();
       document.getElementById('checkbox').setAttribute('checked', true);
     } else {
       document.querySelector('body').classList.remove('dark');
