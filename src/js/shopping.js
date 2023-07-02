@@ -70,7 +70,7 @@ export function markUp(arr, {bookTitle, genres, description, author}) {
         }
       } else if (window.innerWidth >= 768 && window.innerWidth < 1440) {
         description =
-          'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga fugiat, dolorem repudiandae aspernatur iste minima dolore recusandae incidunt veritatis debitis nam quis maxime atque nulla voluptates quasi necessitatibus! Sunt, rem.';
+          'This book is suitable for a wide audience of readers. Its content will surely interest the reader. Also, the book provides a lot of new knowledge in various areas of life and gives food for thought. Enjoy reading!';
         description = description.split('').splice(0, 248).join('') + '...';
         elDescription = el.description;
         elDescription = elDescription.split('').splice(0, 248).join('') + '...';
