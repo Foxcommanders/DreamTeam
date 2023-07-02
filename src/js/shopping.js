@@ -152,7 +152,6 @@ function checkLocalStorage(arr) {
     refs.emptyList.insertAdjacentHTML('afterbegin', shoppingEmptyMarkup());
     refs.emptyList.classList.remove('display');
     refs.bookList.classList.add('display');
-    console.log('empty');
   } else {
     allBooksInfo(arr);    
     refs.emptyList.classList.add('display');
@@ -167,7 +166,7 @@ function checkLocalStorageDynamic(arr) {
     refs.emptyList.insertAdjacentHTML('afterbegin', shoppingEmptyMarkup());    
     refs.emptyList.classList.remove('display');
     refs.bookList.classList.add('display');
-    console.log('empty');
+    
   } else {
     allBooksInfo(arr);
     //refs.bookList.insertAdjacentHTML('afterbegin', markUp(books, defaultBookData));

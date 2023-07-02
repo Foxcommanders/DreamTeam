@@ -30,7 +30,7 @@ function createMarkup(book) {
         <ul class="modal-list">
           ${buy_links[0] ? `<li class="modal-item">
             <div class="modal-img-thumb">
-              <a href="${buy_links[0].url}" class="">
+              <a href="${buy_links[0].url}" class="" target="_blank" rel="noopener noreferrer">
                 <svg class="modal-img" width="62" height="20">
                   <use href=${require('../images/modal-icons/symbol-defs.svg')}#Amazon_logo></use>
                 </svg>
@@ -39,7 +39,7 @@ function createMarkup(book) {
           </li>` : ''}
           ${buy_links[1] ? `<li class="modal-item">
             <div class="modal-img-thumb">
-              <a href="${buy_links[1].url}" class="">
+              <a href="${buy_links[1].url}" class="" target="_blank" rel="noopener noreferrer">
                 <svg class="modal-img" width="33" height="32">
                   <use href=${require('../images/modal-icons/symbol-defs.svg')}#open-book></use>
                 </svg>
@@ -48,7 +48,7 @@ function createMarkup(book) {
           </li>` : ''}
           ${buy_links[4] ? `<li class="modal-item">
             <div class="modal-img-thumb">
-              <a href="${buy_links[4].url}" class="">
+              <a href="${buy_links[4].url}" class="" target="_blank" rel="noopener noreferrer">
                 <svg class="modal-img " width="38" height="36">
                   <use href=${require('../images/modal-icons//symbol-defs.svg')}#book-shop></use>
                 </svg>

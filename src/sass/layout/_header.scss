@@ -106,11 +106,6 @@ body.dark .sign-up-btn {
   transition: text-shadow var(--transition-dur-tfunc);
 }
 
-// .nav-link:hover,
-// .nav-link:focus {
-//   text-shadow: 0px 0px 1px var(--another-accent-color);
-// }
-
 .current {
   font-weight: 700;
   padding: 8px 16px;
@@ -126,7 +121,7 @@ body.dark .sign-up-btn {
 
 .logo-container:hover,
 .logo-container:focus {
-  // transform: scale(1.02);
+  transform: scale(1.02);
   text-shadow: 0px 0px 1px var(--another-accent-color);
 }
 
@@ -247,7 +242,7 @@ input:checked + .slider:before {
   background-color: var(--accent-color);
   border: 1.5px solid var(--accent-color);
   width: 184px;
-  height: 45px;
+  height: 46px;
   border-radius: 36px;
   font-size: 22px;
   font-weight: 700;
@@ -279,7 +274,7 @@ input:checked + .slider:before {
   justify-content: space-between;
   padding: 14px 14px;
   width: 184px;
-  height: 48px;
+  height: 46px;
   border-radius: 18px;
   font-weight: 500;
   line-height: 1.29;
@@ -287,11 +282,6 @@ input:checked + .slider:before {
 }
 
 .log-out-btn {
-  // background: radial-gradient(
-  //   189.32% 190.93% at 59.76% -23.42%,
-  //   #4f2ee8 18.03%,
-  //   #fff 100%
-  // );
   color: var(--main-dark-color);
   background-color: var(--main-white-color);
   border: 1.5px solid var(--main-dark-color);
@@ -476,7 +466,7 @@ input:checked + .slider:before {
   }
 
   .header-container {
-    padding-top: 14px;
+    padding-top: 13px;
     padding-bottom: 13px;
     padding-left: 32px;
     padding-right: 32px;

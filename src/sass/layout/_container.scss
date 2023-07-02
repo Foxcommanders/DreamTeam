@@ -29,6 +29,7 @@
   display: flex;
   flex-direction: column;
   align-items: start;
+  max-width: 335px;
 }
 
 .home-books-field:not(:last-child) {
@@ -41,6 +42,7 @@
   row-gap: 40px;
   max-width: 335px;
   margin-bottom: 8px;
+  cursor: pointer;
 }
 
 .home-book-item {
@@ -100,10 +102,10 @@
   letter-spacing: -0.14px;
   background: inherit;
   color: inherit;
+  cursor: pointer;
 }
 
-.load-more:hover,
-.load-more:focus{
+.load-more:active {
   background: #4f2ee8;
   color: rgba(255, 255, 255, 1);
 }
@@ -128,6 +130,10 @@
     font-size: 48px;
     line-height: 1.08;
     letter-spacing: -1.92px;
+  }
+
+  .home-books-field {
+    max-width: 704px;
   }
 
   .home-category-title {
@@ -227,6 +233,12 @@
     display: block;
     max-width: 180px;
     height: 256px;
+  }
+
+  .load-more:hover,
+  .load-more:focus {
+    background: #4f2ee8;
+    color: rgba(255, 255, 255, 1);
   }
 }
 
