@@ -1,9 +1,4 @@
 import Pagination from 'tui-pagination';
-import { markUp } from './shopping';
-import amazon from '../images/shopping-svg/amazon.png';
-import iShop from '../images/shopping-svg/i-shop.png';
-import bookShop from '../images/shopping-svg/book-shop.png';
-import svg from '../images/shopping-svg/trash.svg';
 
 const defaultBookData = {
     bookTitle: 'Book title',
