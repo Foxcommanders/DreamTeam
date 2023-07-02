@@ -195,9 +195,8 @@ function handlerDeleteBook(evt) {
   newLocalStorage.splice(deleteIndex, 1);
   deleteBook.remove();
   localStorage.setItem('books', JSON.stringify(newLocalStorage));
-  newLocalStorage = JSON.parse(localStorage.getItem('books'));  
-  // refs.bookList.innerHTML = allBooksInfo(newLocalStorage);
-  if(!newLocalStorage.length){
+  newLocalStorage = JSON.parse(localStorage.getItem('books'));
+  if(!newLocalStorage.length){    
     document.getElementById('tui-pagination-container').setAttribute('hidden', 'true');
     refs.emptyList.insertAdjacentHTML('afterbegin', shoppingEmptyMarkup());
     refs.emptyList.classList.remove('display');
