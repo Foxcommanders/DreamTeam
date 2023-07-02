@@ -7,7 +7,6 @@ import { renderTopBooks } from './render';
 import { loadTopBooks } from './api-request';
 import { makeTitleAccent } from './container';
 
-
 Notiflix.Notify.init({
   width: '500px',
   position: 'center-center',
@@ -32,7 +31,7 @@ getCategories().then(({ data }) => {
     'beforeend',
     createCategoriesMarkup(data)
   );
-  });
+});
 
 refs.categoryList.addEventListener('click', categoryPicker);
 
@@ -45,25 +44,35 @@ async function categoryPicker(evt) {
     currentActiveCategory.classList.remove('active-category');
     evt.target.classList.add('active-category');
     try {
-      if(evt.target.dataset.id === "allCategories"){
+      if (evt.target.dataset.id === 'allCategories') {
         loadTopBooks().then(data => {
           refs.homeContainer.innerHTML = renderTopBooks(data.data);
-         
-          makeTitleAccent("Best Sellers Books");
+
+          makeTitleAccent('Best Sellers Books');
         });
-      }
-      else{
+      } else {
         const booksByCategory = await getBooksByCategory(evt.target.dataset.id);
         refs.homeContainer.innerHTML = renderBooks(booksByCategory.data);
         makeTitleAccent(evt.target.dataset.id);
-      if (!booksByCategory.data) {
-        throw new Error();
-      }}
+        if (window.screen.width < 768) {
+          window.scrollTo({
+            top: 760,
+            left: 0,
+            behavior: 'smooth',
+          });
+        } else if (window.screen.width >= 768 && window.screen.width < 1440) {
+          window.scrollTo({
+            top: 670,
+            left: 0,
+            behavior: 'smooth',
+          });
+        }
+        if (!booksByCategory.data) {
+          throw new Error();
+        }
+      }
     } catch (error) {
       Notiflix.Notify.failure('Sorry, no books match this category');
     }
   }
 }
-
-
-

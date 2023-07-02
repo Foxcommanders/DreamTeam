@@ -57,7 +57,7 @@ function makeNameCategoryAccent(categoryName) {
     setTimeout(
       () =>
         window.scrollTo({
-          top: 768,
+          top: 760,
           left: 0,
           behavior: 'smooth',
         }),
@@ -67,7 +67,7 @@ function makeNameCategoryAccent(categoryName) {
     setTimeout(
       () =>
         window.scrollTo({
-          top: 685,
+          top: 670,
           left: 0,
           behavior: 'smooth',
         }),
