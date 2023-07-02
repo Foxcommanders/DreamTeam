@@ -8,7 +8,7 @@ export async function getCategories() {
 }
 
 export async function getBooksByCategory(selectedCategory) {
-  const response = await axios.get(
+  const response = axios.get(
     `https://books-backend.p.goit.global/books/category`,
     {
       params: {
@@ -16,7 +16,18 @@ export async function getBooksByCategory(selectedCategory) {
       },
     }
   );
-  return response;
+  return await checkResponse(response)
+}
+
+function checkResponse (promise){
+return new Promise((resolve, reject)=>{
+setTimeout(()=>{
+reject("TimeoutError")
+}, 1500)
+promise.then((resp)=>{
+resolve(resp)
+})
+})
 }
 
 export async function loadTopBooks() {
