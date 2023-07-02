@@ -23,8 +23,12 @@ async function handlerClickLoad(event) {
       makeTitleAccent(categoryName);
       makeNameCategoryAccent(categoryName);
       allBooks.innerHTML = renderBooks(booksLoadMore.data);
+      console.log(booksLoadMore.data);
+      if (!booksLoadMore.data) {
+        throw new Error();
+      }
     } catch (error) {
-      console.log(error);
+      Notiflix.Notify.failure('Sorry, no books match this category');
     }
   }
 }
@@ -57,7 +61,7 @@ function makeNameCategoryAccent(categoryName) {
     setTimeout(
       () =>
         window.scrollTo({
-          top: 768,
+          top: 760,
           left: 0,
           behavior: 'smooth',
         }),
@@ -67,7 +71,7 @@ function makeNameCategoryAccent(categoryName) {
     setTimeout(
       () =>
         window.scrollTo({
-          top: 685,
+          top: 670,
           left: 0,
           behavior: 'smooth',
         }),
