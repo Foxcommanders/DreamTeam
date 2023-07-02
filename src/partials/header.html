@@ -1,0 +1,115 @@
+<header class="page-header" id="to-top">
+  <!-- ============ scrollUp ============ -->
+  <a href="#to-top" class="scroll-up">
+    <img class="scroll-up-btn" src="./images/icons/scrollUp.png" alt=""
+  /></a>
+
+  <!-- ============ HEADER ============ -->
+  <div class="header-container">
+    <a class="logo-container" href="./index.html">
+      <svg class="logo-icon" width="24" height="24">
+        <use href="./images/icons/symbol-defs.svg#icon-logo"></use>
+      </svg>
+      <div class="logo-text">Bookshelf</div>
+    </a>
+
+    <nav class="page-navigation">
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a id="home-link" class="nav-link current" href="./index.html"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            id="shoplist-link"
+            class="nav-link shoplist"
+            href="./shopping-list.html"
+            >Shopping list
+            <svg class="icon-header" width="20" height="20">
+              <use href="./images/icons/symbol-defs.svg#icon-basket"></use>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div class="right-header">
+      <label class="switch">
+        <input type="checkbox" name="themetoggle" />
+        <span class="slider round"></span>
+      </label>
+      <!-- log-out-btn / sign-up-btn -->
+      <button class="header-btn unauth-btn log-out-btn" type="button">
+        Log out
+        <svg class="arrow-right-icon" width="20" height="20">
+          <use href="./images/icons/symbol-defs.svg#icon-arrow-right"></use>
+        </svg>
+      </button>
+      <!-- auth-btn -->
+      <!-- <button class="header-btn auth-btn" type="button">
+        <span class="auth-img">
+          <svg class="auth-user-icon" width="19" height="19">
+            <use href="./images/icons/symbol-defs.svg#icon-user"></use>
+          </svg>
+        </span>
+        Stephan
+        <svg class="auth-icon" width="23" height="26">
+          <use href="./images/icons/symbol-defs.svg#icon-corner-down"></use>
+        </svg>
+      </button> -->
+      <!-- open/close mobile menu -->
+      <button
+        type="button"
+        class="menu-button"
+        data-menu-button
+        aria-label="Togle mobile menu"
+      >
+        <svg width="28" height="28">
+          <use
+            class="icon-cross"
+            href="./images/icons/symbol-defs.svg#icon-close"
+          ></use>
+          <use
+            class="icon-menu"
+            href="./images/icons/symbol-defs.svg#icon-menu"
+          ></use>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <!-- =========== MOBILE-menu ============ -->
+
+  <div class="overlay" data-menu>
+    <div class="container-mobile-menu">
+      <div class="container-user">
+        <p class="mobile-menu-user">
+          <img class="user-icon" src="./images/modal-icons/user.png" alt="" />
+          Stephen
+        </p>
+      </div>
+
+      <div class="mobile-menu-wrapper">
+        <ul class="mobile-menu-list list">
+          <li class="mobile-menu-item item-home">
+            <a href="./index.html" class="mobile-menu-link link-home">Home</a>
+          </li>
+          <li class="mobile-menu-item">
+            <a href="./shopping-list.html" class="mobile-menu-link link-shop"
+              >Shopping list
+              <svg class="link-shop-icon" width="20" height="20">
+                <use href="./images/icons/symbol-defs.svg#icon-basket"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <button class="mobile-logout-button">
+        Log&nbsp;out
+        <svg class="mobile-logout-icon" width="20" height="20">
+          <use href="./images/icons/symbol-defs.svg#icon-arrow-right"></use>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>

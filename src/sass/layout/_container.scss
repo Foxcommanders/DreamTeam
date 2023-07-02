@@ -1,0 +1,254 @@
+.container-home {
+  margin-bottom: 80px;
+}
+
+.home-title {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.19;
+  letter-spacing: -1.28px;
+  margin-bottom: 40px;
+}
+
+.home-title-accent {
+  color: var(--accent-color);
+}
+
+.home-category-title {
+  margin-bottom: 18px;
+  color: var(--paragraf-color);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: 0.42px;
+  text-transform: uppercase;
+}
+
+.home-books-field {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  max-width: 335px;
+}
+
+.home-books-field:not(:last-child) {
+  margin-bottom: 40px;
+}
+
+.home-book-list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+  max-width: 335px;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.home-book-item {
+  width: 335px;
+}
+
+.home-thumb-photo {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 14px;
+  border-radius: 0px 0px 8px 8px;
+}
+
+.overlay-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+}
+
+.home-book-photo {
+  display: block;
+  max-width: 335px;
+  width: 100%;
+  height: 485px;
+}
+
+.home-book-name {
+  margin: 0 0 4px 0;
+  font-size: 16px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 1.13;
+  letter-spacing: -0.64px;
+  text-transform: uppercase;
+}
+
+.home-book-author {
+  color: var(--paragraf-color);
+  font-size: 12px;
+  font-style: italic;
+  line-height: 1.17;
+  letter-spacing: -0.48px;
+}
+
+.load-more {
+  padding: 14px 28px;
+  align-self: flex-end;
+  align-items: flex-start;
+  border-radius: 40px;
+  border: 2px solid var(--accent-color);
+  font-style: normal;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.29;
+  letter-spacing: -0.14px;
+  background: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.load-more:active {
+  background: #4f2ee8;
+  color: rgba(255, 255, 255, 1);
+}
+
+.blur-up {
+  -webkit-filter: blur(5px);
+  filter: blur(5px);
+  transition: filter 400ms, -webkit-filter 400ms;
+}
+
+.blur-up.lazyloaded {
+  -webkit-filter: blur(0);
+  filter: blur(0);
+}
+
+@media screen and (min-width: 768px) {
+  .container-home {
+    margin-bottom: 100px;
+  }
+
+  .home-title {
+    font-size: 48px;
+    line-height: 1.08;
+    letter-spacing: -1.92px;
+  }
+
+  .home-books-field {
+    max-width: 704px;
+  }
+
+  .home-category-title {
+    line-height: 1.7;
+  }
+
+  .home-book-list {
+    max-width: 704px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 25px;
+  }
+
+  .home-book-item {
+    width: 218px;
+  }
+
+  .home-book-photo {
+    display: block;
+    max-width: 218px;
+    height: 316px;
+  }
+
+  .home-book-author {
+    margin-bottom: 8px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .container-home {
+    margin-bottom: 72px;
+  }
+
+  .all-books-area {
+    max-width: 996px;
+  }
+
+  .home-books-field {
+    max-width: 996px;
+  }
+
+  .home-book-list {
+    max-width: 996px;
+    margin-bottom: 32px;
+    column-gap: 24px;
+  }
+
+  .home-book-item {
+    width: 180px;
+  }
+
+  .overlay-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+
+    display: flex;
+    width: 100%;
+    height: 70px;
+    padding: 0px 52px;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: -0.56px;
+    text-transform: uppercase;
+
+    color: var(--main-dark-color);
+
+    border-radius: 0px 0px 8px 8px;
+    background: var(--another-accent-color);
+
+    transform: translatey(100%);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .home-book-item:hover .overlay-text {
+    transform: translatey(0);
+    opacity: 1;
+  }
+
+  .home-book-photo {
+    display: block;
+    max-width: 180px;
+    height: 256px;
+  }
+
+  .load-more:hover,
+  .load-more:focus {
+    background: #4f2ee8;
+    color: rgba(255, 255, 255, 1);
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1439px) {
+  .sidebar-container {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 100px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+}
