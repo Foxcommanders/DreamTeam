@@ -25,8 +25,6 @@ refs.bookList.classList.add('display');
 
 const booksLocalStorage = JSON.parse(localStorage.getItem('books') || '[]');
 let screenWidth = window.innerWidth;
-// let screenWidth = window.screen.width;
-
 
 const defaultBookData = {
   bookTitle: 'Book title',
@@ -155,7 +153,7 @@ if(refs.bookList.children.length){
 function checkLocalStorage(arr) {
   if (!arr.length) {
     document.getElementById('tui-pagination-container').setAttribute('hidden', 'true');
-    refs.emptyList.insertAdjacentHTML('afterbegin', shoppingEmptyMarkup());////if (!arr.length) {
+    refs.emptyList.insertAdjacentHTML('afterbegin', shoppingEmptyMarkup());
     refs.emptyList.classList.remove('display');
     refs.bookList.classList.add('display');
     console.log('empty');
@@ -197,12 +195,10 @@ function handlerDeleteBook(evt) {
   newLocalStorage.splice(deleteIndex, 1);
   deleteBook.remove();
   localStorage.setItem('books', JSON.stringify(newLocalStorage));
-  newLocalStorage = JSON.parse(localStorage.getItem('books'));  
-  // refs.bookList.innerHTML = allBooksInfo(newLocalStorage);
-  if(!newLocalStorage.length){
+  newLocalStorage = JSON.parse(localStorage.getItem('books'));
+  if(!newLocalStorage.length){    
     document.getElementById('tui-pagination-container').setAttribute('hidden', 'true');
     refs.emptyList.insertAdjacentHTML('afterbegin', shoppingEmptyMarkup());
-    //refs.emptyList.innerHTML = shoppingEmptyMarkup();
     refs.emptyList.classList.remove('display');
     refs.bookList.classList.add('display')    
   }  
@@ -212,8 +208,7 @@ function handlerDeleteBook(evt) {
 checkLocalStorage(booksLocalStorage);
 
 window.addEventListener('resize',(e) => {
-  const width= document.body.clientWidth;
-   
+  const width= document.body.clientWidth;   
   containerSupportDynamic(width);
   //checkLocalStorageDynamic(booksLocalStorage);
   return width;   
