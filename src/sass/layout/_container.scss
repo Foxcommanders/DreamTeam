@@ -41,6 +41,7 @@
   row-gap: 40px;
   max-width: 335px;
   margin-bottom: 8px;
+  cursor: pointer;
 }
 
 .home-book-item {
@@ -102,8 +103,7 @@
   color: inherit;
 }
 
-.load-more:hover,
-.load-more:focus{
+.load-more:active {
   background: #4f2ee8;
   color: rgba(255, 255, 255, 1);
 }
@@ -227,6 +227,12 @@
     display: block;
     max-width: 180px;
     height: 256px;
+  }
+
+  .load-more:hover,
+  .load-more:focus {
+    background: #4f2ee8;
+    color: rgba(255, 255, 255, 1);
   }
 }
 

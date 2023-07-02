@@ -2,12 +2,12 @@ img{
     display: block;
     
 }
+body.dark .shopping-empty-text{
+    color: rgba(255, 255, 255, 0.60);
+}
 
 .shopping{    
-    width: 100%;    
-    // flex-direction: column;
-    // align-items: center;
-    // padding-bottom: 40px;
+    width: 100%;
     box-sizing: border-box;
 }
 
@@ -37,18 +37,14 @@ img{
 .shopping-empty-text{
     width: 236px;
     margin-bottom: 14px;
-    text-align: center;
-    color: var(--categories-color);    
+    text-align: center;        
     font-size: 14px;
     font-family: DM Sans;
     line-height: 18px;
     letter-spacing: -0.28px;
 }
 
-.shopping-book-list {   
-    // padding: 40px 20px;
-    // list-style: none;
-    // gap: 20px;  
+.shopping-book-list {
     margin-bottom: 40px;  
 }
 
@@ -88,9 +84,7 @@ img{
 }
 
 .shopping-book-title{
-    margin-bottom: 4px;
-    //color: var(--main-dark-color);
-    //font-size: calc((100vw - 320px) / (380 - 320) * (16 - 14) + 14px);
+    margin-bottom: 4px;    
     font-size: 16px;
     font-family: DM Sans;
     font-weight: 700;
@@ -110,11 +104,7 @@ img{
 
 .shopping-book-description{
     height: 68px;
-    margin-bottom: 14px;
-    //color: var(--main-dark-color);
-    
-    //font-size: calc((100vw - 320px) / (380 - 320) * (14 - 12) + 12px);
-    
+    margin-bottom: 14px;    
     font-size: 14px;
     font-family: DM Sans;
     line-height: 18px;
