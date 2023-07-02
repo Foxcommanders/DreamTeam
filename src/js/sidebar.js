@@ -15,7 +15,7 @@ Notiflix.Notify.init({
   timeout: 1000,
   clickToClose: true,
   backOverlay: true,
-  backOverlayColor: 'rgba(255,255,255,0.5)',
+  backOverlayColor: 'rgb(255,255,255,0.5)',
   failure: {
     background:
       'radial-gradient(189.32% 190.93% at 59.76% -23.42%, #4F2EE8 18.03%, #FFF 100%)',
@@ -53,7 +53,7 @@ if (evt.target.dataset.id !== refs.homeTitle.textContent) {
         const booksByCategory = await getBooksByCategory(evt.target.dataset.id);
         console.log(booksByCategory.data);
         if (!booksByCategory.data) {
-          throw new Error();
+          throw new Error('Sorry, no books match this category');
         }
         refs.homeContainer.innerHTML = renderBooks(booksByCategory.data);
         makeTitleAccent(evt.target.dataset.id);
@@ -62,7 +62,7 @@ if (evt.target.dataset.id !== refs.homeTitle.textContent) {
       currentActiveCategory.classList.remove('active-category');
       evt.target.classList.add('active-category');
     } catch (error) {
-      Notiflix.Notify.failure('Sorry, no books match this category');
+      Notiflix.Notify.failure(error.message||'Sorry, no books match this category');
     }
   }
 }

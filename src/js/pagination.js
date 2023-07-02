@@ -1,19 +1,6 @@
 import Pagination from 'tui-pagination';
 import {getBookById} from './api-request.js';
 import {allBooksInfo} from './shopping.js'
-import { markUp } from './shopping';
-import amazon from '../images/shopping-svg/amazon.png';
-import iShop from '../images/shopping-svg/i-shop.png';
-import bookShop from '../images/shopping-svg/book-shop.png';
-import svg from '../images/shopping-svg/trash.svg';
-
-const defaultBookData = {
-    bookTitle: 'Book title',
-    genres: 'Genres',
-    description:
-    'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga fugiat, dolorem repudiandae aspernatur iste minima dolore recusandae incidunt veritatis debitis nam quis maxime atque nulla voluptates quasi necessitatibus! Sunt, rem.',
-   author: 'Author',
-  }
 
 const paginationContainer = document.getElementById('tui-pagination-container');
 const paginationOptions = {
@@ -21,6 +8,9 @@ const paginationOptions = {
     itemsPerPage: 3,
     visiblePages: 3,
     centerAlign: true,
+    firstItemClassName: 'tui-first-child',
+  lastItemClassName: 'tui-last-child',
+    page: 1,
     template: { page: '<a href="#" class="tui-page-btn">{{page}}</a>',
     currentPage: '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
     moveButton:
@@ -42,7 +32,25 @@ if (document.documentElement.clientWidth < 768){
         paginationOptions.visiblePages = 2;
     }
 
-const instance = new Pagination(paginationContainer, paginationOptions);
+const booksPerPage = 4;
+const page = 1;
+const shoppingList = document.querySelector(".shopping-book-list")
+
+const pagination = new Pagination(paginationContainer, paginationOptions);
 const booksLocalStorage = JSON.parse(localStorage.getItem('books') || '[]');
 
-allBooksInfo(booksLocalStorage)
+function paginationFromStorage(page, booksPerPage){
+const paginatedLocalStorageBooks = booksLocalStorage.slice(page, booksPerPage)
+return paginatedLocalStorageBooks
+}
+
+allBooksInfo(paginationFromStorage(page, booksPerPage))
+
+// allBooksInfo(booksLocalStorage)
+ 
+
+pagination.on('afterMove', (event) => {
+  const currentPage = event.page
+  console.log(currentPage);
+  allBooksInfo(paginationFromStorage(event.page, booksPerPage))
+});

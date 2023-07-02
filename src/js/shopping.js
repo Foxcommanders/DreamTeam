@@ -146,6 +146,10 @@ export async function allBooksInfo (arr){
   }) 
   const booksArrOfObjects = await Promise.all(booksArrPromises)  
   refs.bookList.insertAdjacentHTML('afterbegin', markUp(booksArrOfObjects, defaultBookData))  
+if(refs.bookList.children.length){
+  refs.bookList.firstElementChild.classList.add("tui-first-child")
+  refs.bookList.lastElementChild.classList.add("tui-last-child")
+}
 }
 
 function checkLocalStorage(arr) {
@@ -156,9 +160,8 @@ function checkLocalStorage(arr) {
     refs.bookList.classList.add('display');
     console.log('empty');
   } else {
-    allBooksInfo(arr);
     // allBooksInfo(arr);
-    //refs.bookList.insertAdjacentHTML('afterbegin', markUp(books, defaultBookData));
+    // refs.bookList.insertAdjacentHTML('afterbegin', markUp(books, defaultBookData));
     refs.emptyList.classList.add('display');
     refs.bookList.classList.remove('display');    
   }
