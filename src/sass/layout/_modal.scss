@@ -87,8 +87,9 @@
     border-color: var(--main-dark-color);
   }
 
-  .modal-close-btn:hover,
-  .modal-close-btn:focus {
+  
+  .modal-close-btn:focus,
+    .modal-close-btn:hover {
     border-color: var(--accent-color);
   }
 
@@ -132,8 +133,10 @@
     color: var(--main-white-color);
   }
 
-  .modal-sub-btn:hover,
-  .modal-sub-btn:focus {
+
+  
+  .modal-sub-btn:focus,
+  .modal-sub-btn:hover {
     background: var(--accent-color);
     color: var(--main-white-color);
   }
@@ -368,12 +371,13 @@
     color: var(--main-white-color);
   }
 
-  .modal-sub-btn:hover,
-  .modal-sub-btn:focus {
+  
+  .modal-sub-btn:focus,
+  .modal-sub-btn:hover {
     background: var(--accent-color);
     color: var(--main-white-color);
   }
-
+ 
   .modal-check-text {
     display: flex;
     max-width: 324px;
