@@ -9,13 +9,9 @@ import './theme-swich.js';
 
 import { shoppingEmptyMarkup } from './render.js';
 import {getBookById} from './api-request.js';
-//import axios, { all } from 'axios';
+
 import symbol from '../images/shopping-svg/symbol-defs.svg';
-// import amazon from '../images/shopping-svg/amazon.png';
-// import iShop from '../images/shopping-svg/i-shop.png';
-// import bookShop from '../images/shopping-svg/book-shop.png';
 import svg from '../images/shopping-svg/trash.svg';
-//import emptyBooks from '../images/shopping-svg/empty-books.webp'
 
 const refs = {
   emptyList: document.querySelector('.shopping-empty-list'),
@@ -30,8 +26,7 @@ refs.bookList.classList.add('display');
 const booksLocalStorage = JSON.parse(localStorage.getItem('books') || '[]');
 let screenWidth = window.innerWidth;
 // let screenWidth = window.screen.width;
-console.log('let', screenWidth);
-// console.log(booksLocalStorage);
+
 
 const defaultBookData = {
   bookTitle: 'Book title',
@@ -60,7 +55,6 @@ function containerSupportDynamic(screen) {
   return;
 }
 
-console.log(screenWidth);
 
 export function markUp(arr, {bookTitle, genres, description, author}) {
   return arr
@@ -106,16 +100,16 @@ export function markUp(arr, {bookTitle, genres, description, author}) {
             }</p>
             <ul class="shopping-book-shops">
               <li>
-                <a class="shopping-shop-link" href="${
+                <a class="shopping-shop-link img-thumb" href="${
                   el.buy_links[0].url
                 }" target="_blank" rel="noreferrer noopener">
-                  <svg class="shopping-svg-amazon" width="16" height="16">
+                  <svg class="shopping-svg-amazon icon-header" width="16" height="16">
                     <use class="svg" href="${symbol}#Amazon_logo"></use>
                   </svg>                
                 </a>
               </li>
               <li>
-                <a class="shopping-shop-link" href="${
+                <a class="shopping-shop-link img-thumb" href="${
                   el.buy_links[1].url
                 }" target="_blank" rel="noreferrer noopener">
                   <svg class="shopping-svg-open-book" width="16" height="16">
@@ -124,7 +118,7 @@ export function markUp(arr, {bookTitle, genres, description, author}) {
                 </a>
               </li>
               <li>
-                <a class="shopping-shop-link" href="${
+                <a class="shopping-shop-link img-thumb" href="${
                   el.buy_links[4].url
                 }" target="_blank" rel="noreferrer noopener">
                   <svg class="shopping-svg-book-shop" width="16" height="16">
@@ -150,9 +144,7 @@ export async function allBooksInfo (arr){
     const eachBook = await getBookById(id);    
     return eachBook;
   }) 
-
-  const booksArrOfObjects = await Promise.all(booksArrPromises)
-  //console.log('ready:', booksArrOfObjects);
+  const booksArrOfObjects = await Promise.all(booksArrPromises)  
   refs.bookList.insertAdjacentHTML('afterbegin', markUp(booksArrOfObjects, defaultBookData))  
 }
 
@@ -192,39 +184,21 @@ function checkLocalStorageDynamic(arr) {
 refs.bookList.addEventListener('click', handlerDeleteBook);
 
 function handlerDeleteBook(evt) {
-  if (
-    evt.target.nodeName !== 'BUTTON'
-    //&&
-    // evt.target.nodeName !== 'svg' &&
-    // evt.target.nodeName !== 'use'
-  ) {
-    console.log('error');
+  if (evt.target.nodeName !== 'BUTTON') {
     return;
   }
   let newLocalStorage = booksLocalStorage;
-  //console.log(newLocalStorage);
-  //const bookItem = document.querySelector('.shopping-book-item');
-  // const deleteBtn = document.querySelector('.shopping-btn-delete');
-  // const deleteSvg =document.querySelector('.svg-trash');
-  // const svgUse = document.querySelector('.svg');
-  // const bookId = bookItem.dataset['id'];
-
-
   const deleteBook = evt.target.parentNode.parentNode;  
-  // console.log("Parent:", evt.target.parentNode.parentNode);
-  // console.log('Clck place:', evt.target);
-
   const deleteBookId = deleteBook.dataset['id'];
   const deleteIndex = newLocalStorage.indexOf(deleteBookId); 
   newLocalStorage.splice(deleteIndex, 1);
-  console.log(newLocalStorage);
   deleteBook.remove();
   localStorage.setItem('books', JSON.stringify(newLocalStorage));
   newLocalStorage = JSON.parse(localStorage.getItem('books'));  
   // refs.bookList.innerHTML = allBooksInfo(newLocalStorage);
-  // bookItem.stopPropagation();
   if(!newLocalStorage.length){
     console.log(222);
+    document.getElementById('tui-pagination-container').setAttribute('hidden', 'true');
     refs.emptyList.insertAdjacentHTML('afterbegin', shoppingEmptyMarkup());
     //refs.emptyList.innerHTML = shoppingEmptyMarkup();
     refs.emptyList.classList.remove('display');
@@ -237,14 +211,9 @@ checkLocalStorage(booksLocalStorage);
 
 window.addEventListener('resize',(e) => {
   const width= document.body.clientWidth;
-  console.log('width=', width);
-  //screenWidth = width;  
    
   containerSupportDynamic(width);
   //checkLocalStorageDynamic(booksLocalStorage);
-
-  return width;
-   
+  return width;   
 });
 
-/* <img class="shopping-svg-amazon" src="${amazon}"></img> */
