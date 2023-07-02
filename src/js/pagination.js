@@ -1,4 +1,6 @@
 import Pagination from 'tui-pagination';
+import {getBookById} from './api-request.js';
+import {allBooksInfo} from './shopping.js'
 import { markUp } from './shopping';
 import amazon from '../images/shopping-svg/amazon.png';
 import iShop from '../images/shopping-svg/i-shop.png';
@@ -39,6 +41,8 @@ if (document.documentElement.clientWidth < 768){
         paginationOptions.itemsPerPage = 4;
         paginationOptions.visiblePages = 2;
     }
-  
-  const instance = new Pagination(paginationContainer, paginationOptions);
-// const basketBooks = JSON.parse(localStorage.getItem("books")) || {};
+
+const instance = new Pagination(paginationContainer, paginationOptions);
+const booksLocalStorage = JSON.parse(localStorage.getItem('books') || '[]');
+
+allBooksInfo(booksLocalStorage)

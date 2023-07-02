@@ -145,7 +145,7 @@ export function markUp(arr, {bookTitle, genres, description, author}) {
     .join('');
 }
 
-async function allBooksInfo (arr){   
+export async function allBooksInfo (arr){   
   const booksArrPromises = arr.map(async id=>{
     const eachBook = await getBookById(id);    
     return eachBook;
@@ -165,6 +165,7 @@ function checkLocalStorage(arr) {
     console.log('empty');
   } else {
     allBooksInfo(arr);
+    // allBooksInfo(arr);
     //refs.bookList.insertAdjacentHTML('afterbegin', markUp(books, defaultBookData));
     refs.emptyList.classList.add('display');
     refs.bookList.classList.remove('display');    
