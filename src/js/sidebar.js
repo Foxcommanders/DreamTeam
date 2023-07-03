@@ -7,7 +7,6 @@ import { renderTopBooks } from './render';
 import { loadTopBooks } from './api-request';
 import { makeTitleAccent } from './container';
 
-
 Notiflix.Notify.init({
   width: '500px',
   position: 'center-center',
@@ -36,7 +35,7 @@ getCategories().then(({ data }) => {
     'beforeend',
     createCategoriesMarkup(data)
   );
-  });
+});
 
 async function categoryPicker(evt) {
   if (evt.target === evt.currentTarget) {
