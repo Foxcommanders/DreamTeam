@@ -46,6 +46,23 @@ const paginationOptions = {
     },
   }
 
+  // emptyList: document.querySelector('.shopping-empty-list')
+  // bookList: document.querySelector('.shopping-book-list')
+
+  function checkLocalStoragePaginated(arr) {
+    if (!arr.length) {
+      document.getElementById('tui-pagination-container').setAttribute('hidden', 'true');
+      document.querySelector('.shopping-empty-list').insertAdjacentHTML('afterbegin', shoppingEmptyMarkup());////if (!arr.length) {
+      document.querySelector('.shopping-empty-list').classList.remove('display');
+      document.querySelector('.shopping-book-list').classList.add('display');
+    } else {
+      document.querySelector('.shopping-empty-list').classList.add('display');
+      document.querySelector('.shopping-book-list').classList.remove('display');  
+      allBooksInfo(arr);  
+    }
+    return;
+  }
+
 const pagination = new Pagination(paginationContainer, paginationOptions);
 
 function displayCurrentPage() {
@@ -55,7 +72,8 @@ function displayCurrentPage() {
   const end = start + booksPerPage;
 
   const currentPageData = booksLocalStorage.slice(start, end);
-  allBooksInfo(currentPageData)
+  checkLocalStoragePaginated(currentPageData) 
+  // allBooksInfo(currentPageData)
   }
 
   pagination.on('afterMove', function (eventData) {
