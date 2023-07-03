@@ -15,7 +15,7 @@ Notiflix.Notify.init({
   timeout: 1000,
   clickToClose: true,
   backOverlay: true,
-  backOverlayColor: 'rgb(255,255,255,0.5)',
+  backOverlayColor: 'rgba(255,255,255,0.5)',
   failure: {
     background:
       'radial-gradient(189.32% 190.93% at 59.76% -23.42%, #4F2EE8 18.03%, #FFF 100%)',
