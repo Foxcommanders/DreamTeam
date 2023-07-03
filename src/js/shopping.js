@@ -138,6 +138,7 @@ export function markUp(arr, {bookTitle, genres, description, author}) {
     })
     .join('');
 }
+
 export async function allBooksInfo (arr){   
   const booksArrPromises = arr.map(async id=>{
     const eachBook = await getBookById(id);    
@@ -217,3 +218,4 @@ window.addEventListener('resize',(e) => {
   //checkLocalStorageDynamic(booksLocalStorage);
   return width;   
 });
+
