@@ -135,7 +135,7 @@ export function createMarkupSupport(arr) {
   <a href="${url}" target="_blank" rel="noopener noreferrer nofollow">
     <img class="normalize-img" src="${img}" srcset="${img} 1x, ${img2} 2x" alt="${title}" loading="lazy">
   </a>
-</li>`; 
+</li>`;
     })
     .join('');
   return markup;

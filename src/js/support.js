@@ -104,5 +104,3 @@ const swiper = new Swiper('.mySwiper', {
 refs.btn.addEventListener('click', () => {
   swiper.slideNext(1000, false);
 });
-
-console.log(11);

@@ -24,9 +24,12 @@ export async function loadTopBooks() {
     const data = await axios.get(
       'https://books-backend.p.goit.global/books/top-books'
     );
+    if (!data.data) {
+      throw new Error();
+    }
     return data;
-  } catch {
-    error => console.log(error);
+  } catch (error) {
+    Notiflix.Notify.failure('Sorry, no books match this category');
   }
 }
 
