@@ -145,7 +145,7 @@ export async function allBooksInfo (arr){
     return eachBook;
   }) 
   const booksArrOfObjects = await Promise.all(booksArrPromises)  
-  refs.bookList.insertAdjacentHTML('afterbegin', markUp(booksArrOfObjects, defaultBookData))  
+  refs.bookList.innerHTML = markUp(booksArrOfObjects, defaultBookData) 
 if(refs.bookList.children.length){
   refs.bookList.firstElementChild.classList.add("tui-first-child")
   refs.bookList.lastElementChild.classList.add("tui-last-child")
@@ -200,7 +200,6 @@ function handlerDeleteBook(evt) {
   newLocalStorage = JSON.parse(localStorage.getItem('books'));  
   // refs.bookList.innerHTML = allBooksInfo(newLocalStorage);
   if(!newLocalStorage.length){
-    console.log(222);
     document.getElementById('tui-pagination-container').setAttribute('hidden', 'true');
     refs.emptyList.insertAdjacentHTML('afterbegin', shoppingEmptyMarkup());
     //refs.emptyList.innerHTML = shoppingEmptyMarkup();

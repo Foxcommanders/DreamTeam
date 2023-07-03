@@ -1,12 +1,30 @@
 import Pagination from 'tui-pagination';
-import {getBookById} from './api-request.js';
-import {allBooksInfo} from './shopping.js'
+import {allBooksInfo} from './shopping.js';
 
+const booksLocalStorage = JSON.parse(localStorage.getItem('books') || '[]');
 const paginationContainer = document.getElementById('tui-pagination-container');
+let booksPerPage = 3;
+let visiblePages = 3;
+const page = 0;
+
+function checkDeviceWidth(){
+  if (window.innerWidth < 768) {
+    booksPerPage = 4;
+    visiblePages = 2;
+    }}
+    checkDeviceWidth()
+
+allBooksInfo(paginationFromStorage(page, booksPerPage))
+
+function paginationFromStorage(page, booksPerPage){
+  const paginatedLocalStorageBooks = booksLocalStorage.slice(page, booksPerPage)
+  return paginatedLocalStorageBooks
+  }
+
 const paginationOptions = {
-    totalItems: 40,
-    itemsPerPage: 3,
-    visiblePages: 3,
+    totalItems: booksLocalStorage.length,
+    itemsPerPage: booksPerPage,
+    visiblePages: visiblePages,
     centerAlign: true,
     firstItemClassName: 'tui-first-child',
   lastItemClassName: 'tui-last-child',
@@ -24,33 +42,24 @@ const paginationOptions = {
     moreButton:
       '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
         '<span class="tui-ico-ellip">...</span>' +
-      '</a>'},
+      '</a>'
+    },
   }
 
-if (document.documentElement.clientWidth < 768){
-        paginationOptions.itemsPerPage = 4;
-        paginationOptions.visiblePages = 2;
-    }
-
-const booksPerPage = 4;
-const page = 1;
-const shoppingList = document.querySelector(".shopping-book-list")
-
 const pagination = new Pagination(paginationContainer, paginationOptions);
-const booksLocalStorage = JSON.parse(localStorage.getItem('books') || '[]');
 
-function paginationFromStorage(page, booksPerPage){
-const paginatedLocalStorageBooks = booksLocalStorage.slice(page, booksPerPage)
-return paginatedLocalStorageBooks
-}
+function displayCurrentPage() {
+  const currentPage = pagination.getCurrentPage();
 
-allBooksInfo(paginationFromStorage(page, booksPerPage))
+  const start = (currentPage - 1) * booksPerPage;
+  const end = start + booksPerPage;
 
-// allBooksInfo(booksLocalStorage)
- 
+  const currentPageData = booksLocalStorage.slice(start, end);
+  allBooksInfo(currentPageData)
+  }
 
-pagination.on('afterMove', (event) => {
-  const currentPage = event.page
-  console.log(currentPage);
-  allBooksInfo(paginationFromStorage(event.page, booksPerPage))
-});
+  pagination.on('afterMove', function (eventData) {
+  displayCurrentPage();
+  });
+  
+
