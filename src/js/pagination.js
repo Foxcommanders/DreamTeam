@@ -1,24 +1,34 @@
 import Pagination from 'tui-pagination';
-import { markUp } from './shopping';
-import amazon from '../images/shopping-svg/amazon.png';
-import iShop from '../images/shopping-svg/i-shop.png';
-import bookShop from '../images/shopping-svg/book-shop.png';
-import svg from '../images/shopping-svg/trash.svg';
+import {allBooksInfo} from './shopping.js';
 
-const defaultBookData = {
-    bookTitle: 'Book title',
-    genres: 'Genres',
-    description:
-    'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga fugiat, dolorem repudiandae aspernatur iste minima dolore recusandae incidunt veritatis debitis nam quis maxime atque nulla voluptates quasi necessitatibus! Sunt, rem.',
-   author: 'Author',
+const booksLocalStorage = JSON.parse(localStorage.getItem('books') || '[]');
+const paginationContainer = document.getElementById('tui-pagination-container');
+let booksPerPage = 3;
+let visiblePages = 3;
+const page = 0;
+
+function checkDeviceWidth(){
+  if (window.innerWidth < 768) {
+    booksPerPage = 4;
+    visiblePages = 2;
+    }}
+    checkDeviceWidth()
+
+allBooksInfo(paginationFromStorage(page, booksPerPage))
+
+function paginationFromStorage(page, booksPerPage){
+  const paginatedLocalStorageBooks = booksLocalStorage.slice(page, booksPerPage)
+  return paginatedLocalStorageBooks
   }
 
-const paginationContainer = document.getElementById('tui-pagination-container');
 const paginationOptions = {
-    totalItems: 40,
-    itemsPerPage: 3,
-    visiblePages: 3,
+    totalItems: booksLocalStorage.length,
+    itemsPerPage: booksPerPage,
+    visiblePages: visiblePages,
     centerAlign: true,
+    firstItemClassName: 'tui-first-child',
+  lastItemClassName: 'tui-last-child',
+    page: 1,
     template: { page: '<a href="#" class="tui-page-btn">{{page}}</a>',
     currentPage: '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
     moveButton:
@@ -32,13 +42,42 @@ const paginationOptions = {
     moreButton:
       '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
         '<span class="tui-ico-ellip">...</span>' +
-      '</a>'},
+      '</a>'
+    },
   }
 
-if (document.documentElement.clientWidth < 768){
-        paginationOptions.itemsPerPage = 4;
-        paginationOptions.visiblePages = 2;
+  // emptyList: document.querySelector('.shopping-empty-list')
+  // bookList: document.querySelector('.shopping-book-list')
+
+  function checkLocalStoragePaginated(arr) {
+    if (!arr.length) {
+      document.getElementById('tui-pagination-container').setAttribute('hidden', 'true');
+      document.querySelector('.shopping-empty-list').insertAdjacentHTML('afterbegin', shoppingEmptyMarkup());////if (!arr.length) {
+      document.querySelector('.shopping-empty-list').classList.remove('display');
+      document.querySelector('.shopping-book-list').classList.add('display');
+    } else {
+      document.querySelector('.shopping-empty-list').classList.add('display');
+      document.querySelector('.shopping-book-list').classList.remove('display');  
+      allBooksInfo(arr);  
     }
+    return;
+  }
+
+const pagination = new Pagination(paginationContainer, paginationOptions);
+
+function displayCurrentPage() {
+  const currentPage = pagination.getCurrentPage();
+
+  const start = (currentPage - 1) * booksPerPage;
+  const end = start + booksPerPage;
+
+  const currentPageData = booksLocalStorage.slice(start, end);
+  checkLocalStoragePaginated(currentPageData) 
+  // allBooksInfo(currentPageData)
+  }
+
+  pagination.on('afterMove', function (eventData) {
+  displayCurrentPage();
+  });
   
-  const instance = new Pagination(paginationContainer, paginationOptions);
-// const basketBooks = JSON.parse(localStorage.getItem("books")) || {};
+
